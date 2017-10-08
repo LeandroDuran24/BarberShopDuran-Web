@@ -48,8 +48,8 @@
                     <!--usuarios-->
                     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
+                            <li><a href="/UI/Formularios/UsuariosForm.aspx">Registro</a></li>
+                            <li><a href="/UI/Consultas/UsuariosCons.aspx">Consulta</a></li>
 
                         </ul>
                     </li>
@@ -72,19 +72,19 @@
                     </li>
 
                     <!--Peluqueros-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peluqueros <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
+                            <li><a href="/UI/Formularios/PeluquerosForm.aspx">Registro</a></li>
+                            <li><a href="/UI/Consultas/PeluqueroCons.aspx">Consulta</a></li>
 
                         </ul>
                     </li>
 
                     <!--Servicios-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
+                            <li><a href="/UI/Formularios/ServiciosForm.aspx">Registro</a></li>
+                            <li><a href="/UI/Consultas/ServicioCons.aspx">Consulta</a></li>
 
                         </ul>
                     </li>
@@ -109,7 +109,7 @@
    
 
 
-    <!------------------------------------------------------------Modal de Inicio de Sesion------------------------------------------>
+    <%--<!------------------------------------------------------------Modal de Inicio de Sesion------------------------------------------>
 
     <div class="container">
 
@@ -144,7 +144,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--%>
 
 
 
@@ -152,6 +152,7 @@
 
     <div class="container">
     </div>
+    <br />
     <br />
     <br />
     <br />
