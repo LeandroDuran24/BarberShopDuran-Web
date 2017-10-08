@@ -61,22 +61,25 @@ namespace BarberShop.UI.Formularios
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(idTextbox.Text);
+            int id = Utilidades.TOINT(idTextbox.Text);
             user = UsuariosBLL.Buscar(p => p.idUsuario == id);
-
-            if (user != null)
+            if (IsValid)
             {
-                emailTextbox.Text = user.email;
-                NombreTextbox.Text = user.nombres;
-                claveTextbox.Text = user.clave;
-                confTextbox.Text = user.confirmar;
-                tipoTextbox.Text = user.tipoEmail;
+                if (user != null)
+                {
+                    emailTextbox.Text = user.email;
+                    NombreTextbox.Text = user.nombres;
+                    claveTextbox.Text = user.clave;
+                    confTextbox.Text = user.confirmar;
+                    tipoTextbox.Text = user.tipoEmail;
 
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
+                }
             }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
-            }
+
 
 
         }
@@ -111,7 +114,7 @@ namespace BarberShop.UI.Formularios
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            int id = int.Parse(idTextbox.Text);
+            int id = Utilidades.TOINT(idTextbox.Text);
             user = UsuariosBLL.Buscar(p => p.idUsuario == id);
 
             if (user != null)

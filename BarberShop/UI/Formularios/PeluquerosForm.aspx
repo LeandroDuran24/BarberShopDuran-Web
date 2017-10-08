@@ -16,8 +16,8 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="205px" Height="33px"></asp:TextBox>&nbsp
-                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" ValidationGroup="buscar" />
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px"></asp:TextBox>&nbsp
+                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" ValidationGroup="buscar" Width="105px" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="֎" ValidationGroup="buscar" ControlToValidate="idTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -67,7 +67,7 @@
 
 
             <br />
-            <br />
+            
 
 
 
@@ -79,6 +79,8 @@
                     <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" OnClick="guardar_Click" ValidationGroup="guardar" />&nbsp;&nbsp&nbsp
                     <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" OnClick="Eliminar_Click" />
             </div>
+            <br />
+            <br />
 
         </div>
     </div>

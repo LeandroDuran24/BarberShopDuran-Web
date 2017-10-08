@@ -45,16 +45,20 @@ namespace BarberShop.UI.Formularios
             int id = Utilidades.TOINT(idTextbox.Text);
             Servicios = BLL.TiposSeviciosBLL.Buscar(p => p.idServicio == id);
 
-            if (Servicios != null)
+            if (IsValid)
             {
-                NombreTextbox.Text = Servicios.nombre;
-                CostoTextBox1.Text = Convert.ToString(Servicios.costo);
+                if (Servicios != null)
+                {
+                    NombreTextbox.Text = Servicios.nombre;
+                    CostoTextBox1.Text = Convert.ToString(Servicios.costo);
 
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe !');");
+                }
             }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe !');");
-            }
+
         }
 
         protected void Nuevo_Click(object sender, EventArgs e)
@@ -64,20 +68,24 @@ namespace BarberShop.UI.Formularios
 
         protected void guardar_Click(object sender, EventArgs e)
         {
-            Servicios = LLenar();
-            if (Servicios.idServicio != 0)
+            if(IsValid)
             {
-                BLL.TiposSeviciosBLL.Modificar(Servicios);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
+                Servicios = LLenar();
+                if (Servicios.idServicio != 0)
+                {
+                    BLL.TiposSeviciosBLL.Modificar(Servicios);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
 
+                }
+                else
+                {
+                    BLL.TiposSeviciosBLL.Guardar(Servicios);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
+                    limpiar();
+                    NombreTextbox.Focus();
+                }
             }
-            else
-            {
-                BLL.TiposSeviciosBLL.Guardar(Servicios);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
-                limpiar();
-                NombreTextbox.Focus();
-            }
+            
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)

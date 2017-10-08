@@ -23,7 +23,7 @@
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="Content/Style/Style.css" />
     <!---------------------------------------------Script--------------------------------------------------------->
-    
+
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -34,82 +34,82 @@
 </head>
 <body>
 
-   
-        <!---------------------------------------------menu-------------------------------------------------------------->
+
+    <!---------------------------------------------menu-------------------------------------------------------------->
 
 
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">BarberSHop Duran</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Inicio</a></li>
-                    <!--usuarios-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/UI/Formularios/UsuariosForm.aspx">Registro</a></li>
-                            <li><a href="/UI/Consultas/UsuariosCons.aspx">Consulta</a></li>
-
-                        </ul>
-                    </li>
-                    <!--Clientes-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
-
-                        </ul>
-                    </li>
-
-                    <!--Reservaciones-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reservaciones <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
-
-                        </ul>
-                    </li>
-
-                    <!--Peluqueros-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peluqueros <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/UI/Formularios/PeluquerosForm.aspx">Registro</a></li>
-                            <li><a href="/UI/Consultas/PeluqueroCons.aspx">Consulta</a></li>
-
-                        </ul>
-                    </li>
-
-                    <!--Servicios-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/UI/Formularios/ServiciosForm.aspx">Registro</a></li>
-                            <li><a href="/UI/Consultas/ServicioCons.aspx">Consulta</a></li>
-
-                        </ul>
-                    </li>
-
-                    <!--facturar-->
-                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Facturacion <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Registro</a></li>
-                            <li><a href="#">Consulta</a></li>
-
-                        </ul>
-                    </li>
-
-                    <li><a href="#">Contactar &nbsp</a></li>
-                    <li><a id="Btn" href="#">LogIn &nbsp</a></li>
-                    <li><a href="#">Cerrar Sesion</a></li>
-                   
-
-                </ul>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">BarberSHop Duran</a>
             </div>
-        </nav>
-   
+            <ul class="nav navbar-nav">
+                <li><a href="UI/Formularios/MenuPrincipal.aspx">Inicio</a></li>
+                <!--usuarios-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UI/Formularios/UsuariosForm.aspx">Registro</a></li>
+                        <li><a href="/UI/Consultas/UsuariosCons.aspx">Consulta</a></li>
+
+                    </ul>
+                </li>
+                <!--Clientes-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Clientes <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UI/Formularios/ClientesForm.aspx">Registro</a></li>
+                        <li><a href="/UI/Consultas/ClientesCons.aspx">Consulta</a></li>
+
+                    </ul>
+                </li>
+
+                <!--Reservaciones-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reservaciones <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UI/Formularios/ReservacionForm.aspx">Registro</a></li>
+                        <li><a href="#">Consulta</a></li>
+
+                    </ul>
+                </li>
+
+                <!--Peluqueros-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Peluqueros <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UI/Formularios/PeluquerosForm.aspx">Registro</a></li>
+                        <li><a href="/UI/Consultas/PeluqueroCons.aspx">Consulta</a></li>
+
+                    </ul>
+                </li>
+
+                <!--Servicios-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Servicios <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/UI/Formularios/ServiciosForm.aspx">Registro</a></li>
+                        <li><a href="/UI/Consultas/ServicioCons.aspx">Consulta</a></li>
+
+                    </ul>
+                </li>
+
+                <!--facturar-->
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Facturacion <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Registro</a></li>
+                        <li><a href="#">Consulta</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
+                <li><a id="Btn" href="#">LogIn &nbsp</a></li>
+                <li><a  href="javascript:window.opener='x';window.close();">Cerrar Sesion</a></li>
 
 
-    <%--<!------------------------------------------------------------Modal de Inicio de Sesion------------------------------------------>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <!------------------------------------------------------------Modal de Inicio de Sesion------------------------------------------>
 
     <div class="container">
 
@@ -120,8 +120,8 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-header">
-                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 ><span class="glyphicon glyphicon-lock"></span>Login</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="text-center"><span class="glyphicon glyphicon-lock"></span>Login</h4>
                     </div>
                     <div class="modal-body">
                         <form role="form">
@@ -131,20 +131,18 @@
                             </div>
                             <div class="form-group">
                                 <label for="psw">Password</label>
-                                <input type="text" class="form-control" id="psw" placeholder="Enter password">
+                                <input type="password" class="form-control" id="psw" placeholder="Enter password">
                             </div>
 
                             <button type="submit" class="btn btn-default btn-warning btn-block">Login</button>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>--%>
+    </div>
 
 
 
@@ -170,7 +168,7 @@
     </div>
 
     <footer class="text-center">
-         <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class=" glyphicon glyphicon-cog"></span>Leandro R Duran M</p>
+        <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class=" glyphicon glyphicon-cog"></span>Leandro R Duran M</p>
     </footer>
 
     <!-----------------------------------------------------Script----------------------------------------------->
@@ -188,12 +186,12 @@
         });
 
     </script>
-    
 
 
 
 
 
-    
+
+
 </body>
 </html>

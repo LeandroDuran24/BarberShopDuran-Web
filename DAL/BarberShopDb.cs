@@ -17,5 +17,7 @@ namespace DAL
         public DbSet<Entidades.Usuarios>usuario { get; set; }
         public DbSet<Entidades.Servicios> servicio { get; set; }
         public DbSet<Entidades.Peluqueros> peluquero { get; set; }
+        public DbSet<Entidades.Clientes> cliente { get; set; }
+
     }
 }

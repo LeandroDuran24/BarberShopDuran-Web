@@ -123,12 +123,15 @@
     <Content Include="Content\Script.js" />
     <Content Include="Content\Style\Style.css" />
     <Content Include="Global.asax" />
+    <Content Include="UI\Consultas\ClientesCons.aspx" />
     <Content Include="UI\Consultas\PeluqueroCons.aspx" />
     <Content Include="UI\Consultas\ServicioCons.aspx" />
     <Content Include="UI\Consultas\UsuariosCons.aspx" />
+    <Content Include="UI\Formularios\ClientesForm.aspx" />
     <Content Include="UI\Formularios\ContactarForm.aspx" />
     <Content Include="UI\Formularios\MenuPrincipal.aspx" />
     <Content Include="UI\Formularios\PeluquerosForm.aspx" />
+    <Content Include="UI\Formularios\ReservacionForm.aspx" />
     <Content Include="UI\Formularios\ServiciosForm.aspx" />
     <Content Include="UI\Formularios\UsuariosForm.aspx" />
     <Content Include="Web.config" />
@@ -149,6 +152,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ClientesCons.aspx.cs">
+      <DependentUpon>ClientesCons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ClientesCons.aspx.designer.cs">
+      <DependentUpon>ClientesCons.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\PeluqueroCons.aspx.cs">
       <DependentUpon>PeluqueroCons.aspx</DependentUpon>
@@ -171,6 +181,13 @@
     <Compile Include="UI\Consultas\UsuariosCons.aspx.designer.cs">
       <DependentUpon>UsuariosCons.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Formularios\ClientesForm.aspx.cs">
+      <DependentUpon>ClientesForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\ClientesForm.aspx.designer.cs">
+      <DependentUpon>ClientesForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formularios\ContactarForm.aspx.cs">
       <DependentUpon>ContactarForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -191,6 +208,13 @@
     </Compile>
     <Compile Include="UI\Formularios\PeluquerosForm.aspx.designer.cs">
       <DependentUpon>PeluquerosForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Formularios\ReservacionForm.aspx.cs">
+      <DependentUpon>ReservacionForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Formularios\ReservacionForm.aspx.designer.cs">
+      <DependentUpon>ReservacionForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Formularios\ServiciosForm.aspx.cs">
       <DependentUpon>ServiciosForm.aspx</DependentUpon>

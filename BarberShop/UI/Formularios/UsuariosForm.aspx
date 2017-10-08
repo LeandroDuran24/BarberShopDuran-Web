@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="claveTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox type="password" ID="claveTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="claveTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
@@ -105,6 +105,7 @@
                     <asp:Button ID="Button1" CssClass="btn btn-danger btn-md " runat="server" OnClick="Button1_Click" Text="Guardar" ValidationGroup="guardar" />&nbsp&nbsp
                     <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" OnClick="Eliminar_Click" />
             </div>
+            <br />
 
         </div>
     </div>

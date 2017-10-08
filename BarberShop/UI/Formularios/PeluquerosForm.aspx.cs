@@ -52,17 +52,21 @@ namespace BarberShop.UI.Formularios
             int id = Utilidades.TOINT(idTextbox.Text);
             peluquero = BLL.PeluqueroBll.Buscar(p => p.idPeluquero == id);
 
-            if (peluquero != null)
+            if(IsValid)
             {
-                NombreTextbox.Text = peluquero.nombre;
-                TelefonoTextBox.Text = peluquero.telefono;
-                SexoTextBox.Text = peluquero.sexo;
-                FechaTextBox1.Text = Convert.ToString(peluquero.fecha);
+                if (peluquero != null)
+                {
+                    NombreTextbox.Text = peluquero.nombre;
+                    TelefonoTextBox.Text = peluquero.telefono;
+                    SexoTextBox.Text = peluquero.sexo;
+                    FechaTextBox1.Text = Convert.ToString(peluquero.fecha);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe');</script>");
+                }
             }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe');</script>");
-            }
+           
         }
 
         protected void Nuevo_Click(object sender, EventArgs e)
@@ -72,19 +76,23 @@ namespace BarberShop.UI.Formularios
 
         protected void guardar_Click(object sender, EventArgs e)
         {
-            peluquero = llenarCampos();
-            if (peluquero.idPeluquero > 0)
+            if(IsValid)
             {
-                BLL.PeluqueroBll.Modificar(peluquero);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
+                peluquero = llenarCampos();
+                if (peluquero.idPeluquero > 0)
+                {
+                    BLL.PeluqueroBll.Modificar(peluquero);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
+                }
+                else
+                {
+                    BLL.PeluqueroBll.Guardar(peluquero);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
+                    limpiar();
+                    NombreTextbox.Focus();
+                }
             }
-            else
-            {
-                BLL.PeluqueroBll.Guardar(peluquero);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
-                limpiar();
-                NombreTextbox.Focus();
-            }
+           
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)
