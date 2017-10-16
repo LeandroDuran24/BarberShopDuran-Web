@@ -15,7 +15,7 @@ function myMap() {
 
 function ValidNum(evt) {
     var charCode = (evt.which) ? evt.which : event.keyCode
-    if (((charCode == 8) || (charCode == 46)
+    if (((charCode = 8) || (charCode = 46)
         || (charCode >= 35 && charCode <= 40)
         || (charCode >= 48 && charCode <= 57)
         || (charCode >= 96 && charCode <= 105))) {
@@ -36,5 +36,41 @@ function ValidLet(evt) {
     }
     return true;
 }
+
+$(function () {
+    var displayMessage = function (message, msgType) {
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+        toastr[msgType](message);
+    };
+
+    if ($('#success').val()) {
+        displayMessage($('#success').val(), 'success');
+    }
+    if ($('#info').val()) {
+        displayMessage($('#info').val(), 'info');
+    }
+    if ($('#warning').val()) {
+        displayMessage($('#warning').val(), 'warning');
+    }
+    if ($('#error').val()) {
+        displayMessage($('#error').val(), 'error');
+    }
+});
 
 

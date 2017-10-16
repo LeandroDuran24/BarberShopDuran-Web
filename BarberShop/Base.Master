@@ -99,7 +99,7 @@
                 </li>
 
                 <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
-                <li><a id="Btn" href="#">LogIn &nbsp</a></li>
+                <li><a id="Btn" href="/LogIn.aspx">LogIn &nbsp</a></li>
                 <li><a  href="javascript:window.opener='x';window.close();">Cerrar Sesion</a></li>
 
 
@@ -116,9 +116,6 @@
     <br />
     <br />
     <br />
-    <br />
-
-
 
     <div class="container">
         <form id="formMaster" runat="server">

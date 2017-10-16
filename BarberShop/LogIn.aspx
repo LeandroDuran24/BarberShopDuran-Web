@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
     <link rel="stylesheet" href="/Content/bootstrap.min.js" />
 
-    <!--------------------------------------------Tema-------------------------------------------------------------->
-    <link rel="stylesheet" href="/Content/bootstrapTheme.min.css" />
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
-    <!---------------------------------------------Script--------------------------------------------------------->
+    <!--------------------------------------------Toastr---------------------------------------------------------------->
+    <link rel="stylesheet" href="Content/toastr.css" />
+    <link rel="stylesheet" href="Content/toastr.less" />
+    <link rel="stylesheet" href="Content/toastr.min.css" />
+    <link rel="stylesheet" href="Content/toastr.scss" />
 
+  
+ 
 
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
@@ -38,6 +42,7 @@
                 </div>
                 <div class="text-center">
                     <asp:TextBox ID="EmailTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email"></asp:TextBox>&nbsp
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
 
@@ -52,6 +57,7 @@
 
                 <div class="text-center">
                     <asp:TextBox Type="password" ID="PassTextBox1" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password"></asp:TextBox>&nbsp
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                         <br />
                     <br />
                 </div>
@@ -67,5 +73,10 @@
             </div>
         </div>
     </form>
+    <!----------------------------------script--------------------------------------->
+    <script src="/Content/toastr.min.js"></script>
+    <script src="/Content/Script.js"></script>
+ 
+   
 </body>
 </html>
