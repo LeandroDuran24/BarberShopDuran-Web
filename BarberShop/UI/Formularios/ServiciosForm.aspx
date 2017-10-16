@@ -65,4 +65,7 @@
     </div>
     <br />
     <br />
+
+    <!------------------script ----------------->
+    <script src="/../../Content/Script.js"></script>
 </asp:Content>

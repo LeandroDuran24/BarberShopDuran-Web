@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="EmailTextBox4" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox type="email" ID ="EmailTextBox4" runat="server" Width="300px" Height="33px"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox4" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 

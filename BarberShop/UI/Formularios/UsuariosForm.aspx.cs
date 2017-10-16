@@ -15,14 +15,13 @@ namespace BarberShop.UI.Formularios
         {
             this.fecha.Text = string.Format("{0:G}", DateTime.Now);
 
+            ScriptPaginas.Script();
 
+            claveTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");//solo recibe #
+            confTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");
+            idTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");
 
-            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
-            myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
-            myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
-            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
-            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+            NombreTextbox.Attributes.Add("onkeypress", "return ValidLet(event);");//solo reciben letras
         }
 
 
@@ -34,7 +33,15 @@ namespace BarberShop.UI.Formularios
             user.nombres = NombreTextbox.Text;
             user.email = emailTextbox.Text;
             user.fecha = Convert.ToDateTime(fecha.Text);
-            user.tipoEmail = tipoTextbox.Text;
+            if (DropDownList1.SelectedIndex == 0)
+            {
+                user.tipoEmail = "Administrador";
+            }
+            else if (DropDownList1.SelectedIndex == 1)
+            {
+                user.tipoEmail = "Usuario";
+            }
+
             user.clave = claveTextbox.Text;
             user.confirmar = confTextbox.Text;
             return user;
@@ -45,7 +52,7 @@ namespace BarberShop.UI.Formularios
             idTextbox.Text = "";
             NombreTextbox.Text = "";
             emailTextbox.Text = "";
-            tipoTextbox.Text = "";
+
             claveTextbox.Text = "";
             confTextbox.Text = "";
             RequiredFieldValidator1.Text = "";
@@ -69,9 +76,11 @@ namespace BarberShop.UI.Formularios
                 {
                     emailTextbox.Text = user.email;
                     NombreTextbox.Text = user.nombres;
+                    DropDownList1.Text = user.tipoEmail;
                     claveTextbox.Text = user.clave;
                     confTextbox.Text = user.confirmar;
-                    tipoTextbox.Text = user.tipoEmail;
+
+
 
                 }
                 else
@@ -129,5 +138,8 @@ namespace BarberShop.UI.Formularios
 
             }
         }
+
+
     }
+
 }

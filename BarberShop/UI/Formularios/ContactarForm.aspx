@@ -5,11 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <script src="../../Content/Script.js" ></script>
-    
-
-
-    <a href="../../Content/Img/Contactanos.png" target="_blank">
+   
+    <%--<a href="../../Content/Img/Contactanos.png" target="_blank">--%>
         <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
 
 
@@ -36,12 +33,12 @@
     <!-------icono de ubicacion con mapa------>
     <div class="text-center">
         <span class="glyphicon glyphicon-map-marker Iconos"></span>
-        <div id="map" style="width: 1150px; height: 400px; background: gray"></div>
+        <div id="map" style="width: 1150px; height: 400px; background: gray" ></div>
     </div>
 
     <br />
 
-    <script>
+   <%-- <script>
         function myMap() {
             var mapOptions = {
                 center: new google.maps.LatLng(19.2894082, -70.3489171),
@@ -56,10 +53,12 @@
         
 
 
-    </script>
+    </script>--%>
 
     <!------------------------script para google map-------------------->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+
+    <script src="/../../Content/Script.js"></script>
 
 </asp:Content>

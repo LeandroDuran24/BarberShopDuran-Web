@@ -35,7 +35,10 @@
                     &nbsp;<asp:TextBox ID="desdeFecha" runat="server" Width="120px"></asp:TextBox>
                     <label for="hasta">Hasta</label>
                     <asp:TextBox ID="hastaFecha" runat="server" Width="120px"></asp:TextBox>
-                    <a id="Reporte" href="../Reporte/ReportUsuarios.aspx" class="boton-buscar">Imprimir</a>
+                    
+
+                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger"/>
+                    
 
                 </p>
 

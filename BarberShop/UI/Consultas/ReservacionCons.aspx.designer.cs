@@ -10,7 +10,7 @@
 namespace BarberShop.UI.Consultas {
     
     
-    public partial class UsuariosCons {
+    public partial class ReservacionCons {
         
         /// <summary>
         /// DropDownList1 control.
@@ -31,13 +31,13 @@ namespace BarberShop.UI.Consultas {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Button1 control.
+        /// ButtonBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button ButtonBuscar;
         
         /// <summary>
         /// desdeFecha control.

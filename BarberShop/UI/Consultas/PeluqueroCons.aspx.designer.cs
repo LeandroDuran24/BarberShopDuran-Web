@@ -58,6 +58,15 @@ namespace BarberShop.UI.Consultas {
         protected global::System.Web.UI.WebControls.TextBox hastaFecha;
         
         /// <summary>
+        /// ButtonImprimir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonImprimir;
+        
+        /// <summary>
         /// GridView1 control.
         /// </summary>
         /// <remarks>

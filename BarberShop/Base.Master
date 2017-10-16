@@ -66,7 +66,7 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reservaciones <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/UI/Formularios/ReservacionForm.aspx">Registro</a></li>
-                        <li><a href="#">Consulta</a></li>
+                        <li><a href="/UI/Consultas/ReservacionCons.aspx">Consulta</a></li>
 
                     </ul>
                 </li>
@@ -98,7 +98,7 @@
                     </ul>
                 </li>
 
-                <li><a href="UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
+                <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
                 <li><a id="Btn" href="#">LogIn &nbsp</a></li>
                 <li><a  href="javascript:window.opener='x';window.close();">Cerrar Sesion</a></li>
 
@@ -106,44 +106,6 @@
             </ul>
         </div>
     </nav>
-
-
-
-    <!------------------------------------------------------------Modal de Inicio de Sesion------------------------------------------>
-
-    <div class="container">
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-            <div class="modal-dialog">
-
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="text-center"><span class="glyphicon glyphicon-lock"></span>Login</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group">
-                                <label for="usrname">Username</label>
-                                <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-                            </div>
-                            <div class="form-group">
-                                <label for="psw">Password</label>
-                                <input type="password" class="form-control" id="psw" placeholder="Enter password">
-                            </div>
-
-                            <button type="submit" class="btn btn-default btn-warning btn-block">Login</button>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!--------------------------------------------------contenido--------------------------------------------------------->

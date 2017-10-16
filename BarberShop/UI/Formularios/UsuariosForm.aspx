@@ -17,8 +17,8 @@
             <div class="text-center">
 
                 <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" ForeColor="Black"></asp:TextBox>&nbsp
-                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" Width="105px" ValidationGroup="buscar" />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="idTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
+                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" Width="105px" ValidationGroup="buscar"  />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="idTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"  ></asp:RequiredFieldValidator>
             </div>
 
             <!--input del nombre-->
@@ -66,8 +66,11 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="tipoTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="tipoTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="False" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:DropDownList ID="DropDownList1" runat="server" Width="300px" Height="33px">
+                    <asp:ListItem Value="Admintrador">Admin</asp:ListItem>
+                    <asp:ListItem>Usuario</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList1" ErrorMessage="֎" Font-Bold="True" Font-Italic="False" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
             <!--input del clave-->
@@ -107,8 +110,16 @@
             </div>
             <br />
 
+
+
+            
+
         </div>
     </div>
+    <!---------script--->
+    <script src="/../../Content/Script.js">
+
+    </script>
 
 
 

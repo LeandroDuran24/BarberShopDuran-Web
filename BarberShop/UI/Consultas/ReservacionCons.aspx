@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="UsuariosCons.aspx.cs" Inherits="BarberShop.UI.Consultas.UsuariosCons" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Base.Master" AutoEventWireup="true" CodeBehind="ReservacionCons.aspx.cs" Inherits="BarberShop.UI.Consultas.ReservacionCons" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1 class=" text-center">Consulta Usuarios <span class="glyphicon glyphicon-user"></span></h1>
+    <h1 class=" text-center">Consulta Reservaciones <span class="glyphicon glyphicon-calendar"></span></h1>
+
 
     <div class="container-fluid">
         <div class="col-lg-12 col-md-6  col-sm-8 col-xs-12">
@@ -15,7 +15,6 @@
 
                 <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" Width="110px" Height="22px">
                     <asp:ListItem>Id</asp:ListItem>
-                    <asp:ListItem>Nombre</asp:ListItem>
                     <asp:ListItem>Fecha</asp:ListItem>
                     <asp:ListItem>Todos</asp:ListItem>
                 </asp:DropDownList>
@@ -23,7 +22,7 @@
 
 
                     <asp:TextBox ID="TextBox1" runat="server" Width="150px"></asp:TextBox>
-                <asp:Button ID="Button1" CssClass="btn btn-danger" runat="server" Text="Filtrar" OnClick="Button1_Click" />
+                <asp:Button ID="ButtonBuscar" CssClass="btn btn-danger" runat="server" Text="Filtrar" OnClick="ButtonBuscar_Click"  />
 
             </div>
 
@@ -34,8 +33,8 @@
                     &nbsp;<asp:TextBox ID="desdeFecha" runat="server" Width="120px"></asp:TextBox>
                     <label for="hasta">Hasta</label>
                     <asp:TextBox ID="hastaFecha" runat="server" Width="120px"></asp:TextBox>
-                   <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger"/>
-
+                 
+                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger"/>
                 </p>
 
             </div>
@@ -65,5 +64,7 @@
             </div>
         </div>
     </div>
+
+
 
 </asp:Content>

@@ -12,12 +12,10 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
-            myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
-            myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
-            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
-            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+            ScriptPaginas.Script();
+            idTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");//solo numero
+            CostoTextBox1.Attributes.Add("onkeypress", "return ValidNum(event);");
+           // NombreTextbox.Attributes.Add("onkeypress", "return ValidLet(event);");//solo letras
         }
 
         Servicios Servicios = new Servicios();

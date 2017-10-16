@@ -8,16 +8,16 @@ using System.Web.UI.WebControls;
 
 namespace BarberShop.UI.Consultas
 {
-    public partial class UsuariosCons : System.Web.UI.Page
+    public partial class ReservacionCons : System.Web.UI.Page
     {
-        public static List<Usuarios> lista { get; set; }
+        public static List<Reservaciones> lista { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuarios user = new Usuarios();
-             GridView1.DataSource = BLL.UsuariosBLL.GetListTodo();
-             GridView1.DataBind();
-            lista = BLL.UsuariosBLL.GetListTodo();
+            Reservaciones reservacion = new Reservaciones();
+            GridView1.DataSource = BLL.ReservacionesBLL.GetListTodo();
+            GridView1.DataBind();
+            lista = BLL.ReservacionesBLL.GetListTodo();
         }
 
         public void SeleccionarCombo()
@@ -25,24 +25,11 @@ namespace BarberShop.UI.Consultas
             if (DropDownList1.SelectedIndex == 0)
             {
                 int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.UsuariosBLL.GetList(p => p.idUsuario == id);
-               
+                lista = BLL.ReservacionesBLL.GetList(p => p.idReservacion == id);
+
             }
+          
             else if (DropDownList1.SelectedIndex == 1)
-            {
-                if (TextBox1.Text == "")
-                {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Nombre');</script>");
-                }
-                else
-                {
-                    lista = BLL.UsuariosBLL.GetList(p => p.nombres == TextBox1.Text);
-                    
-                }
-
-
-            }
-            else if (DropDownList1.SelectedIndex == 2)
             {
                 DateTime desde = Convert.ToDateTime(desdeFecha.Text);
                 DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
@@ -51,8 +38,8 @@ namespace BarberShop.UI.Consultas
                 {
                     if (desde <= hasta)
                     {
-                        lista = BLL.UsuariosBLL.GetList(p => p.fecha >= desde && p.fecha <=hasta);
-                       
+                        lista = BLL.ReservacionesBLL.GetList(p => p.fechaDesde >= desde && p.fechaHasta <= hasta);
+
                     }
                     else
                     {
@@ -70,8 +57,8 @@ namespace BarberShop.UI.Consultas
             else if (DropDownList1.SelectedIndex == 3)
             {
 
-                lista = BLL.UsuariosBLL.GetListTodo();
-               
+                lista = BLL.ReservacionesBLL.GetListTodo();
+
 
             }
             GridView1.DataSource = lista;
@@ -80,11 +67,11 @@ namespace BarberShop.UI.Consultas
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+
+
+        protected void ButtonBuscar_Click(object sender, EventArgs e)
         {
             SeleccionarCombo();
         }
-
-       
     }
 }

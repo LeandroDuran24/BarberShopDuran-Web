@@ -12,15 +12,13 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
+            if(!Page.IsPostBack)
+            {
+                FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
+                ScriptPaginas.Script();
 
-
-            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
-            myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
-            myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
-            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
-            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+            }
+ 
         }
 
         Peluqueros peluquero = new Peluqueros();
@@ -30,7 +28,15 @@ namespace BarberShop.UI.Formularios
             peluquero.idPeluquero = Utilidades.TOINT(idTextbox.Text);
             peluquero.nombre = NombreTextbox.Text;
             peluquero.telefono = TelefonoTextBox.Text;
-            peluquero.sexo = SexoTextBox.Text;
+           if(DropDownList1.SelectedIndex==0)
+            {
+                peluquero.sexo = "Masculino";
+            }
+           else if(DropDownList1.SelectedIndex==1)
+            {
+                peluquero.sexo = "Femenino";
+            }
+           
             peluquero.fecha = Convert.ToDateTime(FechaTextBox1.Text);
 
             return peluquero;
@@ -41,7 +47,7 @@ namespace BarberShop.UI.Formularios
             idTextbox.Text = "";
             NombreTextbox.Text = "";
             TelefonoTextBox.Text = "";
-            SexoTextBox.Text = "";
+            DropDownList1.Text = "";
             FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
             NombreTextbox.Focus();
         }
@@ -58,7 +64,7 @@ namespace BarberShop.UI.Formularios
                 {
                     NombreTextbox.Text = peluquero.nombre;
                     TelefonoTextBox.Text = peluquero.telefono;
-                    SexoTextBox.Text = peluquero.sexo;
+                    DropDownList1.Text = peluquero.sexo;
                     FechaTextBox1.Text = Convert.ToString(peluquero.fecha);
                 }
                 else

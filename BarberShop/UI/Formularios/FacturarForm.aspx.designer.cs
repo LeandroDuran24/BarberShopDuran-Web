@@ -10,16 +10,16 @@
 namespace BarberShop.UI.Formularios {
     
     
-    public partial class ReservacionForm {
+    public partial class FacturarForm {
         
         /// <summary>
-        /// idTextbox control.
+        /// facturaIdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox idTextbox;
+        protected global::System.Web.UI.WebControls.TextBox facturaIdTextBox;
         
         /// <summary>
         /// Buscar control.
@@ -31,66 +31,75 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.Button Buscar;
         
         /// <summary>
-        /// DropDownListCliente control.
+        /// RequiredFieldValidator6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListCliente;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// DropDownListPeluquero control.
+        /// DropDownListClientes control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownListPeluquero;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListClientes;
         
         /// <summary>
-        /// FechaDesde control.
+        /// ButtonAgregarCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FechaDesde;
+        protected global::System.Web.UI.WebControls.Button ButtonAgregarCliente;
         
         /// <summary>
-        /// fechaHasta control.
+        /// RequiredFieldValidator7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox fechaHasta;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// Nuevo control.
+        /// PagoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Nuevo;
+        protected global::System.Web.UI.WebControls.TextBox PagoTextBox;
         
         /// <summary>
-        /// guardar control.
+        /// RequiredFieldValidator8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button guardar;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// Eliminar control.
+        /// DescuentoTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Eliminar;
+        protected global::System.Web.UI.WebControls.TextBox DescuentoTextBox;
+        
+        /// <summary>
+        /// TextBox2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBox2;
     }
 }

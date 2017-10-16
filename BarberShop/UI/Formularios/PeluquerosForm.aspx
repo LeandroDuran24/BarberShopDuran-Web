@@ -50,8 +50,11 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="SexoTextBox" runat="server" Width="300px" Height="33px"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="SexoTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:DropDownList ID="DropDownList1" runat="server" Width="300px" Height="33px">
+                    <asp:ListItem Value="Masculino">Masc</asp:ListItem>
+                    <asp:ListItem Value="Femenino">Fem</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="DropDownList1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
             <!--input del fecha-->

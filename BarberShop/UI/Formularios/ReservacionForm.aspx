@@ -18,17 +18,18 @@
             <div class="text-center">
 
                 <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px"></asp:TextBox>&nbsp
-                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" />
+                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click1" />
             </div>
 
-            <!--input del nombre-->
+            <!--input del nombre cliente-->
             <div class="text-center">
                 <div>
                     <label for="Nombres">Nombre Cliente</label>
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListCliente" runat="server" Width="300px" Height="33px">
+                </asp:DropDownList>
             </div>
 
             <!--input del Nombre Peluquero-->
@@ -38,7 +39,8 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="peluquero" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:DropDownList ID="DropDownListPeluquero" runat="server" Width="300px" Height="33px">
+                </asp:DropDownList>
             </div>
 
             <!--input de fecha desde-->
@@ -69,8 +71,8 @@
 
             <div class="text-center">
 
-                <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" />&nbsp&nbsp
-                <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" />&nbsp;&nbsp&nbsp
+                <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" OnClick="Nuevo_Click" />&nbsp&nbsp
+                <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" OnClick="guardar_Click" />&nbsp;&nbsp&nbsp
                 <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" />
             </div>
 
