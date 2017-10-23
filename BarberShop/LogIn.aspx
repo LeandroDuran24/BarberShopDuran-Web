@@ -13,15 +13,10 @@
 
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
-    <!--------------------------------------------Toastr---------------------------------------------------------------->
-    <link rel="stylesheet" href="Content/toastr.css" />
-    <link rel="stylesheet" href="Content/toastr.less" />
-    <link rel="stylesheet" href="Content/toastr.min.css" />
-    <link rel="stylesheet" href="Content/toastr.scss" />
+    <!--------------------------------------------------toastr----------------------------------------------------->
 
-  
- 
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet " />
+    
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
     <form id="form1" runat="server">
@@ -58,7 +53,7 @@
                 <div class="text-center">
                     <asp:TextBox Type="password" ID="PassTextBox1" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password"></asp:TextBox>&nbsp
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
-                        <br />
+                    <br />
                     <br />
                 </div>
 
@@ -73,10 +68,20 @@
             </div>
         </div>
     </form>
+
+    <script>
+
+</script>
+
     <!----------------------------------script--------------------------------------->
-    <script src="/Content/toastr.min.js"></script>
-    <script src="/Content/Script.js"></script>
- 
-   
+    <%--<script src="/Scripts/angular-toastr.js"></script>
+    <script  src="/Scripts/angular-toastr.min.js"></script>
+    <script src="/Scripts/angular-toastr.tpls.js"></script>
+    <script src="/Scripts/angular-toastr.tpls.min.js"></script>
+    <script src="/Scripts/toastr.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>--%>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js " type="text/javascript"> </script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"> </script>
 </body>
 </html>

@@ -102,11 +102,7 @@
   <ItemGroup>
     <Content Include="Base de Datos\BarberShop.mdf" />
     <Content Include="Base.Master" />
-    <Content Include="Content\angular-toastr.css" />
-    <Content Include="Content\angular-toastr.min.css" />
     <Content Include="Content\bootstrapTheme.min.css" />
-    <Content Include="Content\toastr.less" />
-    <Content Include="Content\toastr.scss" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\BarberShopDuran - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\BarberShopDuran - Web Deploy.pubxml" />
@@ -114,6 +110,14 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -132,12 +136,8 @@
     <Content Include="Content\Img\Model3.PNG" />
     <Content Include="Content\Script.js" />
     <Content Include="Content\Style\Style.css" />
-    <Content Include="Content\toastr.css" />
-    <Content Include="Content\toastr.min.css" />
-    <Content Include="Content\toastr.min.js" />
     <Content Include="Global.asax" />
     <Content Include="LogIn.aspx" />
-    <None Include="Scripts\jquery-1.6.3-vsdoc.js" />
     <Content Include="Scripts\angular-toastr.js" />
     <Content Include="Scripts\angular-toastr.min.js" />
     <Content Include="Scripts\angular-toastr.tpls.js" />

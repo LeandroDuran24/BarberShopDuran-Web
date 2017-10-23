@@ -16,9 +16,9 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" ForeColor="Black"></asp:TextBox>&nbsp
-                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" Width="105px" ValidationGroup="buscar"  />
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="idTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"  ></asp:RequiredFieldValidator>
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" ForeColor="Black" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
+                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" Width="105px" ValidationGroup="buscar" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="idTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
             </div>
 
             <!--input del nombre-->
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombreTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox type="password" ID="claveTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox type="password" ID="claveTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="claveTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox Type="password" ID="confTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox Type="password" ID="confTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="confTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
@@ -112,15 +112,11 @@
 
 
 
-            
+
 
         </div>
     </div>
     <!---------script--->
-    <script src="/../../Content/Script.js">
-
-    </script>
-
-
+    <script src="/../../Content/Script.js"></script>
 
 </asp:Content>

@@ -13,8 +13,8 @@ namespace BarberShop.UI.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptPaginas.Script();
-            idTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");//solo numero
-            CostoTextBox1.Attributes.Add("onkeypress", "return ValidNum(event);");
+            //idTextbox.Attributes.Add("onkeypress", "return soloNumeros(event);");//solo numero
+            //CostoTextBox1.Attributes.Add("onkeypress", "return soloLetras(event);");
            // NombreTextbox.Attributes.Add("onkeypress", "return ValidLet(event);");//solo letras
         }
 

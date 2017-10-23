@@ -14,7 +14,7 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Response.Write("<script>myMap()</script>");
         }
 
       

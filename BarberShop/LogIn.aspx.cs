@@ -14,6 +14,7 @@ namespace BarberShop
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptPaginas.Script();
+            EmailTextBox.Focus();
         }
 
         protected void LoginButton_Click(object sender, EventArgs e)
@@ -30,18 +31,21 @@ namespace BarberShop
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Contraseña no Coincide Con Email...!', 'Error')", true);
-                    Limpiar();
+                   
+                    ScriptManager.RegisterStartupScript(this,this.GetType(), "toastr_message", "toastr.error('Contraseña no Coincide Con Email...!', 'Error');", true);
+                  
+                    
 
                 }
             }
             else
             {
 
-                
-                Page.ClientScript.RegisterStartupScript(this.GetType(),"toastr_message", "toastr.error('No Existe', 'Error')", true);
-                Limpiar();
+
+                ScriptManager.RegisterStartupScript(this,this.GetType(),"toastr_message", "toastr.error('No Existe', 'Error');", true);
+               
             }
+            Limpiar();
 
         }
 
