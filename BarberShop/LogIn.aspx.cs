@@ -26,15 +26,17 @@ namespace BarberShop
             {
                 if (user.clave == PassTextBox1.Text)
                 {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Acceso Correcto ', 'Info');", true);
                     FormsAuthentication.RedirectFromLoginPage(user.email, true);
 
                 }
                 else
                 {
+                    Utilidades.MostrarToastr(this.Page, "Maldito animal", "Debes llenar ambos campos");
+                    ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Contraseña no Coincide Con Email...!', 'Error');", addScriptTags:true);
+                    Limpiar();
                    
-                    ScriptManager.RegisterStartupScript(this,this.GetType(), "toastr_message", "toastr.error('Contraseña no Coincide Con Email...!', 'Error');", true);
-                  
-                    
+
 
                 }
             }
@@ -42,12 +44,15 @@ namespace BarberShop
             {
 
 
-                ScriptManager.RegisterStartupScript(this,this.GetType(),"toastr_message", "toastr.error('No Existe', 'Error');", true);
-               
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('No Existe', 'Error');", true);
+                Limpiar();
             }
-            Limpiar();
+
 
         }
+
+
+
 
         public void Limpiar()
         {

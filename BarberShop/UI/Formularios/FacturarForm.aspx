@@ -19,9 +19,9 @@
             </div>
 
             <div class="text-center">
-                <asp:textbox id="facturaIdTextBox" runat="server" height="33px" width="190px"></asp:textbox>
-                <asp:button id="Buscar" cssclass="btn btn-danger btn-md " runat="server" text="Buscar" width="120px" validationgroup="buscar" onclick="Buscar_Click" />
-                <asp:requiredfieldvalidator id="RequiredFieldValidator6" runat="server" controltovalidate="facturaIdTextBox" errormessage="֎" font-bold="True" font-italic="True" forecolor="Red" validationgroup="buscar"></asp:requiredfieldvalidator>
+                <asp:TextBox ID="facturaIdTextBox" runat="server" Height="33px" Width="190px"></asp:TextBox>
+                <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="120px" ValidationGroup="buscar" OnClick="Buscar_Click" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="facturaIdTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -39,22 +39,22 @@
             </div>
 
             <div class="text-center">
-                <asp:dropdownlist id="DropDownListClientes" runat="server" height="33px" width="190px"></asp:dropdownlist>
-                <asp:button id="ButtonAgregarCliente" cssclass="btn btn-danger btn-md " runat="server" text="Agregar" width="120px" />
-                <asp:requiredfieldvalidator id="RequiredFieldValidator7" runat="server" controltovalidate="DropDownListClientes" errormessage="֎" font-bold="True" font-italic="True" forecolor="Red" validationgroup="buscar"></asp:requiredfieldvalidator>
+                <asp:DropDownList ID="DropDownListClientes" runat="server" Height="33px" Width="190px"></asp:DropDownList>
+                <asp:Button ID="ButtonAgregarCliente" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="120px" />
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownListClientes" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
 
             <!----input forma de pago--->
             <div class="text-center">
                 <div>
-                    <label for="formaPago">Forma de Pago&nbsp; </label>
+                    <label for="formaPago">Forma de Pago </label>
                 </div>
             </div>
 
             <div class="text-center">
-                <asp:textbox id="PagoTextBox" runat="server" width="310px" height="33px"></asp:textbox>
-                <asp:requiredfieldvalidator id="RequiredFieldValidator8" runat="server" controltovalidate="PagoTextBox" errormessage="֎" font-bold="True" font-italic="True" forecolor="Red" validationgroup="buscar"></asp:requiredfieldvalidator>
+                <asp:TextBox ID="PagoTextBox" runat="server" Width="310px" Height="33px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -62,39 +62,82 @@
             <!-----comentario------->
 
             <div class="text-center">
-
-                <label for="Comentario">Comentario</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                <textarea id="TextAreaComentario" name="S1" rows="3"></textarea>
-                <!----input de descuento------->
-
-                &nbsp;&nbsp;<br />
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
- 
+                <div>
+                    <label for="Comentario">Comentario</label>
+                </div>
             </div>
-
-            <!-------descuento------>
             <div class="text-center">
-                <label for="Descuento">% Descuento</label>
-                <asp:textbox id="DescuentoTextBox" runat="server" height="33px"></asp:textbox>
-                <br />
+                <textarea id="ComentarioTextArea" class="ComentarioTextArea" name="S1" rows="3"></textarea>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+
             </div>
 
-            <!----impuesto----->
+
+
+
+            <!-------descuento e Itbis------>
+            <div class="text-center">
+                <div>
+                    <label for="Descuento">% Descuento</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <label for="Descuento">ITBIS&nbsp; </label>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <asp:TextBox ID="DescuentoTextBox" runat="server" Width="182px" Height="33px"></asp:TextBox>&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="ItbisTextBox" runat="server" Width="110px" Height="33px"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+
+            </div>
+
+            <!---------------------detalle de servicios------------------------>
             <div class="text-center">
 
-                <label for="Impuesto">ITBIS</label>
-
-                <asp:textbox id="TextBox2" runat="server" height="33px"></asp:textbox>
+                <div>
+                    <label for="Codigo">Codigo</label>&nbsp&nbsp&nbsp&nbsp&nbsp;&nbsp; &nbsp&nbsp&nbsp;&nbsp; &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <label for="Servicios">Servicio</label>&nbsp&nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Precio">Precio</label>
+                </div>
             </div>
 
+            <div class="text-center">
+
+                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="60px" OnTextChanged="CodTextBox_TextChanged"></asp:TextBox>
+                <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="165px"></asp:TextBox>
+                <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="75px"></asp:TextBox>
+
+                <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="78px" OnClick="ButtonAgregarServiciosGrid_Click1" />
+
+            </div>
+            <!--tabla del detalle-->
+            <div class="text-sm-center">
+                <div style="overflow: auto; width: 500px; height: 167px;">
 
 
 
+                    <asp:GridView  ID="GridViewDetalle"  runat="server" CellPadding="0" ClientIDMode="Static" ForeColor="#333333" Width="400px" ShowFooter="True" CaptionAlign="Left" Height="100px" HorizontalAlign="Center" PageIndex="2" PageSize="2">
+                        <AlternatingRowStyle BackColor="White" Font-Bold="False" />
+                        <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <EmptyDataRowStyle HorizontalAlign="Center" VerticalAlign="Bottom" />
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Justify" VerticalAlign="Top" />
+                        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderStyle="Solid" Font-Italic="True" Font-Size="12pt" HorizontalAlign="Center" VerticalAlign="Middle" />
+                        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#EFF3FB" />
+                        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                        <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                        <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    </asp:GridView>
+
+
+
+                </div>
+            </div>
 
 
         </div>
+
     </div>
 
 </asp:Content>

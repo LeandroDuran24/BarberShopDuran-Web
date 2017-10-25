@@ -21,7 +21,7 @@
     <!--------------------------------------------Tema-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/bootstrapTheme.min.css" />
     <!-------------------------------------------Style-------------------------------------------------------------->
-    <link rel="stylesheet" href="Content/Style/Style.css" />
+    <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!---------------------------------------------Script--------------------------------------------------------->
 
 
@@ -44,7 +44,7 @@
                 <a class="navbar-brand" href="#">BarberSHop Duran</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="UI/Formularios/MenuPrincipal.aspx">Inicio</a></li>
+                <li><a href="/UI/Formularios/MenuPrincipal.aspx">Inicio</a></li>
                 <!--usuarios-->
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Usuarios <span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -92,15 +92,15 @@
                 <!--facturar-->
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Facturacion <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Registro</a></li>
+                        <li><a href="/UI/Formularios/FacturarForm.aspx">Registro</a></li>
                         <li><a href="#">Consulta</a></li>
 
                     </ul>
                 </li>
 
                 <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
-                <li><a id="Btn" href="/LogIn.aspx">LogIn &nbsp</a></li>
-                <li><a  href="javascript:window.opener='x';window.close();">Cerrar Sesion</a></li>
+                <li><a href="/LogIn.aspx">Cerrar Sesion &nbsp</a></li>
+              
 
 
             </ul>

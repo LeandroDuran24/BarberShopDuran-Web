@@ -14,8 +14,8 @@ namespace BarberShop.UI.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             Servicios servicio = new Servicios();
-            GridView1.DataSource = BLL.TiposSeviciosBLL.GetListTodo();
-            GridView1.DataBind();
+            //GridView1.DataSource = BLL.TiposSeviciosBLL.GetListTodo();
+            //GridView1.DataBind();
             lista1 = BLL.TiposSeviciosBLL.GetListTodo();
         }
 

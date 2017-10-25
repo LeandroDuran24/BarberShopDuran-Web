@@ -38,7 +38,7 @@
 
     <br />
 
-  <%--  <script>
+   <%-- <script>
         function myMap() {
             var mapOptions = {
                 center: new google.maps.LatLng(19.2894082, -70.3489171),

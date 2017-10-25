@@ -11,5 +11,14 @@ namespace Entidades
     {
         [Key]
         public int FacturaId { get; set; }
+
+
+
+        public virtual List<Servicios> servicioList { get; set; }
+
+        public Facturaciones()
+        {
+           servicioList = new List<Servicios>();
+        }
     }
 }

@@ -18,3 +18,12 @@
     color:white;
    background-color:transparent;
 }
+
+.gview {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ComentarioTextArea {
+    width: 310px;
+}

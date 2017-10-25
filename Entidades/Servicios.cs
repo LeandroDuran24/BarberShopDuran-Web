@@ -12,5 +12,13 @@ namespace Entidades
         public int idServicio { get; set; }
         public string nombre { get; set; }
         public int costo { get; set; }
+
+
+        public virtual List<Facturaciones> facturaList { get; set; }
+
+        public Servicios()
+        {
+            facturaList = new List<Facturaciones>();
+        }
     }
 }

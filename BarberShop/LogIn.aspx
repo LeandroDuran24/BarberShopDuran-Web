@@ -8,15 +8,19 @@
 
 
     <!---------------------------------------------Bootstrap-------------------------------------------------------->
-    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="/Content/bootstrap.min.js" />
 
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!--------------------------------------------------toastr----------------------------------------------------->
-
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet " />
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"> </script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+
+
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
     <form id="form1" runat="server">
@@ -68,20 +72,16 @@
             </div>
         </div>
     </form>
-
-    <script>
-
-</script>
-
     <!----------------------------------script--------------------------------------->
-    <%--<script src="/Scripts/angular-toastr.js"></script>
-    <script  src="/Scripts/angular-toastr.min.js"></script>
-    <script src="/Scripts/angular-toastr.tpls.js"></script>
-    <script src="/Scripts/angular-toastr.tpls.min.js"></script>
-    <script src="/Scripts/toastr.js"></script>
-    <script src="/Scripts/toastr.min.js"></script>--%>
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js " type="text/javascript"> </script>
+
+
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"> </script>
     <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js" type="text/javascript"> </script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>--%>
 </body>
+
+
+
+
 </html>
