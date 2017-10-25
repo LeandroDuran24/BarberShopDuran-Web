@@ -7,23 +7,31 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class BarberShopDb:DbContext
+    public class BarberShopDb : DbContext
     {
-        public BarberShopDb():base("ConStr")
+        public BarberShopDb() : base("ConStr")
         {
 
         }
 
-        public DbSet<Entidades.Usuarios>usuario { get; set; }
+        public DbSet<Entidades.Usuarios> usuario { get; set; }
         public DbSet<Entidades.Servicios> servicio { get; set; }
         public DbSet<Entidades.Peluqueros> peluquero { get; set; }
         public DbSet<Entidades.Clientes> cliente { get; set; }
         public DbSet<Entidades.Reservaciones> reservacion { get; set; }
-        public DbSet<Entidades.Facturaciones> facturar { get; set; }
+        public DbSet<Entidades.Facturas> facturar { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Entidades.Facturaciones>();
+            modelBuilder.Entity<Entidades.Facturas>()
+                .HasMany(p => p.servicioList)
+                .WithMany(p => p.facturaList)
+                .Map(mapeo =>
+                {
+                    mapeo.MapLeftKey("idServicio");
+                    mapeo.MapRightKey("idFactura");
+                    mapeo.ToTable("Detalle");
+                });
 
         }
 

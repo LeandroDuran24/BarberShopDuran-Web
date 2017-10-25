@@ -13,7 +13,7 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.fecha.Text = string.Format("{0:G}", DateTime.Now);
+            //this.fecha.Text = string.Format("{0:G}", DateTime.Now);
 
             ScriptPaginas.Script();
 
@@ -139,7 +139,10 @@ namespace BarberShop.UI.Formularios
             }
         }
 
+        protected void idTextbox_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 
 }

@@ -8,18 +8,16 @@
 
 
     <!---------------------------------------------Bootstrap-------------------------------------------------------->
-    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="/Content/bootstrap.min.js" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.js" />
 
     <!-------------------------------------------Style-------------------------------------------------------------->
-    <link rel="stylesheet" href="/Content/Style/Style.css" />
+    <link rel="stylesheet" href="Content/Style/Style.css" />
     <!--------------------------------------------------toastr----------------------------------------------------->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet " />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"> </script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-
+    <script src="/Scripts/toastr.min.js"></script>
+    <script src="/Scripts/toastr.js"></script>
+    <script src="/Scripts/jquery-3.2.1.js"></script>
+ 
 
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
@@ -75,10 +73,7 @@
     <!----------------------------------script--------------------------------------->
 
 
-    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"> </script>
-    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>--%>
+
 </body>
 
 

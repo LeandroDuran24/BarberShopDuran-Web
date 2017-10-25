@@ -32,9 +32,9 @@
             <div class="text-center">
                 <p>
                     <label for="Desde:">Desde </label>
-                    &nbsp;<asp:TextBox ID="desdeFecha" runat="server" Width="120px"></asp:TextBox>
+                    &nbsp;<asp:TextBox ID="desdeFecha" runat="server" Width="120px" TextMode="Date"></asp:TextBox>
                     <label for="hasta">Hasta</label>
-                    <asp:TextBox ID="hastaFecha" runat="server" Width="120px"></asp:TextBox>
+                    <asp:TextBox ID="hastaFecha" runat="server" Width="120px" TextMode="Date"></asp:TextBox>
                     
 
                     <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger"/>

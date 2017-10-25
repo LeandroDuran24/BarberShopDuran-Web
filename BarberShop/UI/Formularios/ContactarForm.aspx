@@ -5,15 +5,15 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-   
+
     <%--<a href="../../Content/Img/Contactanos.png" target="_blank">--%>
-        <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
+    <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
 
 
-        &nbsp;<div class="caption">
-            <p class="text-center">Barber Shop Duran</p>
-        </div>
-    </a>
+    &nbsp;<div class="caption">
+        <p class="text-center">Barber Shop Duran</p>
+    </div>
+
 
     <!--icono de telefono con los telefonos----->
     <div class="text-center">
@@ -33,27 +33,10 @@
     <!-------icono de ubicacion con mapa------>
     <div class="text-center">
         <span class="glyphicon glyphicon-map-marker Iconos"></span>
-        <div id="map" style="width: 1150px; height: 400px; background: gray" ></div>
+        <div id="map" style="width: 1150px; height: 400px; background: gray"></div>
     </div>
 
     <br />
-
-   <%-- <script>
-        function myMap() {
-            var mapOptions = {
-                center: new google.maps.LatLng(19.2894082, -70.3489171),
-                zoom: 15,
-                //mapTypeId: google.maps.MapTypeId.HYBRID
-               
-            }
-            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-          
-        }
-
-        
-
-
-    </script>--%>
 
     <!------------------------script para google map-------------------->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>

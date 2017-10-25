@@ -111,6 +111,13 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -127,6 +134,7 @@
     <Content Include="Content\Img\Model1.PNG" />
     <Content Include="Content\Img\Model2.PNG" />
     <Content Include="Content\Img\Model3.PNG" />
+    <Content Include="Content\jquery-2.2.0.min.js" />
     <Content Include="Content\Script.js" />
     <Content Include="Content\Style\Style.css" />
     <Content Include="Global.asax" />

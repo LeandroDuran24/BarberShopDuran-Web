@@ -17,7 +17,7 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px"></asp:TextBox>&nbsp
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
                      <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click1" />
             </div>
 
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="FechaDesde" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="FechaDesde" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
             </div>
 
             <!--input de fecha Hasta-->
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="fechaHasta" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="fechaHasta" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
             </div>
 
 

@@ -12,12 +12,20 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptPaginas.Script();
-            GridViewDetalle.DataSource = null;
+            PrecioTextBox.Enabled = true;
+            ServTextBox.Enabled = false;
+            if (!Page.IsPostBack)
+            {
+                ScriptPaginas.Script();
+                GridViewDetalle.DataSource = null;
+                LLenarComboCliente();
+               
+            }
+
 
         }
 
-        Facturaciones facturar = new Facturaciones();
+        Facturas facturar = new Facturas();
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
@@ -42,12 +50,12 @@ namespace BarberShop.UI.Formularios
         }
 
         /*llena la tabla al agregar algun servicio*/
-        public void LlenarDataGridDetalle(Facturaciones nueva)
+        public void LlenarDataGridDetalle(Facturas nueva)
         {
             GridViewDetalle.DataSource = null;
             GridViewDetalle.DataSource = nueva.servicioList;
             GridViewDetalle.DataBind();
-           
+
         }
 
         /*al dar click envia los datos al llenarDataGridDetalle*/
@@ -64,13 +72,9 @@ namespace BarberShop.UI.Formularios
                     if (service.idServicio == servicios.idServicio)
                     {
                         anadido = true;
-                        Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('Añadido');</script>");
 
                     }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert(' No Añadido');</script>");
-                    }
+
                 }
             }
 
@@ -80,6 +84,46 @@ namespace BarberShop.UI.Formularios
 
                 facturar.servicioList.Add(servicios);
                 LlenarDataGridDetalle(facturar);
+            }
+        }
+
+        public Facturas LlenarCampos()
+        {
+            facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
+            facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
+            facturar.formaPago = PagoTextBox.Text;
+            facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
+            facturar.itbis = Utilidades.TOINT(ItbisTextBox.Text);
+            facturar.idServicio = Utilidades.TOINT(CodTextBox.Text);
+
+
+
+
+            return facturar;
+        }
+
+        public void LLenarComboCliente()
+        {
+            List<Clientes> lista = BLL.ClientesBLL.GetListTodo();
+            DropDownListClientes.DataSource = lista;
+            DropDownListClientes.DataTextField = "nombre";
+            DropDownListClientes.DataValueField = "idCliente";
+            DropDownListClientes.DataBind();
+        }
+
+        protected void guardar_Click(object sender, EventArgs e)
+        {
+
+            if (IsValid)
+            {
+                facturar = LlenarCampos();
+                BLL.FacturarBLL.Guardar(facturar);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+            }
+
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Error');</script>");
             }
         }
     }

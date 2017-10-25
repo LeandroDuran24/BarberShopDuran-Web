@@ -26,16 +26,16 @@ namespace BarberShop
             {
                 if (user.clave == PassTextBox1.Text)
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.success('Acceso Correcto ', 'Info');", true);
+
                     FormsAuthentication.RedirectFromLoginPage(user.email, true);
 
                 }
                 else
                 {
-                    Utilidades.MostrarToastr(this.Page, "Maldito animal", "Debes llenar ambos campos");
-                    ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('Contraseña no Coincide Con Email...!', 'Error');", addScriptTags:true);
+                    Utilidades.MostrarToastr(this, "No Coinciden", "Error", "Error");
+
                     Limpiar();
-                   
+
 
 
                 }

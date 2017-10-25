@@ -14,7 +14,7 @@ namespace BarberShop.UI.Formularios
         {
             if(!Page.IsPostBack)
             {
-                FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
+               // FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
                 ScriptPaginas.Script();
 
             }

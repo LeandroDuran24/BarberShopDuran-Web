@@ -12,15 +12,10 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           FechaTextBox5.Text = string.Format("{0:G}", DateTime.Now);
-            
+            //FechaTextBox5.Text = string.Format("{0:G}", DateTime.Now);
 
-            ScriptResourceDefinition myScriptResDef = new ScriptResourceDefinition();
-            myScriptResDef.Path = "~/Scripts/jquery-1.4.2.min.js";
-            myScriptResDef.DebugPath = "~/Scripts/jquery-1.4.2.js";
-            myScriptResDef.CdnPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js";
-            myScriptResDef.CdnDebugPath = "http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.js";
-            ScriptManager.ScriptResourceMapping.AddDefinition("jquery", null, myScriptResDef);
+
+            ScriptPaginas.Script();
         }
 
         Clientes cliente = new Clientes();
@@ -50,12 +45,12 @@ namespace BarberShop.UI.Formularios
             NombreClienteTextbox.Focus();
         }
 
-     
+
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            
-            if(IsValid)
+
+            if (IsValid)
             {
                 int id = Utilidades.TOINT(idClienteTextbox.Text);
                 cliente = BLL.ClientesBLL.Buscar(p => p.idCliente == id);
@@ -75,7 +70,7 @@ namespace BarberShop.UI.Formularios
                 }
             }
 
-            
+
         }
 
         protected void Nuevo_Click2(object sender, EventArgs e)
@@ -85,7 +80,7 @@ namespace BarberShop.UI.Formularios
 
         protected void Guardar_Click(object sender, EventArgs e)
         {
-            if(IsValid)
+            if (IsValid)
             {
                 cliente = llenarCampos();
                 if (cliente.idCliente > 0)
@@ -102,7 +97,7 @@ namespace BarberShop.UI.Formularios
                 }
             }
 
-            
+
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)

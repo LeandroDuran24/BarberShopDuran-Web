@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="idClienteTextbox" runat="server" Width="190px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="idClienteTextbox" runat="server" Width="190px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
                 <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click"  ValidationGroup="buscar"  />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="֎" ValidationGroup="buscar" ControlToValidate="idClienteTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreClienteTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="NombreClienteTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="NombreClienteTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="ApellidosTextBox1" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="ApellidosTextBox1" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="ApellidosTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="CedulaTextBox3" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="CedulaTextBox3" runat="server" Width="300px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="CedulaTextBox3" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -79,7 +79,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox type="email" ID ="EmailTextBox4" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox type="email" ID ="EmailTextBox4" runat="server" Width="300px" Height="33px" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox4" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="FechaTextBox5" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="FechaTextBox5" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="FechaTextBox5" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
             <br />

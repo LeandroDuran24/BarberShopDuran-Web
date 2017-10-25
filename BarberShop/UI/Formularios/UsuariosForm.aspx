@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="emailTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="emailTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="emailTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="fecha" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="fecha" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="fecha" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" BackColor="White" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -111,12 +111,8 @@
             <br />
 
 
-
-
-
         </div>
     </div>
-    <!---------script--->
-    <script src="/../../Content/Script.js"></script>
+
 
 </asp:Content>

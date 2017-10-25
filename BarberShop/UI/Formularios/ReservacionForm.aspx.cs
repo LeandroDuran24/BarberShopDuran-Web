@@ -19,8 +19,8 @@ namespace BarberShop.UI.Formularios
             if (!Page.IsPostBack)
             {
                 ScriptPaginas.Script();
-                this.FechaDesde.Text = string.Format("{0:G}", DateTime.Now);
-                this.fechaHasta.Text = string.Format("{0:G}", DateTime.Now);
+                //this.FechaDesde.Text = string.Format("{0:G}", DateTime.Now);
+                //this.fechaHasta.Text = string.Format("{0:G}", DateTime.Now);
                 LLenarComboCliente();
                 LLenarComboPeluquero();
 

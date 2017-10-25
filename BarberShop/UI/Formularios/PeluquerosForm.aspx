@@ -16,7 +16,7 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px"></asp:TextBox>&nbsp
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
                      <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" ValidationGroup="buscar" Width="105px" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="֎" ValidationGroup="buscar" ControlToValidate="idTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="NombreTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="TelefonoTextBox" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="TelefonoTextBox" runat="server" Width="300px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="TelefonoTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="FechaTextBox1" runat="server" Width="300px" Height="33px"></asp:TextBox>
+                <asp:TextBox ID="FechaTextBox1" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="FechaTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 

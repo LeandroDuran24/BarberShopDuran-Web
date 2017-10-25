@@ -11,66 +11,92 @@ namespace BLL
 {
     public class FacturarBLL
     {
-        public static Reservaciones Guardar(Reservaciones nuevo)
+        public static bool Guardar(Entidades.Facturas nuevo)
         {
-            Reservaciones retorno = null;
-            using (var conn = new Repositorio<Reservaciones>())
+            bool retono = false;
+            using (var db = new BarberShopDb())
             {
-                retorno = conn.Guardar(nuevo);
-            }
-            return retorno;
-        }
+                try
+                {
 
-        public static Reservaciones Buscar(Expression<Func<Reservaciones, bool>> criterio)
-        {
-            Reservaciones retorno = null;
-            using (var conn = new Repositorio<Reservaciones>())
-            {
-                retorno = conn.Buscar(criterio);
-            }
-            return retorno;
+                    foreach (var g in nuevo.servicioList)
+                    {
+                        db.Entry(g).State = System.Data.Entity.EntityState.Unchanged;
+                    }
 
-        }
 
-        public static bool Modificar(Reservaciones criterio)
-        {
-            bool retorno = false;
-            using (var conn = new Repositorio<Reservaciones>())
-            {
-                retorno = conn.Modificar(criterio);
-            }
-            return retorno;
-        }
+                    db.facturar.Add(nuevo);
+                    db.SaveChanges();
+                    retono = true;
 
-        public static bool Eliminar(Reservaciones criterio)
-        {
-            bool retorno = false;
-            using (var conn = new Repositorio<Reservaciones>())
-            {
-                retorno = conn.Eliminar(criterio);
-            }
-            return retorno;
-        }
+                }
+                catch (Exception)
+                {
 
-        public static List<Reservaciones> GetList(Expression<Func<Reservaciones, bool>> criterio)
-        {
-            List<Reservaciones> lista = null;
-            using (var conn = new Repositorio<Reservaciones>())
-            {
-                lista = conn.GetList(criterio).ToList();
-            }
-            return lista;
-        }
-
-        public static List<Reservaciones> GetListTodo()
-        {
-            List<Reservaciones> lista = null;
-            using (var conn = new Repositorio<Reservaciones>())
-            {
-                lista = conn.GetListTodo().ToList();
+                    throw;
+                }
+                return retono;
             }
 
-            return lista;
         }
+
+        public static Entidades.Facturas Buscar(int id)
+        {
+
+            Entidades.Facturas nuevo;
+            using (var db = new BarberShopDb())
+            {
+                try
+                {
+                    nuevo = db.facturar.Find(id);
+                    nuevo.servicioList.Count();
+
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return nuevo;
+            }
+        }
+
+        public static bool Eliminar(Entidades.Facturas id)
+        {
+            using (var db = new BarberShopDb())
+            {
+                try
+                {
+                    db.Entry(id).State = System.Data.Entity.EntityState.Deleted;
+                    return true;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+            }
+        }
+
+        public static List<Entidades.Facturas> GetListodo()
+        {
+            List<Entidades.Facturas> lista = new List<Entidades.Facturas>();
+            using (var db = new BarberShopDb())
+            {
+                try
+                {
+                    lista = db.facturar.ToList();
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+                return lista;
+            }
+        }
+
+
+
     }
 }

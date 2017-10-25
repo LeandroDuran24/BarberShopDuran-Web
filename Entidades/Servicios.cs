@@ -14,11 +14,11 @@ namespace Entidades
         public int costo { get; set; }
 
 
-        public virtual List<Facturaciones> facturaList { get; set; }
+        public virtual List<Facturas> facturaList { get; set; }
 
         public Servicios()
         {
-            facturaList = new List<Facturaciones>();
+            facturaList = new List<Facturas>();
         }
     }
 }
