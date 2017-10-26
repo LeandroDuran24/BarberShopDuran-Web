@@ -118,6 +118,17 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="UI\Reportes\DataSetBarberShop.xsc">
+      <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
+    </Content>
+    <None Include="UI\Reportes\DataSetBarberShop.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetBarberShop.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="UI\Reportes\DataSetBarberShop.xss">
+      <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -152,6 +163,9 @@
     <Content Include="UI\Formularios\ReservacionForm.aspx" />
     <Content Include="UI\Formularios\ServiciosForm.aspx" />
     <Content Include="UI\Formularios\UsuariosForm.aspx" />
+    <Content Include="UI\Reportes\ReportePeluqueros.aspx" />
+    <Content Include="UI\Reportes\ReporteServicios.aspx" />
+    <Content Include="UI\Reportes\ReporteUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -270,10 +284,38 @@
     <Compile Include="UI\Formularios\UsuariosForm.aspx.designer.cs">
       <DependentUpon>UsuariosForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\DataSetBarberShop.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePeluqueros.aspx.cs">
+      <DependentUpon>ReportePeluqueros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePeluqueros.aspx.designer.cs">
+      <DependentUpon>ReportePeluqueros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteServicios.aspx.cs">
+      <DependentUpon>ReporteServicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteServicios.aspx.designer.cs">
+      <DependentUpon>ReporteServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteUsuarios.aspx.cs">
+      <DependentUpon>ReporteUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteUsuarios.aspx.designer.cs">
+      <DependentUpon>ReporteUsuarios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="UI\Reportes\" />
+    <EmbeddedResource Include="UI\Reportes\Peluqueros.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Servicios.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Usuarios.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

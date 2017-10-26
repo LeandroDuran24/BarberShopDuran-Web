@@ -18,7 +18,7 @@ namespace Entidades
 
         public Servicios()
         {
-            facturaList = new List<Facturas>();
+            this.facturaList = new List<Facturas>();
         }
     }
 }

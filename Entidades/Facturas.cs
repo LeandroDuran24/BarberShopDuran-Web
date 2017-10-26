@@ -16,7 +16,6 @@ namespace Entidades
         public string comentario { get; set; }
         public int descuento { get; set; }
         public int itbis { get; set; }
-        public int idServicio { get; set; }
         public float subTotal { get; set; }
         public float  total { get; set; }
         public string usuario { get; set; }
@@ -27,7 +26,7 @@ namespace Entidades
 
         public Facturas()
         {
-           servicioList = new List<Servicios>();
+           this.servicioList = new List<Servicios>();
         }
     }
 }

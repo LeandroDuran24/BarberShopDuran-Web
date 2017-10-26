@@ -44,12 +44,6 @@ namespace BarberShop.UI.Formularios
             GridViewDetalle.DataBind();
         }
 
-
-
-
-
-
-
         ///*llena la tabla al agregar algun servicio*/
         //public void LlenarDataGridDetalle(Facturas nueva)
         //{
@@ -144,15 +138,14 @@ namespace BarberShop.UI.Formularios
         protected void guardar_Click(object sender, EventArgs e)
         {
 
-            if (IsValid)
-            {
-                facturar = LlenarCampos();
-                BLL.FacturarBLL.Guardar(facturar);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
-                Limpiar();
-            }
 
-           
+            facturar = LlenarCampos();
+            facturar.servicioList.ToString();
+            BLL.FacturarBLL.Guardar(facturar);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+            Limpiar();
+
+
         }
 
         /*funcion para al dar enter en el codigo del producto busque el producto*/
@@ -185,8 +178,6 @@ namespace BarberShop.UI.Formularios
             if (facturar != null)
             {
 
-
-
                 PagoTextBox.Text = facturar.formaPago;
                 DescuentoTextBox.Text = Convert.ToString(facturar.descuento);
                 ItbisTextBox.Text = Convert.ToString(facturar.itbis);
@@ -194,8 +185,6 @@ namespace BarberShop.UI.Formularios
                 SubTextBox.Text = Convert.ToString(facturar.subTotal);
                 TotalTextBox.Text = Convert.ToString(facturar.total);
                 LogIn.LabelUsuario().nombres = facturar.usuario;
-
-
             }
             else
             {
