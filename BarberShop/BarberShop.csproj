@@ -163,7 +163,9 @@
     <Content Include="UI\Formularios\ReservacionForm.aspx" />
     <Content Include="UI\Formularios\ServiciosForm.aspx" />
     <Content Include="UI\Formularios\UsuariosForm.aspx" />
+    <Content Include="UI\Reportes\ReporteClientes.aspx" />
     <Content Include="UI\Reportes\ReportePeluqueros.aspx" />
+    <Content Include="UI\Reportes\ReporteReservaciones.aspx" />
     <Content Include="UI\Reportes\ReporteServicios.aspx" />
     <Content Include="UI\Reportes\ReporteUsuarios.aspx" />
     <Content Include="Web.config" />
@@ -289,12 +291,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReporteClientes.aspx.cs">
+      <DependentUpon>ReporteClientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteClientes.aspx.designer.cs">
+      <DependentUpon>ReporteClientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ReportePeluqueros.aspx.cs">
       <DependentUpon>ReportePeluqueros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Reportes\ReportePeluqueros.aspx.designer.cs">
       <DependentUpon>ReportePeluqueros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteReservaciones.aspx.cs">
+      <DependentUpon>ReporteReservaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteReservaciones.aspx.designer.cs">
+      <DependentUpon>ReporteReservaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\ReporteServicios.aspx.cs">
       <DependentUpon>ReporteServicios.aspx</DependentUpon>
@@ -313,7 +329,9 @@
     <Compile Include="Utilidades.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI\Reportes\Clientes.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Peluqueros.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Reservaciones.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Servicios.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Usuarios.rdlc" />
   </ItemGroup>

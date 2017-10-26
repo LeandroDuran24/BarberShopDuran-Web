@@ -37,7 +37,7 @@
                     <asp:TextBox ID="hastaFecha" runat="server" Width="120px" TextMode="Date"></asp:TextBox>
                     
 
-                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger"/>
+                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger" OnClick="ButtonImprimir_Click"/>
                     
 
                 </p>

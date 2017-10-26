@@ -83,5 +83,10 @@ namespace BarberShop.UI.Consultas
         {
             SeleccionarCombo();
         }
+
+        protected void ButtonImprimir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Reportes/ReporteClientes.aspx");
+        }
     }
 }
