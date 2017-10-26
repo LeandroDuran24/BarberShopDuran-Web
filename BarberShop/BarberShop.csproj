@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Base de Datos\BarberShop.mdf" />
+    <Content Include="Base de Datos\Query.txt" />
     <Content Include="Base.Master" />
     <Content Include="Content\bootstrapTheme.min.css" />
     <None Include="packages.config" />

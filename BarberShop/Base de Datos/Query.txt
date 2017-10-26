@@ -1,0 +1,68 @@
+﻿create table Usuarios(
+idUsuario int identity(1,1) primary key,
+nombre varchar(25),
+email varchar(50),
+fecha date,
+tipoEmail varchar(15),
+clave varchar(15),
+confirmar varchar(15)
+
+);
+
+create table Clientes(
+idCliente int identity(1,1) primary key,
+nombre varchar(50),
+apellidos varchar(50),
+direccion varchar(75),
+cedula varchar(15),
+email varchar(50),
+fecha date
+);
+
+create table Reservaciones(
+idReservacion int identity(1,1) primary key,
+idCliente int,
+idPeluquero int,
+nombreCliente varchar(25),
+nombrePeluquero varchar(25),
+fechaDesde time,
+fechaHasta time,
+fecha date
+
+
+);
+
+create table Peluqueros(
+idPeluquero int identity(1,1) primary key,
+nombre varchar(25),
+telefono varchar(150),
+sexo varchar(10),
+fecha date
+
+);
+
+create table Facturas(
+idFactura int identity(1,1) primary key,
+idCliente int,
+formaPago varchar(15),
+comentario varchar(250),
+descuento int,
+itbis int,
+subTotal float,
+total float,
+usuario varchar(25),
+fecha date
+
+);
+
+create table Servicios(
+idServicio int identity(1,1) primary key,
+nombre varchar(50),
+costo int
+);
+
+create table Detalles(
+idDetalle int identity(1,1) primary key,
+idFactura int,
+idServicio int
+);
