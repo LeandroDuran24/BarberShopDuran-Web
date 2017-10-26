@@ -1,6 +1,7 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,49 +11,48 @@ namespace BarberShop.UI.Formularios
 {
     public partial class FacturarForm : Page
     {
+        DataTable dt = new DataTable();
         protected void Page_Load(object sender, EventArgs e)
         {
-            PrecioTextBox.Enabled = true;
-            ServTextBox.Enabled = false;
-            if (!Page.IsPostBack)
+            facturar = new Facturas();
+            if (!IsPostBack)
             {
                 ScriptPaginas.Script();
                 GridViewDetalle.DataSource = null;
                 LLenarComboCliente();
-               
+
+              
+                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Nombre"), new DataColumn("Costo") });
+
+                ViewState["FacturarForm"] = dt;
+                    
+
             }
 
 
         }
 
-        Facturas facturar = new Facturas();
+
+        protected void BindGrid()
+        {
+            GridViewDetalle.DataSource = (DataTable)ViewState["FacturarForm"];
+            GridViewDetalle.DataBind();
+        }
+
+        Facturas facturar;
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
 
         }
 
-        /*funcion para al dar enter en el codigo del producto busque el producto*/
-        protected void CodTextBox_TextChanged(object sender, EventArgs e)
-        {
-            int idServicio = Utilidades.TOINT(CodTextBox.Text);
-            Servicios servicio = BLL.TiposSeviciosBLL.Buscar(p => p.idServicio == idServicio);
 
-            if (servicio != null)
-            {
-                ServTextBox.Text = servicio.nombre;
-                PrecioTextBox.Text = Convert.ToString(servicio.costo);
-            }
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
-            }
-        }
 
         /*llena la tabla al agregar algun servicio*/
         public void LlenarDataGridDetalle(Facturas nueva)
         {
             GridViewDetalle.DataSource = null;
+
             GridViewDetalle.DataSource = nueva.servicioList;
             GridViewDetalle.DataBind();
 
@@ -78,12 +78,18 @@ namespace BarberShop.UI.Formularios
                 }
             }
 
-
             if (servicios != null && anadido == false)
             {
 
                 facturar.servicioList.Add(servicios);
-                LlenarDataGridDetalle(facturar);
+                //LlenarDataGridDetalle(facturar);
+                DataTable dt = (DataTable)ViewState["FacturarForm"];
+                dt.Rows.Add(ServTextBox.Text, PrecioTextBox.Text);
+
+                ViewState["FacturarForm"] = dt;
+                this.BindGrid();
+
+
             }
         }
 
@@ -94,10 +100,8 @@ namespace BarberShop.UI.Formularios
             facturar.formaPago = PagoTextBox.Text;
             facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
             facturar.itbis = Utilidades.TOINT(ItbisTextBox.Text);
-            facturar.idServicio = Utilidades.TOINT(CodTextBox.Text);
-
-
-
+            facturar.comentario = ComentarioTextBox.Text;
+            //facturar.idServicio = Utilidades.TOINT(CodTextBox.Text);
 
             return facturar;
         }
@@ -109,6 +113,9 @@ namespace BarberShop.UI.Formularios
             DropDownListClientes.DataTextField = "nombre";
             DropDownListClientes.DataValueField = "idCliente";
             DropDownListClientes.DataBind();
+
+
+
         }
 
         protected void guardar_Click(object sender, EventArgs e)
@@ -124,6 +131,23 @@ namespace BarberShop.UI.Formularios
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Error');</script>");
+            }
+        }
+
+        /*funcion para al dar enter en el codigo del producto busque el producto*/
+        protected void CodTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int idServicio = Utilidades.TOINT(CodTextBox.Text);
+            Servicios servicio = BLL.TiposSeviciosBLL.Buscar(p => p.idServicio == idServicio);
+
+            if (servicio != null)
+            {
+                ServTextBox.Text = servicio.nombre;
+                PrecioTextBox.Text = Convert.ToString(servicio.costo);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
             }
         }
     }

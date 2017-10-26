@@ -30,7 +30,7 @@ namespace DAL
                 {
                     mapeo.MapLeftKey("idServicio");
                     mapeo.MapRightKey("idFactura");
-                    mapeo.ToTable("Detalle");
+                    mapeo.ToTable("Detalles");
                 });
 
         }

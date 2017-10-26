@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="idClienteTextbox" runat="server" Width="190px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
+                <asp:TextBox ID="idClienteTextbox" runat="server" Width="190px" Height="33px" TextMode="Number"></asp:TextBox>
                 <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click"  ValidationGroup="buscar"  />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="֎" ValidationGroup="buscar" ControlToValidate="idClienteTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="CedulaTextBox3" runat="server" Width="300px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
+                <asp:TextBox ID="CedulaTextBox3" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="CedulaTextBox3" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 

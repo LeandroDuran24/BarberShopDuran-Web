@@ -99,5 +99,7 @@ namespace BarberShop.UI.Formularios
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe !');");
             }
         }
+
+       
     }
 }

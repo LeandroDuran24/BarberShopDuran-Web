@@ -17,7 +17,7 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" TextMode="Number"></asp:TextBox>&nbsp
                      <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click1" />
             </div>
 

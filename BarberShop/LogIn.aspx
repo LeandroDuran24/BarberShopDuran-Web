@@ -9,14 +9,14 @@
 
     <!---------------------------------------------Bootstrap-------------------------------------------------------->
     <link rel="stylesheet" href="Content/bootstrap.min.css" />
-    <link rel="stylesheet" href="Content/bootstrap.min.js" />
+    <link rel="stylesheet" href="/Content/bootstrap.min.js" />
 
     <!-------------------------------------------Style-------------------------------------------------------------->
-    <link rel="stylesheet" href="Content/Style/Style.css" />
+    <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!--------------------------------------------------toastr----------------------------------------------------->
-    <script src="/Scripts/toastr.min.js"></script>
+    <%--<script src="/Scripts/toastr.min.js"></script>
     <script src="/Scripts/toastr.js"></script>
-    <script src="/Scripts/jquery-3.2.1.js"></script>
+    <script src="/Scripts/jquery-3.2.1.js"></script>--%>
  
 
 </head>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="text-center">
-                    <asp:TextBox Type="password" ID="PassTextBox1" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password"></asp:TextBox>&nbsp
+                    <asp:TextBox Type="password" ID="PassTextBox1" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" ></asp:TextBox>&nbsp
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     <br />
