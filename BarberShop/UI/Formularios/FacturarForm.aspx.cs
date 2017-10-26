@@ -12,20 +12,25 @@ namespace BarberShop.UI.Formularios
     public partial class FacturarForm : Page
     {
         DataTable dt = new DataTable();
+        Facturas facturar;
         protected void Page_Load(object sender, EventArgs e)
         {
             facturar = new Facturas();
-            if (!IsPostBack)
+            if (!Page.IsPostBack)
             {
+                this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                this.LabelAtentido.Text = LogIn.LabelUsuario().nombres;
+                this.LabelAtentido.Visible = true;
+
                 ScriptPaginas.Script();
                 GridViewDetalle.DataSource = null;
                 LLenarComboCliente();
 
-              
-                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Nombre"), new DataColumn("Costo") });
+
+                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Nombre del Servicio"), new DataColumn("Costo") });
 
                 ViewState["FacturarForm"] = dt;
-                    
+
 
             }
 
@@ -39,26 +44,66 @@ namespace BarberShop.UI.Formularios
             GridViewDetalle.DataBind();
         }
 
-        Facturas facturar;
-
-        protected void Buscar_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
-        /*llena la tabla al agregar algun servicio*/
-        public void LlenarDataGridDetalle(Facturas nueva)
-        {
-            GridViewDetalle.DataSource = null;
 
-            GridViewDetalle.DataSource = nueva.servicioList;
-            GridViewDetalle.DataBind();
 
-        }
+
+        ///*llena la tabla al agregar algun servicio*/
+        //public void LlenarDataGridDetalle(Facturas nueva)
+        //{
+        //    GridViewDetalle.DataSource = null;
+
+        //    GridViewDetalle.DataSource = nueva.servicioList;
+        //    GridViewDetalle.DataBind();
+
+        //}
 
         /*al dar click envia los datos al llenarDataGridDetalle*/
+
+
+        public Facturas LlenarCampos()
+        {
+            facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
+            facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
+            facturar.formaPago = PagoTextBox.Text;
+            facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
+            facturar.itbis = Utilidades.TOINT(ItbisTextBox.Text);
+            facturar.comentario = ComentarioTextBox.Text;
+            facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
+            facturar.total = Utilidades.TOINT(TotalTextBox.Text);
+            facturar.usuario = LogIn.LabelUsuario().nombres;
+
+            return facturar;
+        }
+
+        public void LLenarComboCliente()
+        {
+            List<Clientes> lista = BLL.ClientesBLL.GetListTodo();
+            DropDownListClientes.DataSource = lista;
+            DropDownListClientes.DataTextField = "nombre";
+            DropDownListClientes.DataValueField = "idCliente";
+            DropDownListClientes.DataBind();
+
+
+
+        }
+
+        public void Limpiar()
+        {
+            facturaIdTextBox.Text = "";
+            PagoTextBox.Text = "";
+            ComentarioTextBox.Text = "";
+            DescuentoTextBox.Text = "";
+            CodTextBox.Text = "";
+            ServTextBox.Text = "";
+            PrecioTextBox.Text = "";
+            SubTextBox.Text = "";
+            TotalTextBox.Text = "";
+            RecibidoTextBox.Text = "";
+            DevueltaTextBox.Text = "";
+        }
         protected void ButtonAgregarServiciosGrid_Click1(object sender, EventArgs e)
         {
             int id = Utilidades.TOINT(CodTextBox.Text);
@@ -89,35 +134,13 @@ namespace BarberShop.UI.Formularios
                 ViewState["FacturarForm"] = dt;
                 this.BindGrid();
 
+                CodTextBox.Text = "";
+                ServTextBox.Text = "";
+                PrecioTextBox.Text = "";
+
 
             }
         }
-
-        public Facturas LlenarCampos()
-        {
-            facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
-            facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
-            facturar.formaPago = PagoTextBox.Text;
-            facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
-            facturar.itbis = Utilidades.TOINT(ItbisTextBox.Text);
-            facturar.comentario = ComentarioTextBox.Text;
-            //facturar.idServicio = Utilidades.TOINT(CodTextBox.Text);
-
-            return facturar;
-        }
-
-        public void LLenarComboCliente()
-        {
-            List<Clientes> lista = BLL.ClientesBLL.GetListTodo();
-            DropDownListClientes.DataSource = lista;
-            DropDownListClientes.DataTextField = "nombre";
-            DropDownListClientes.DataValueField = "idCliente";
-            DropDownListClientes.DataBind();
-
-
-
-        }
-
         protected void guardar_Click(object sender, EventArgs e)
         {
 
@@ -126,12 +149,10 @@ namespace BarberShop.UI.Formularios
                 facturar = LlenarCampos();
                 BLL.FacturarBLL.Guardar(facturar);
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                Limpiar();
             }
 
-            else
-            {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Error');</script>");
-            }
+           
         }
 
         /*funcion para al dar enter en el codigo del producto busque el producto*/
@@ -148,6 +169,38 @@ namespace BarberShop.UI.Formularios
             else
             {
                 Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
+            }
+        }
+
+        protected void Nuevo_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void Buscar_Click(object sender, EventArgs e)
+        {
+            int id = Utilidades.TOINT(facturaIdTextBox.Text);
+            facturar = BLL.FacturarBLL.Buscar(id);
+
+            if (facturar != null)
+            {
+
+
+
+                PagoTextBox.Text = facturar.formaPago;
+                DescuentoTextBox.Text = Convert.ToString(facturar.descuento);
+                ItbisTextBox.Text = Convert.ToString(facturar.itbis);
+                ComentarioTextBox.Text = Convert.ToString(facturar.comentario);
+                SubTextBox.Text = Convert.ToString(facturar.subTotal);
+                TotalTextBox.Text = Convert.ToString(facturar.total);
+                LogIn.LabelUsuario().nombres = facturar.usuario;
+
+
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
+                Limpiar();
             }
         }
     }

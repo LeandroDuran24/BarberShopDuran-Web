@@ -13,6 +13,24 @@ namespace BarberShop.UI.Formularios {
     public partial class FacturarForm {
         
         /// <summary>
+        /// LabelFecha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelFecha;
+        
+        /// <summary>
+        /// LabelAtentido control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAtentido;
+        
+        /// <summary>
         /// facturaIdTextBox control.
         /// </summary>
         /// <remarks>
@@ -173,6 +191,42 @@ namespace BarberShop.UI.Formularios {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewDetalle;
+        
+        /// <summary>
+        /// SubTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox SubTextBox;
+        
+        /// <summary>
+        /// TotalTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TotalTextBox;
+        
+        /// <summary>
+        /// RecibidoTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox RecibidoTextBox;
+        
+        /// <summary>
+        /// DevueltaTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DevueltaTextBox;
         
         /// <summary>
         /// Nuevo control.

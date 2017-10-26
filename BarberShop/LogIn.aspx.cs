@@ -11,16 +11,26 @@ namespace BarberShop
 {
     public partial class LogIn : System.Web.UI.Page
     {
+        public static Usuarios usuarioLabel = null;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptPaginas.Script();
             EmailTextBox.Focus();
         }
 
+        public static Usuarios LabelUsuario()
+        {
+            return usuarioLabel;
+        }
+
+
         protected void LoginButton_Click(object sender, EventArgs e)
         {
             Usuarios user = new Usuarios();
             user = BLL.UsuariosBLL.Buscar(p => p.email == EmailTextBox.Text);
+            usuarioLabel = user;
 
             if (user != null)
             {

@@ -9,8 +9,17 @@
         <div class="col-lg-12 col-md-6  col-sm-8 col-xs-12">
 
             <%--<a href="../../Content/Img/Contactanos.png" target="_blank">--%>
-            <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
+            <div>
 
+                <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
+                <label for="Fecha" id="fecha">Fecha: </label>
+                <asp:Label ID="LabelFecha" runat="server" Text=" "></asp:Label>
+                <br />
+                <label for="Atendido" id="atendido">Atendido Por: </label>
+                <asp:Label ID="LabelAtentido" runat="server" Text=""></asp:Label>
+
+
+            </div>
             <!-- input Factura Id---->
             <div class="text-center">
                 <div>
@@ -107,40 +116,58 @@
                 <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="60px" OnTextChanged="CodTextBox_TextChanged" TextMode="Number"></asp:TextBox>
                 <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="165px" Wrap="False" Enabled="False"></asp:TextBox>
                 <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="75px" Wrap="False" Enabled="False"></asp:TextBox>
-
                 <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="78px" OnClick="ButtonAgregarServiciosGrid_Click1" />
 
-                <br />
-
             </div>
+            <br />
             <!--tabla del detalle-->
             <div class="text-center gridviewDetalle">
 
-                <asp:GridView ID="GridViewDetalle" CssClass="text-center" runat="server" CellPadding="0" ClientIDMode="Static" ForeColor="#333333" Width="400px" ShowFooter="True" CaptionAlign="Left" Height="100px" HorizontalAlign="Center" PageIndex="2" PageSize="2">
+                <asp:GridView ID="GridViewDetalle" CssClass="text-center" runat="server" CellPadding="0" ClientIDMode="Static" ForeColor="#333333" Width="400px" ShowFooter="True" Height="100px" HorizontalAlign="Center" PageIndex="2" PageSize="2" GridLines="Vertical">
                     <AlternatingRowStyle BackColor="White" Font-Bold="False" />
                     <EditRowStyle BackColor="#2461BF" HorizontalAlign="Center" VerticalAlign="Middle" />
                     <EmptyDataRowStyle HorizontalAlign="Center" VerticalAlign="Bottom" />
                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderColor="Black" BorderWidth="2px" HorizontalAlign="Justify" VerticalAlign="Top" />
                     <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" BorderStyle="Solid" Font-Italic="True" Font-Size="12pt" HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle BackColor="#EFF3FB" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" BorderColor="Black" BorderWidth="2px" />
+                    <RowStyle BackColor="#EFF3FB" BorderColor="Black" BorderStyle="None" BorderWidth="2px" />
                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" BorderStyle="Solid" BorderWidth="3px" />
                     <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" BorderStyle="Solid" BorderWidth="3px" />
                     <SortedDescendingHeaderStyle BackColor="#4870BE" />
                 </asp:GridView>
 
             </div>
             <br />
-            <br />
-            <br />
+
+            <!--------sub total---->
+            <div class="text-center">
+
+                <div>
+                    <label for="sub">Sub-Total</label>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Total">Total</label>&nbsp&nbsp;&nbsp; &nbsp&nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="Recibido">Recibido&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </label>
+                    &nbsp;<label for="Devuelta">Devuelta</label>
+                </div>
+            </div>
 
             <div class="text-center">
 
-                <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" />&nbsp&nbsp
-                    <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" ValidationGroup="guardar" OnClick="guardar_Click" />&nbsp;&nbsp&nbsp
-                    <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" />
+                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" OnTextChanged="CodTextBox_TextChanged" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
+                <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
+                <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False"></asp:TextBox>
+
+
+            </div>
+            <br />
+            <!--botones ---->
+            <div class="text-center">
+
+                    <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" Width="125px" OnClick="Nuevo_Click" />&nbsp&nbsp
+                    <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" ValidationGroup="guardar" OnClick="guardar_Click" Width="125px" />&nbsp;&nbsp&nbsp
+                    <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" Width="125px" />
             </div>
 
 
