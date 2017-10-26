@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -37,26 +38,14 @@ namespace BarberShop.UI.Formularios
 
         }
 
-
+        /*para agregar todos los servicios al grid usando viewState*/
         protected void BindGrid()
         {
             GridViewDetalle.DataSource = (DataTable)ViewState["FacturarForm"];
             GridViewDetalle.DataBind();
         }
 
-        ///*llena la tabla al agregar algun servicio*/
-        //public void LlenarDataGridDetalle(Facturas nueva)
-        //{
-        //    GridViewDetalle.DataSource = null;
-
-        //    GridViewDetalle.DataSource = nueva.servicioList;
-        //    GridViewDetalle.DataBind();
-
-        //}
-
-        /*al dar click envia los datos al llenarDataGridDetalle*/
-
-
+        /*llenar las instancia*/
         public Facturas LlenarCampos()
         {
             facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
@@ -68,10 +57,11 @@ namespace BarberShop.UI.Formularios
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
             facturar.usuario = LogIn.LabelUsuario().nombres;
+           
 
             return facturar;
         }
-
+        /*llenar el comboBox del cliente*/
         public void LLenarComboCliente()
         {
             List<Clientes> lista = BLL.ClientesBLL.GetListTodo();
@@ -83,7 +73,7 @@ namespace BarberShop.UI.Formularios
 
 
         }
-
+        /*limpia los campos*/
         public void Limpiar()
         {
             facturaIdTextBox.Text = "";
@@ -98,6 +88,30 @@ namespace BarberShop.UI.Formularios
             RecibidoTextBox.Text = "";
             DevueltaTextBox.Text = "";
         }
+
+        /*calcular el monto total del costo de los servicios*/
+        public void CalcularMonto()
+        {
+            decimal subTotal = 0.000m;
+
+            //if (GridViewDetalle.Rows.Count > 0)
+            //{
+            //    foreach (GridViewRow precio in GridViewDetalle.Rows)
+            //    {
+            //        subTotal += Convert.ToDecimal(precio.Cells[0].Text);
+            //        SubTextBox.Text = subTotal.ToString();
+            //    }
+            //}
+
+            for(int i=0; i<GridViewDetalle.Rows.Count; i++)
+            {
+                subTotal += Utilidades.TOINT(GridViewDetalle.Rows[i].Cells[i+1].Text);
+                SubTextBox.Text = subTotal.ToString();
+            }
+        }
+
+
+        /*boton que agrega los servicios al grid*/
         protected void ButtonAgregarServiciosGrid_Click1(object sender, EventArgs e)
         {
             int id = Utilidades.TOINT(CodTextBox.Text);
@@ -121,12 +135,14 @@ namespace BarberShop.UI.Formularios
             {
 
                 facturar.servicioList.Add(servicios);
-                //LlenarDataGridDetalle(facturar);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Agregado');</script>");
+
                 DataTable dt = (DataTable)ViewState["FacturarForm"];
                 dt.Rows.Add(ServTextBox.Text, PrecioTextBox.Text);
 
                 ViewState["FacturarForm"] = dt;
                 this.BindGrid();
+               // CalcularMonto();
 
                 CodTextBox.Text = "";
                 ServTextBox.Text = "";
@@ -135,6 +151,8 @@ namespace BarberShop.UI.Formularios
 
             }
         }
+
+        /*boton guardar*/
         protected void guardar_Click(object sender, EventArgs e)
         {
 
@@ -164,12 +182,12 @@ namespace BarberShop.UI.Formularios
                 Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
             }
         }
-
+        /*boton para limpiar*/
         protected void Nuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
-
+        /*boton buscar*/
         protected void Buscar_Click(object sender, EventArgs e)
         {
             int id = Utilidades.TOINT(facturaIdTextBox.Text);

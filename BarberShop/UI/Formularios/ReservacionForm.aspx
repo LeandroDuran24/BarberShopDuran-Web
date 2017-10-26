@@ -17,8 +17,9 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" TextMode="Number"></asp:TextBox>&nbsp
-                     <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="105px" OnClick="Buscar_Click1" />
+                <asp:textbox id="idTextbox" runat="server" width="190px" height="33px" textmode="Number"></asp:textbox>
+                &nbsp
+                     <asp:button id="Buscar" cssclass="btn btn-danger btn-md " runat="server" text="Buscar" width="105px" onclick="Buscar_Click1" />
             </div>
 
             <!--input del nombre cliente-->
@@ -28,8 +29,8 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:DropDownList ID="DropDownListCliente" runat="server" Width="300px" Height="33px">
-                </asp:DropDownList>
+                <asp:dropdownlist id="DropDownListCliente" runat="server" width="300px" height="33px">
+                </asp:dropdownlist>
             </div>
 
             <!--input del Nombre Peluquero-->
@@ -39,28 +40,38 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:DropDownList ID="DropDownListPeluquero" runat="server" Width="300px" Height="33px">
-                </asp:DropDownList>
+                <asp:dropdownlist id="DropDownListPeluquero" runat="server" width="300px" height="33px">
+                </asp:dropdownlist>
             </div>
 
             <!--input de fecha desde-->
             <div class="text-center">
                 <div>
-                    <label for="fecha_desde">Fecha Desde</label>
+                    <label for="fecha_desde">Hora Desde</label>
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="FechaDesde" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
+                <asp:textbox type="time" id="FechaDesde" runat="server" width="300px" height="33px"></asp:textbox>
             </div>
 
             <!--input de fecha Hasta-->
             <div class="text-center">
                 <div>
-                    <label for="fecha_Hasta">Fecha Hasta</label>
+                    <label for="fecha_Hasta">Hora Hasta</label>
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="fechaHasta" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
+                <asp:textbox type="time" id="fechaHasta" runat="server" width="300px" height="33px"></asp:textbox>
+            </div>
+
+            <!--input de fecha -->
+            <div class="text-center">
+                <div>
+                    <label for="fecha">Fecha</label>
+                </div>
+            </div>
+            <div class="text-center">
+                <asp:textbox id="FechaTextbox" runat="server" width="300px" height="33px"></asp:textbox>
             </div>
 
 
@@ -71,9 +82,11 @@
 
             <div class="text-center">
 
-                <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" OnClick="Nuevo_Click" />&nbsp&nbsp
-                <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" OnClick="guardar_Click" />&nbsp;&nbsp&nbsp
-                <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" />
+                <asp:button id="Nuevo" cssclass="btn btn-danger btn-md " runat="server" text="Nuevo" onclick="Nuevo_Click" />
+                &nbsp&nbsp
+                <asp:button id="guardar" cssclass="btn btn-danger btn-md " runat="server" text="Guardar" onclick="guardar_Click" />
+                &nbsp;&nbsp&nbsp
+                <asp:button id="Eliminar" cssclass="btn btn-danger btn-md " runat="server" text="Eliminar" />
             </div>
 
         </div>

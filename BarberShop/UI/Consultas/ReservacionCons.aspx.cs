@@ -15,8 +15,6 @@ namespace BarberShop.UI.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             Reservaciones reservacion = new Reservaciones();
-            GridView1.DataSource = BLL.ReservacionesBLL.GetListTodo();
-            GridView1.DataBind();
             lista = BLL.ReservacionesBLL.GetListTodo();
         }
 
@@ -28,17 +26,17 @@ namespace BarberShop.UI.Consultas
                 lista = BLL.ReservacionesBLL.GetList(p => p.idReservacion == id);
 
             }
-          
+
             else if (DropDownList1.SelectedIndex == 1)
             {
                 DateTime desde = Convert.ToDateTime(desdeFecha.Text);
-                DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
+                DateTime hasta = Convert.ToDateTime(hastaFecha.Text);
 
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
                 {
                     if (desde <= hasta)
                     {
-                        lista = BLL.ReservacionesBLL.GetList(p => p.fechaDesde >= desde && p.fechaHasta <= hasta);
+                        lista = BLL.ReservacionesBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
 
                     }
                     else
@@ -61,7 +59,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            GridView1.DataSource = lista;
+            GridView1.DataSource = lista.OrderBy(p=> p.fecha).ToList();
             GridView1.DataBind();
 
 

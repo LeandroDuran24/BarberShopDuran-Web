@@ -14,5 +14,6 @@ namespace Entidades
         public string telefono { get; set; }
         public string sexo { get; set; }
         public DateTime fecha { get; set; }
+       
     }
 }

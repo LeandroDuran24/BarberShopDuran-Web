@@ -11,7 +11,7 @@ namespace BarberShop.UI.Formularios
     public partial class ReservacionForm : System.Web.UI.Page
     {
         Reservaciones reservacion = new Reservaciones();
-
+        Reservaciones peluquero = new Reservaciones();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,10 +19,11 @@ namespace BarberShop.UI.Formularios
             if (!Page.IsPostBack)
             {
                 ScriptPaginas.Script();
-                //this.FechaDesde.Text = string.Format("{0:G}", DateTime.Now);
-                //this.fechaHasta.Text = string.Format("{0:G}", DateTime.Now);
+                Limpiar();
+
                 LLenarComboCliente();
                 LLenarComboPeluquero();
+
 
 
 
@@ -50,14 +51,19 @@ namespace BarberShop.UI.Formularios
 
         public Reservaciones LLenarCampos()
         {
+
+
             reservacion.idReservacion = Utilidades.TOINT(idTextbox.Text);
             reservacion.idCliente = Utilidades.TOINT(DropDownListCliente.SelectedValue.ToString());
             reservacion.idPeluquero = Utilidades.TOINT(DropDownListPeluquero.SelectedValue.ToString());
             reservacion.nombreCliente = DropDownListCliente.SelectedItem.ToString();
             reservacion.nombrePeluquero = DropDownListPeluquero.SelectedItem.ToString();
-            reservacion.fechaDesde = Convert.ToDateTime(FechaDesde.Text);
-            reservacion.fechaHasta = Convert.ToDateTime(fechaHasta.Text);
+            reservacion.fechaDesde = TimeSpan.Parse(FechaDesde.Text);
+            reservacion.fechaHasta = TimeSpan.Parse(fechaHasta.Text);
+            reservacion.fecha = Convert.ToDateTime(FechaTextbox.Text);
             return reservacion;
+
+
         }
 
         public void Limpiar()
@@ -65,7 +71,14 @@ namespace BarberShop.UI.Formularios
             idTextbox.Text = "";
             DropDownListCliente.DataSource = BLL.ClientesBLL.GetListTodo();
             DropDownListPeluquero.DataSource = "";
+            FechaDesde.Text = "";
+            fechaHasta.Text = "";
+            FechaTextbox.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+
+
         }
+
 
         protected void guardar_Click(object sender, EventArgs e)
         {
@@ -80,11 +93,46 @@ namespace BarberShop.UI.Formularios
                 }
                 else
                 {
+                    string pel = DropDownListPeluquero.SelectedItem.ToString();
+                    peluquero = BLL.ReservacionesBLL.Buscar(p => p.nombrePeluquero == pel);
 
-                    BLL.ReservacionesBLL.Guardar(reservacion);
+                    if (peluquero != null)
+                    {
+                        TimeSpan desde = TimeSpan.Parse(FechaDesde.Text);
+                        Reservaciones desdeHr = BLL.ReservacionesBLL.Buscar(p => p.fechaDesde == desde);
+                        if (desdeHr == null)
+                        {
+                            TimeSpan hasta = TimeSpan.Parse(fechaHasta.Text);
+                            Reservaciones hastaHr = BLL.ReservacionesBLL.Buscar(p => p.fechaHasta == hasta);
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
-                    Limpiar();
+                            if (hastaHr == null)
+                            {
+                                DateTime fecha = Convert.ToDateTime(FechaTextbox.Text);
+                                Reservaciones fechas = BLL.ReservacionesBLL.Buscar(p => p.fecha == fecha);
+
+                                if (fechas == null)
+                                {
+                                    BLL.ReservacionesBLL.Guardar(reservacion);
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                                    Limpiar();
+                                }
+                                else
+                                {
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha Igual');</script>");
+                                }
+                            }
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr hasta Igual');</script>");
+                            }
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr desde Igual');</script>");
+                        }
+                    }
+
+
 
 
                 }
@@ -103,6 +151,7 @@ namespace BarberShop.UI.Formularios
                     DropDownListPeluquero.Text = reservacion.nombrePeluquero;
                     FechaDesde.Text = Convert.ToString(reservacion.fechaDesde);
                     fechaHasta.Text = Convert.ToString(reservacion.fechaHasta);
+                    FechaTextbox.Text = Convert.ToString(reservacion.fecha);
 
 
                 }

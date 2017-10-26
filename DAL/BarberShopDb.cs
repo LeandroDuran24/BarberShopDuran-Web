@@ -24,7 +24,7 @@ namespace DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Entidades.Facturas>()
-                .HasMany(p => p.servicioList)
+                .HasMany(p=> p.servicioList)
                 .WithMany(p => p.facturaList)
                 .Map(mapeo =>
                 {

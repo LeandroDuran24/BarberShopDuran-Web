@@ -17,6 +17,7 @@ namespace BarberShop
         }
 
 
+
         public static void MostrarToastr(this Page page, string message, string title, string type = "info")
         {
             page.ClientScript.RegisterStartupScript(page.GetType(), "toastr_message",

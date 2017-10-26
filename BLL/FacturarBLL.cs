@@ -11,33 +11,14 @@ namespace BLL
 {
     public class FacturarBLL
     {
-        public static bool Guardar(Entidades.Facturas nuevo)
+        public static Facturas Guardar(Facturas nuevo)
         {
-            bool retono = false;
-            using (var db = new BarberShopDb())
+            Facturas retorno = null;
+            using (var conn = new Repositorio<Facturas>())
             {
-                try
-                {
-
-                    foreach (var g in nuevo.servicioList)
-                    {
-                        db.Entry(g).State = System.Data.Entity.EntityState.Unchanged;
-                    }
-
-
-                    db.facturar.Add(nuevo);
-                    db.SaveChanges();
-                    retono = true;
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                return retono;
+                retorno = conn.Guardar(nuevo);
             }
-
+            return retorno;
         }
 
         public static Entidades.Facturas Buscar(int id)

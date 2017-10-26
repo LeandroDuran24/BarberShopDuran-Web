@@ -67,6 +67,15 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.TextBox fechaHasta;
         
         /// <summary>
+        /// FechaTextbox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox FechaTextbox;
+        
+        /// <summary>
         /// Nuevo control.
         /// </summary>
         /// <remarks>
