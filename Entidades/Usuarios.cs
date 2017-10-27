@@ -11,7 +11,7 @@ namespace Entidades
     {
         [Key]
         public int idUsuario { get; set; }
-        public string nombres { get; set; }
+        public string nombre { get; set; }
         public string email { get; set; }
         public DateTime fecha { get; set; }
         public string tipoEmail { get; set; }

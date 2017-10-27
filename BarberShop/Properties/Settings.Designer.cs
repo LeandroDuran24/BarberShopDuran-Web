@@ -26,9 +26,10 @@ namespace BarberShop.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Leandro Duran\\Deskt" +
-            "op\\BarberShop\\BarberShopDuran\\BarberShop\\Base de Datos\\BarberShop.mdf\";Integrate" +
-            "d Security=True;Connect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShop" +
+            "Duran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;Mult" +
+            "ipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificat" +
+            "e=False")]
         public string ConStr {
             get {
                 return ((string)(this["ConStr"]));

@@ -30,7 +30,7 @@ namespace BarberShop.UI.Formularios
         public Usuarios LlenarCampos()
         {
             user.idUsuario = Utilidades.TOINT(idTextbox.Text);
-            user.nombres = NombreTextbox.Text;
+            user.nombre = NombreTextbox.Text;
             user.email = emailTextbox.Text;
             user.fecha = Convert.ToDateTime(fecha.Text);
             if (DropDownList1.SelectedIndex == 0)
@@ -75,7 +75,7 @@ namespace BarberShop.UI.Formularios
                 if (user != null)
                 {
                     emailTextbox.Text = user.email;
-                    NombreTextbox.Text = user.nombres;
+                    NombreTextbox.Text = user.nombre;
                     DropDownList1.Text = user.tipoEmail;
                     claveTextbox.Text = user.clave;
                     confTextbox.Text = user.confirmar;
