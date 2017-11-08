@@ -14,9 +14,7 @@
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!--------------------------------------------------toastr----------------------------------------------------->
-    <%--<script src="/Scripts/toastr.min.js"></script>
-    <script src="/Scripts/toastr.js"></script>
-    <script src="/Scripts/jquery-3.2.1.js"></script>--%>
+      
  
 
 </head>
@@ -38,8 +36,8 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:TextBox ID="EmailTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email"></asp:TextBox>&nbsp
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="EmailTextBox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email"></asp:TextBox>&nbsp
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
 
@@ -53,7 +51,7 @@
                 </div>
 
                 <div class="text-center">
-                    <asp:TextBox Type="password" ID="PassTextBox1" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" ></asp:TextBox>&nbsp
+                    <asp:TextBox Type="password" ID="PassTextBox1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" ></asp:TextBox>&nbsp
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     <br />

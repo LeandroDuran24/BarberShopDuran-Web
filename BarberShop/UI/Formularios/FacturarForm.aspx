@@ -35,10 +35,6 @@
             </div>
 
 
-            <!------input fecha--->
-
-            <%--<asp:textbox id="FechaTextbox" class="text-right" runat="server" height="23px" width="225px"></asp:textbox>--%>
-
 
             <!---------input del nombre del cliente-------->
             <div class="text-center">
@@ -165,7 +161,7 @@
             <!--botones ---->
             <div class="text-center">
 
-                    <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" Width="125px" OnClick="Nuevo_Click" />&nbsp&nbsp
+                <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" Width="125px" OnClick="Nuevo_Click" />&nbsp&nbsp
                     <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" ValidationGroup="guardar" OnClick="guardar_Click" Width="125px" />&nbsp;&nbsp&nbsp
                     <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" Width="125px" />
             </div>

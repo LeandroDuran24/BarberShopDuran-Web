@@ -11,13 +11,15 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="0"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="4" ></li>
             </ol>
 
             <div class="carousel-inner" role="listbox">
-                <div class="item active">
+                <div class="item">
                     <img src="/../../Content/Img/Model1.png">
                 </div>
 
@@ -27,6 +29,19 @@
 
                 <div class="item">
                     <img src="/../../Content/Img/Model3.png">
+                </div>
+
+                <div class="item active">
+                    <img src="/../../Content/Img/Model4.png">
+                </div>
+
+                <div class="item">
+                    <video width="1138" height="446" controls>
+                        <source src="/../../Content/Img/Model5.mp4" type="video/mp4">
+                        <source src="/../../Content/Img/Model5.ogg" type="video/ogg">
+                    
+                       
+                    </video>
                 </div>
             </div>
 

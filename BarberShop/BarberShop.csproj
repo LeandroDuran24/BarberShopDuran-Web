@@ -105,9 +105,15 @@
     <Content Include="Base de Datos\Query.txt" />
     <Content Include="Base.Master" />
     <Content Include="Content\bootstrapTheme.min.css" />
+    <Content Include="Content\Img\Model4.PNG" />
+    <Content Include="Content\Img\Model5.mp4" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="packages.config" />
-    <None Include="Properties\PublishProfiles\BarberShopDuran - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\BarberShopDuran - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\DuranBarberShop - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\DuranBarberShop - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -119,6 +125,8 @@
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="UI\Reportes\DataSetBarberShop.xsc">
       <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
     </Content>
@@ -346,6 +354,7 @@
       <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

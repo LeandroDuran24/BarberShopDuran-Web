@@ -116,21 +116,40 @@ namespace BarberShop.UI.Formularios
                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
                                     Limpiar();
                                 }
+                                else if (hastaHr == null && desdeHr == null && fechas != null)
+                                {
+                                    BLL.ReservacionesBLL.Guardar(reservacion);
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                                    Limpiar();
+
+                                }
                                 else
                                 {
                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha Igual');</script>");
+                                    Limpiar();
                                 }
+
                             }
                             else
                             {
+
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr hasta Igual');</script>");
+                                Limpiar();
                             }
                         }
                         else
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr desde Igual');</script>");
+                            Limpiar();
                         }
                     }
+                    else
+                    {
+                        BLL.ReservacionesBLL.Guardar(reservacion);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                        Limpiar();
+                    }
+
 
 
 
@@ -147,6 +166,7 @@ namespace BarberShop.UI.Formularios
             {
                 if (reservacion != null)
                 {
+                    
                     DropDownListCliente.Text = reservacion.nombreCliente;
                     DropDownListPeluquero.Text = reservacion.nombrePeluquero;
                     FechaDesde.Text = Convert.ToString(reservacion.fechaDesde);
@@ -158,7 +178,9 @@ namespace BarberShop.UI.Formularios
                 else
                 {
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
+                    Limpiar();
                 }
+
             }
         }
 

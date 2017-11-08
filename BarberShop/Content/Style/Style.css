@@ -25,3 +25,9 @@
     width: auto;
     height: auto;
 }
+
+/*Border de los textbox*/
+.BorderTextBox {
+    border:2px solid Tomato;
+     
+}
