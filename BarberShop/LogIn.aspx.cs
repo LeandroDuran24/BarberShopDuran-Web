@@ -54,7 +54,7 @@ namespace BarberShop
             {
 
 
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "toastr_message", "toastr.error('No Existe', 'Error');", true);
+                Utilidades.MostrarToastr(this, "No Exite Usuario", "Error", "Error");
                 Limpiar();
             }
 

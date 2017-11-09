@@ -19,6 +19,7 @@ namespace Entidades
         public float subTotal { get; set; }
         public float  total { get; set; }
         public string usuario { get; set; }
+        public DateTime fecha { get; set; }
 
 
 

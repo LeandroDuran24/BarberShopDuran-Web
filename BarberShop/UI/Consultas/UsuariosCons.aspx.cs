@@ -15,8 +15,6 @@ namespace BarberShop.UI.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuarios user = new Usuarios();
-             GridView1.DataSource = BLL.UsuariosBLL.GetListTodo();
-             GridView1.DataBind();
             lista = BLL.UsuariosBLL.GetListTodo();
         }
 
@@ -24,20 +22,28 @@ namespace BarberShop.UI.Consultas
         {
             if (DropDownList1.SelectedIndex == 0)
             {
-                int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.UsuariosBLL.GetList(p => p.idUsuario == id);
-               
+                if (TextBox1.Text == "")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.UsuariosBLL.GetList(p => p.idUsuario == id);
+                }
+
+
             }
             else if (DropDownList1.SelectedIndex == 1)
             {
                 if (TextBox1.Text == "")
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Nombre');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
                 }
                 else
                 {
                     lista = BLL.UsuariosBLL.GetList(p => p.nombre == TextBox1.Text);
-                    
+
                 }
 
 
@@ -51,17 +57,17 @@ namespace BarberShop.UI.Consultas
                 {
                     if (desde <= hasta)
                     {
-                        lista = BLL.UsuariosBLL.GetList(p => p.fecha >= desde && p.fecha <=hasta);
-                       
+                        lista = BLL.UsuariosBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
+
                     }
                     else
                     {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('La Primera Fecha debe ser Menor a la Segunda Fecha');</script>");
+                        Utilidades.MostrarToastr(this, "La Primera Fecha debe ser Menor que la Segunda Fecha", "error", "error");
                     }
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Intervalo de Fecha');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar las Fechas", "error", "error");
                 }
 
 
@@ -71,7 +77,7 @@ namespace BarberShop.UI.Consultas
             {
 
                 lista = BLL.UsuariosBLL.GetListTodo();
-               
+
 
             }
             GridView1.DataSource = lista;

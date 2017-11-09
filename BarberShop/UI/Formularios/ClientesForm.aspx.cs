@@ -66,7 +66,7 @@ namespace BarberShop.UI.Formularios
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
+                   Utilidades.MostrarToastr (this, "No Existe", "error", "error");
                 }
             }
 
@@ -86,12 +86,12 @@ namespace BarberShop.UI.Formularios
                 if (cliente.idCliente > 0)
                 {
                     BLL.ClientesBLL.Modificar(cliente);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
                 }
                 else
                 {
                     BLL.ClientesBLL.Guardar(cliente);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
+                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                     limpiar();
 
                 }
@@ -108,7 +108,7 @@ namespace BarberShop.UI.Formularios
             if (cliente != null)
             {
                 BLL.ClientesBLL.Eliminar(cliente);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Eliminado !');</script>");
+                Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
             }
         }
     }

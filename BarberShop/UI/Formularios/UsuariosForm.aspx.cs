@@ -13,7 +13,6 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //this.fecha.Text = string.Format("{0:G}", DateTime.Now);
 
             ScriptPaginas.Script();
 
@@ -85,7 +84,7 @@ namespace BarberShop.UI.Formularios
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
+                    Utilidades.MostrarToastr(this, "No Coinciden", "Error", "Error");
                 }
             }
 
@@ -106,14 +105,14 @@ namespace BarberShop.UI.Formularios
                 {
 
                     UsuariosBLL.Mofidicar(user);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Ha Modificado Correctamente');</script>");
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
                 }
                 else
                 {
                     user = LlenarCampos();
                     UsuariosBLL.Guardar(user);
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                     Limpiar();
                     NombreTextbox.Focus();
 
@@ -131,7 +130,7 @@ namespace BarberShop.UI.Formularios
                 if (user.idUsuario != 1)
                 {
                     UsuariosBLL.Eliminar(user);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se ha Eliminado Correctamente');</script>");
+                    Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
                     Limpiar();
                     NombreTextbox.Focus();
                 }

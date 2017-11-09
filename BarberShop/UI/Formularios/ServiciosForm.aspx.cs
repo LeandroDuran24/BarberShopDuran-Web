@@ -13,9 +13,7 @@ namespace BarberShop.UI.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptPaginas.Script();
-            //idTextbox.Attributes.Add("onkeypress", "return soloNumeros(event);");//solo numero
-            //CostoTextBox1.Attributes.Add("onkeypress", "return soloLetras(event);");
-           // NombreTextbox.Attributes.Add("onkeypress", "return ValidLet(event);");//solo letras
+           
         }
 
         Servicios Servicios = new Servicios();
@@ -53,7 +51,7 @@ namespace BarberShop.UI.Formularios
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe !');");
+                    Utilidades.MostrarToastr(this, "No Existe", "Error", "Error");
                 }
             }
 
@@ -72,13 +70,13 @@ namespace BarberShop.UI.Formularios
                 if (Servicios.idServicio != 0)
                 {
                     BLL.TiposSeviciosBLL.Modificar(Servicios);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Modificado !');</script>");
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
 
                 }
                 else
                 {
                     BLL.TiposSeviciosBLL.Guardar(Servicios);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Guardado !');</script>");
+                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                     limpiar();
                     NombreTextbox.Focus();
                 }
@@ -96,7 +94,7 @@ namespace BarberShop.UI.Formularios
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe !');");
+                Utilidades.MostrarToastr(this, "Eliminado", "info", "info");
             }
         }
 

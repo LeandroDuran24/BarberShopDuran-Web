@@ -14,8 +14,7 @@ namespace BarberShop.UI.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             Clientes user = new Clientes();
-            GridView1.DataSource = BLL.ClientesBLL.GetListTodo();
-            GridView1.DataBind();
+           
             lista = BLL.ClientesBLL.GetListTodo();
         }
 
@@ -23,15 +22,23 @@ namespace BarberShop.UI.Consultas
         {
             if (DropDownList1.SelectedIndex == 0)
             {
-                int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.ClientesBLL.GetList(p => p.idCliente == id);
+                if(TextBox1.Text=="")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Id", "error", "error");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.ClientesBLL.GetList(p => p.idCliente == id);
+                }
+                
 
             }
             else if (DropDownList1.SelectedIndex == 1)
             {
                 if (TextBox1.Text == "")
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Nombre');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
                 }
                 else
                 {
@@ -55,12 +62,12 @@ namespace BarberShop.UI.Consultas
                     }
                     else
                     {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('La Primera Fecha debe ser Menor a la Segunda Fecha');</script>");
+                        Utilidades.MostrarToastr(this, "La Primera Fecha debe ser Menor que la Segunda Fecha", "error", "error");
                     }
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Intervalo de Fecha');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar las Fechas", "error", "error");
                 }
 
 

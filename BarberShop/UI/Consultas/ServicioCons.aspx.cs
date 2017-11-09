@@ -14,8 +14,7 @@ namespace BarberShop.UI.Consultas
         protected void Page_Load(object sender, EventArgs e)
         {
             Servicios servicio = new Servicios();
-            //GridView1.DataSource = BLL.TiposSeviciosBLL.GetListTodo();
-            //GridView1.DataBind();
+          
             lista = BLL.TiposSeviciosBLL.GetListTodo();
         }
 
@@ -23,16 +22,23 @@ namespace BarberShop.UI.Consultas
         {
             if (DropDownList1.SelectedIndex == 0)
             {
-                int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.TiposSeviciosBLL.GetList(p => p.idServicio == id);
-                GridView1.DataSource = lista;
-                GridView1.DataBind();
+                if(TextBox1.Text=="")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Id", "error", "error");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.TiposSeviciosBLL.GetList(p => p.idServicio == id);
+                   
+                }
+               
             }
             else if (DropDownList1.SelectedIndex == 1)
             {
                 if (TextBox1.Text == "")
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Nombre');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
                 }
                 else
                 {

@@ -113,19 +113,19 @@ namespace BarberShop.UI.Formularios
                                 if (fechas == null)
                                 {
                                     BLL.ReservacionesBLL.Guardar(reservacion);
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                                     Limpiar();
                                 }
                                 else if (hastaHr == null && desdeHr == null && fechas != null)
                                 {
                                     BLL.ReservacionesBLL.Guardar(reservacion);
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                                     Limpiar();
 
                                 }
                                 else
                                 {
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Fecha Igual');</script>");
+                                    Utilidades.MostrarToastr(this, "Ocupado", "Error", "Error");
                                     Limpiar();
                                 }
 
@@ -133,20 +133,20 @@ namespace BarberShop.UI.Formularios
                             else
                             {
 
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr hasta Igual');</script>");
+                                Utilidades.MostrarToastr(this, "Ocupado", "Error", "Error");
                                 Limpiar();
                             }
                         }
                         else
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Hr desde Igual');</script>");
+                            Utilidades.MostrarToastr(this, "Ocupado", "Error", "Error");
                             Limpiar();
                         }
                     }
                     else
                     {
                         BLL.ReservacionesBLL.Guardar(reservacion);
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+                        Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                         Limpiar();
                     }
 
@@ -166,7 +166,7 @@ namespace BarberShop.UI.Formularios
             {
                 if (reservacion != null)
                 {
-                    
+
                     DropDownListCliente.Text = reservacion.nombreCliente;
                     DropDownListPeluquero.Text = reservacion.nombrePeluquero;
                     FechaDesde.Text = Convert.ToString(reservacion.fechaDesde);
@@ -177,7 +177,7 @@ namespace BarberShop.UI.Formularios
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('No existe ese Registro');</script>");
+                    Utilidades.MostrarToastr(this, "No Existe", "Error", "Error");
                     Limpiar();
                 }
 

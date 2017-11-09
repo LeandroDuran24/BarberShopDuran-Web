@@ -4,6 +4,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    <h1 class=" text-center">Consulta Servicios <span class="glyphicon glyphicon-wrench"></span></h1>
+
     <div class="container-fluid">
         <div class="col-lg-12 col-md-6  col-sm-8 col-xs-12">
 
@@ -24,7 +26,7 @@
                       
                     <asp:Button ID="ButtonBuscar" CssClass="btn btn-danger" runat="server" Text="Filtrar" OnClick="ButtonBuscar_Click" />
                 &nbsp
-                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger" OnClick="ButtonImprimir_Click"/>
+                    <asp:Button ID="ButtonImprimir" runat="server" Text="Imprimir" CssClass="btn btn-danger" OnClick="ButtonImprimir_Click" />
 
             </div>
 
@@ -56,13 +58,9 @@
 
 
         </div>
+        <br />
+        <br />
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
 
 </asp:Content>

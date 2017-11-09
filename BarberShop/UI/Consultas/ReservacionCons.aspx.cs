@@ -22,8 +22,16 @@ namespace BarberShop.UI.Consultas
         {
             if (DropDownList1.SelectedIndex == 0)
             {
-                int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.ReservacionesBLL.GetList(p => p.idReservacion == id);
+                if (TextBox1.Text == "")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.ReservacionesBLL.GetList(p => p.idReservacion == id);
+                }
+
 
             }
 
@@ -41,7 +49,7 @@ namespace BarberShop.UI.Consultas
                     }
                     else
                     {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('La Primera Fecha debe ser Menor a la Segunda Fecha');</script>");
+                        Utilidades.MostrarToastr(this, "La Primera Fecha debe ser Menor que la Segunda Fecha", "error", "error");
                     }
                 }
                 else
@@ -59,7 +67,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            GridView1.DataSource = lista.OrderBy(p=> p.fecha).ToList();
+            GridView1.DataSource = lista.OrderBy(p => p.fecha).ToList();
             GridView1.DataBind();
 
 

@@ -77,6 +77,16 @@ namespace BLL
             }
         }
 
+        public static List<Facturas> GetList(Expression<Func<Facturas, bool>> criterio)
+        {
+            List<Facturas> lista = null;
+            using (var conn = new Repositorio<Facturas>())
+            {
+                lista = conn.GetList(criterio).ToList();
+            }
+            return lista;
+        }
+
 
 
     }

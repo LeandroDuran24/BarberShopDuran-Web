@@ -22,10 +22,7 @@
     <link rel="stylesheet" href="/Content/bootstrapTheme.min.css" />
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
-    <!---------------------------------------------Script--------------------------------------------------------->
 
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -94,7 +91,7 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Facturacion <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/UI/Formularios/FacturarForm.aspx">Registro</a></li>
-                        <li><a href="#">Consulta</a></li>
+                        <li><a href="/UI/Consultas/FacturasCons.aspx">Consulta</a></li>
 
                     </ul>
                 </li>
@@ -131,13 +128,27 @@
         <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class=" glyphicon glyphicon-cog"></span>Leandro R Duran M</p>
     </footer>
 
-    <!-----------------------------------------------------Script----------------------------------------------->
+    <!-----------------------------------------------------Script para el mapa----------------------------------------->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!---------------------------------------------Script para los Toastr--------------------------------------------------------->
+
+    
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
+    <!-----------------------------------------mi style personal----------------------------------------------------------------->
     <script src="/../../Content/Script.js"></script>
+
+    <!----script para no volver atras en el browse-->
+    <script language="JavaScript">
+        if (history.forward(1)) {
+            history.replace(history.forward(1));
+        }
+    </script>
+
 
 </body>
 </html>

@@ -57,6 +57,7 @@ namespace BarberShop.UI.Formularios
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
             facturar.usuario = LogIn.LabelUsuario().nombre;
+            facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
            
 
             return facturar;
@@ -135,7 +136,7 @@ namespace BarberShop.UI.Formularios
             {
 
                 facturar.servicioList.Add(servicios);
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Agregado');</script>");
+               
 
                 DataTable dt = (DataTable)ViewState["FacturarForm"];
                 dt.Rows.Add(ServTextBox.Text, PrecioTextBox.Text);
@@ -160,7 +161,7 @@ namespace BarberShop.UI.Formularios
             facturar = LlenarCampos();
             facturar.servicioList.ToString();
             BLL.FacturarBLL.Guardar(facturar);
-            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Guardo Correctamente');</script>");
+             Utilidades.MostrarToastr(this, "Guardado", "success", "success");
             Limpiar();
 
 
@@ -179,7 +180,7 @@ namespace BarberShop.UI.Formularios
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
+                Utilidades.MostrarToastr(this, "No Existe", "error", "error");
             }
         }
         /*boton para limpiar*/
@@ -206,7 +207,7 @@ namespace BarberShop.UI.Formularios
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(GetType(), "scripts", "<script>alert('No existe');</script>");
+                Utilidades.MostrarToastr(this, "No Existe", "error", "error");
                 Limpiar();
             }
         }
