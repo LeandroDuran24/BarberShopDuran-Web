@@ -12,12 +12,12 @@ namespace BarberShop.UI.Formularios
 {
     public partial class FacturarForm : Page
     {
-        DataTable dt = new DataTable();
+        
         Facturas facturar;
         protected void Page_Load(object sender, EventArgs e)
         {
             facturar = new Facturas();
-            if (!Page.IsPostBack)
+            if (!this.IsPostBack)
             {
                 this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
@@ -27,22 +27,13 @@ namespace BarberShop.UI.Formularios
                 GridViewDetalle.DataSource = null;
                 LLenarComboCliente();
 
+                Session["DetalleServicios"] = new List<Servicios>();
 
-                dt.Columns.AddRange(new DataColumn[2] { new DataColumn("Nombre del Servicio"), new DataColumn("Costo") });
-
-                ViewState["FacturarForm"] = dt;
 
 
             }
 
 
-        }
-
-        /*para agregar todos los servicios al grid usando viewState*/
-        protected void BindGrid()
-        {
-            GridViewDetalle.DataSource = (DataTable)ViewState["FacturarForm"];
-            GridViewDetalle.DataBind();
         }
 
         /*llenar las instancia*/
@@ -58,7 +49,8 @@ namespace BarberShop.UI.Formularios
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
             facturar.usuario = LogIn.LabelUsuario().nombre;
             facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
-           
+            facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
+
 
             return facturar;
         }
@@ -71,8 +63,6 @@ namespace BarberShop.UI.Formularios
             DropDownListClientes.DataValueField = "idCliente";
             DropDownListClientes.DataBind();
 
-
-
         }
         /*limpia los campos*/
         public void Limpiar()
@@ -84,10 +74,13 @@ namespace BarberShop.UI.Formularios
             CodTextBox.Text = "";
             ServTextBox.Text = "";
             PrecioTextBox.Text = "";
+            ItbisTextBox.Text = "";
             SubTextBox.Text = "";
             TotalTextBox.Text = "";
             RecibidoTextBox.Text = "";
             DevueltaTextBox.Text = "";
+            GridViewDetalle.DataSource = null;
+            GridViewDetalle.DataBind();
         }
 
         /*calcular el monto total del costo de los servicios*/
@@ -95,18 +88,18 @@ namespace BarberShop.UI.Formularios
         {
             decimal subTotal = 0.000m;
 
-            //if (GridViewDetalle.Rows.Count > 0)
-            //{
-            //    foreach (GridViewRow precio in GridViewDetalle.Rows)
-            //    {
-            //        subTotal += Convert.ToDecimal(precio.Cells[0].Text);
-            //        SubTextBox.Text = subTotal.ToString();
-            //    }
-            //}
-
-            for(int i=0; i<GridViewDetalle.Rows.Count; i++)
+            if (GridViewDetalle.Rows.Count > 0)
             {
-                subTotal += Utilidades.TOINT(GridViewDetalle.Rows[i].Cells[i+1].Text);
+                foreach (GridViewRow precio in GridViewDetalle.Rows)
+                {
+                    subTotal += Convert.ToDecimal(precio.Cells[0].Text);
+                    SubTextBox.Text = subTotal.ToString();
+                }
+            }
+
+            for (int i = 0; i < GridViewDetalle.Rows.Count; i++)
+            {
+                subTotal += Utilidades.TOINT(GridViewDetalle.Rows[i].Cells[i + 1].Text);
                 SubTextBox.Text = subTotal.ToString();
             }
         }
@@ -134,20 +127,21 @@ namespace BarberShop.UI.Formularios
 
             if (servicios != null && anadido == false)
             {
+                facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
 
                 facturar.servicioList.Add(servicios);
-               
+                Session["DetalleServicios"] = facturar.servicioList;
 
-                DataTable dt = (DataTable)ViewState["FacturarForm"];
-                dt.Rows.Add(ServTextBox.Text, PrecioTextBox.Text);
+                GridViewDetalle.DataSource = (List<Servicios>)Session["DetalleServicios"];
+                GridViewDetalle.DataBind();
 
-                ViewState["FacturarForm"] = dt;
-                this.BindGrid();
-               // CalcularMonto();
+
+                // CalcularMonto();
 
                 CodTextBox.Text = "";
                 ServTextBox.Text = "";
                 PrecioTextBox.Text = "";
+
 
 
             }
@@ -159,30 +153,14 @@ namespace BarberShop.UI.Formularios
 
 
             facturar = LlenarCampos();
-            facturar.servicioList.ToString();
+
             BLL.FacturarBLL.Guardar(facturar);
-             Utilidades.MostrarToastr(this, "Guardado", "success", "success");
+            Utilidades.MostrarToastr(this, "Guardado", "success", "success");
             Limpiar();
 
 
         }
 
-        /*funcion para al dar enter en el codigo del producto busque el producto*/
-        protected void CodTextBox_TextChanged(object sender, EventArgs e)
-        {
-            int idServicio = Utilidades.TOINT(CodTextBox.Text);
-            Servicios servicio = BLL.TiposSeviciosBLL.Buscar(p => p.idServicio == idServicio);
-
-            if (servicio != null)
-            {
-                ServTextBox.Text = servicio.nombre;
-                PrecioTextBox.Text = Convert.ToString(servicio.costo);
-            }
-            else
-            {
-                Utilidades.MostrarToastr(this, "No Existe", "error", "error");
-            }
-        }
         /*boton para limpiar*/
         protected void Nuevo_Click(object sender, EventArgs e)
         {
@@ -204,12 +182,20 @@ namespace BarberShop.UI.Formularios
                 SubTextBox.Text = Convert.ToString(facturar.subTotal);
                 TotalTextBox.Text = Convert.ToString(facturar.total);
                 LogIn.LabelUsuario().nombre = facturar.usuario;
+
+                GridViewDetalle.DataSource = facturar.servicioList;
+                GridViewDetalle.DataBind();
             }
             else
             {
                 Utilidades.MostrarToastr(this, "No Existe", "error", "error");
                 Limpiar();
             }
+        }
+
+        protected void ButtonAgregarCliente_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Formularios/ClientesForm.aspx");
         }
     }
 }

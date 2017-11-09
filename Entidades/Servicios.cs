@@ -6,6 +6,7 @@ using System.Web;
 
 namespace Entidades
 {
+    [Serializable]
     public class Servicios
     {
         [Key]

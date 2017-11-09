@@ -15,8 +15,23 @@
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
                 <li data-target="#myCarousel" data-slide-to="3" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="4" ></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+
             </ol>
+
+
+             <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+
+
 
             <div class="carousel-inner" role="listbox">
                 <div class="item">
@@ -36,24 +51,17 @@
                 </div>
 
                 <div class="item">
-                    <video width="1138" height="446" controls>
+                    <video width="1138" height="447" controls>
                         <source src="/../../Content/Img/Model5.mp4" type="video/mp4">
                         <source src="/../../Content/Img/Model5.ogg" type="video/ogg">
-                    
-                       
                     </video>
                 </div>
             </div>
 
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+
+           
+
+
         </div>
     </div>
     <br />

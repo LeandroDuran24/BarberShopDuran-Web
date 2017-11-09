@@ -24,12 +24,12 @@ namespace DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Entidades.Facturas>()
-                .HasMany(p=> p.servicioList)
-                .WithMany(p => p.facturaList)
+                .HasMany(factura => factura.servicioList)
+                .WithMany(servicio => servicio.facturaList)
                 .Map(mapeo =>
                 {
-                    mapeo.MapLeftKey("idServicio");
-                    mapeo.MapRightKey("idFactura");
+                    mapeo.MapLeftKey("idFactura");
+                    mapeo.MapRightKey("idServicio");
                     mapeo.ToTable("Detalles");
                 });
 

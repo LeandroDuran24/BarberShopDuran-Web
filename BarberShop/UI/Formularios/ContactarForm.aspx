@@ -18,7 +18,7 @@
     <!--icono de telefono con los telefonos----->
     <div class="text-center">
         <br />
-        <span class="glyphicon glyphicon-earphone Iconos">
+        <span class=" glyphicon glyphicon-earphone Iconos">
             <h4>Tel:809-290-8636/Cel:829-367-7767</h4>
         </span>
         <br />
@@ -40,8 +40,10 @@
 
     <!------------------------script para google map-------------------->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <%--<script src="/../../Content/Script.js"></script>--%>
 
-    <script src="/../../Content/Script.js"></script>
+
+
 
 </asp:Content>

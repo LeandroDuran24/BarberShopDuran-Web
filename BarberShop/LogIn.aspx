@@ -13,16 +13,12 @@
 
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
-    <!--------------------------------------------------toastr----------------------------------------------------->
+     <!--------------------------------------------------toastr----------------------------------------------------->
 
-
-    <%--<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
-    <script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" type="text/javascript"></script>--%>
-
-    <link href ="/Content/toastr.min.css" rel="stylesheet" />
     <script src="/Scripts/jquery-3.2.1.min.js"></script>
     <script src="/Scripts/toastr.min.js"></script>
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
+
 
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
@@ -75,7 +71,7 @@
             </div>
         </div>
     </form>
-    <!----------------------------------script--------------------------------------->
+   
 
 
 

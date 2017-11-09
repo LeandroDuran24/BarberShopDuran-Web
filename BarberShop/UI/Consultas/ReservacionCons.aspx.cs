@@ -25,6 +25,7 @@ namespace BarberShop.UI.Consultas
                 if (TextBox1.Text == "")
                 {
                     Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
+                    lista = null;
                 }
                 else
                 {
@@ -37,11 +38,12 @@ namespace BarberShop.UI.Consultas
 
             else if (DropDownList1.SelectedIndex == 1)
             {
-                DateTime desde = Convert.ToDateTime(desdeFecha.Text);
-                DateTime hasta = Convert.ToDateTime(hastaFecha.Text);
+
 
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
                 {
+                    DateTime desde = Convert.ToDateTime(desdeFecha.Text);
+                    DateTime hasta = Convert.ToDateTime(hastaFecha.Text);
                     if (desde <= hasta)
                     {
                         lista = BLL.ReservacionesBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
@@ -50,11 +52,13 @@ namespace BarberShop.UI.Consultas
                     else
                     {
                         Utilidades.MostrarToastr(this, "La Primera Fecha debe ser Menor que la Segunda Fecha", "error", "error");
+                        lista = null;
                     }
                 }
                 else
                 {
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Intervalo de Fecha');</script>");
+                    Utilidades.MostrarToastr(this, "Debes Insertar las Fechas", "error", "error");
+                    lista = null;
                 }
 
 

@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="col-lg-12 col-md-6  col-sm-8 col-xs-12">
 
-            <%--<a href="../../Content/Img/Contactanos.png" target="_blank">--%>
+            
             <div>
 
                 <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
@@ -47,7 +47,7 @@
                 <asp:DropDownList ID="DropDownListClientes" runat="server" Height="33px" Width="190px">
                     <asp:ListItem Value="0"></asp:ListItem>
                 </asp:DropDownList>
-                <asp:Button ID="ButtonAgregarCliente" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="120px" />
+                <asp:Button ID="ButtonAgregarCliente" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="120px" OnClick="ButtonAgregarCliente_Click" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="DropDownListClientes" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
@@ -109,7 +109,7 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="60px" OnTextChanged="CodTextBox_TextChanged" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="60px" Wrap="False" ></asp:TextBox>
                 <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="165px" Wrap="False" Enabled="False"></asp:TextBox>
                 <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="75px" Wrap="False" Enabled="False"></asp:TextBox>
                 <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="78px" OnClick="ButtonAgregarServiciosGrid_Click1" />
@@ -150,7 +150,7 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" OnTextChanged="CodTextBox_TextChanged" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px"  TextMode="Number"></asp:TextBox>
                 <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
                 <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
                 <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False"></asp:TextBox>

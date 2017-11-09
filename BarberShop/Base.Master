@@ -22,7 +22,13 @@
     <link rel="stylesheet" href="/Content/bootstrapTheme.min.css" />
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
+    <!---------------------------------------------Script para los Toastr--------------------------------------------------------->
 
+    <script src="/../../Content/Script.js"></script>
+
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
+    <link href="/Content/toastr.min.css" rel="stylesheet" />
 
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -125,30 +131,23 @@
     </div>
 
     <footer class="text-center">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class=" glyphicon glyphicon-cog"></span>Leandro R Duran M</p>
+        <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class="glyphicon glyphicon-cog"></span>Leandro Rafael Duran Minaya</p>
     </footer>
 
-    <!-----------------------------------------------------Script para el mapa----------------------------------------->
+    <!-----------------------------------------------------Script----------------------------------------->
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!---------------------------------------------Script para los Toastr--------------------------------------------------------->
 
-    
-    <script src="/Scripts/jquery-3.2.1.min.js"></script>
-    <script src="/Scripts/toastr.min.js"></script>
     <!-----------------------------------------mi style personal----------------------------------------------------------------->
-    <script src="/../../Content/Script.js"></script>
-
+    
     <!----script para no volver atras en el browse-->
-    <script language="JavaScript">
+    <%--<script language="JavaScript">
         if (history.forward(1)) {
             history.replace(history.forward(1));
         }
-    </script>
-
-
+    </script>--%>
 </body>
 </html>

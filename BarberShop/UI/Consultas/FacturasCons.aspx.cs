@@ -14,7 +14,7 @@ namespace BarberShop.UI.Consultas
         public static List<Facturas> lista { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
                 lista = BLL.FacturarBLL.GetListodo();
             }
@@ -26,59 +26,68 @@ namespace BarberShop.UI.Consultas
         {
             if (DropDownList1.SelectedIndex == 0)
             {
-                int id = Convert.ToInt32(TextBox1.Text);
-                lista = BLL.FacturarBLL.GetList(p => p.idFactura == id);
+                if(TextBox1.Text=="")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Id", "error", "error");
+                    lista = null;
+                }
+                else
+                {
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.FacturarBLL.GetList(p => p.idFactura == id);
+                }
+               
 
             }
-           
-            //else if (DropDownList1.SelectedIndex == 2)
-            //{
-            //    DateTime desde = Convert.ToDateTime(desdeFecha.Text);
-            //    DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
 
-            //    if (desdeFecha.Text != "" && hastaFecha.Text != "")
-            //    {
-            //        if (desde <= hasta)
-            //        {
-            //            lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
+            else if (DropDownList1.SelectedIndex == 2)
+            {
+                DateTime desde = Convert.ToDateTime(desdeFecha.Text);
+                DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
 
-            //        }
-            //        else
-            //        {
-            //            Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('La Primera Fecha debe ser Menor a la Segunda Fecha');</script>");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Debe de Insertar el Intervalo de Fecha');</script>");
-            //    }
+                if (desdeFecha.Text != "" && hastaFecha.Text != "")
+                {
+                    if (desde <= hasta)
+                    {
+                        lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
+
+                    }
+                    else
+                    {
+                        Utilidades.MostrarToastr(this, "La Primera Fecha debe ser Menor que la Segunda Fecha", "error", "error");
+                    }
+                }
+                else
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar las Fechas", "error", "error");
+                }
 
 
 
-            //}
+            }
             else if (DropDownList1.SelectedIndex == 3)
+                {
+
+                    lista = BLL.FacturarBLL.GetListodo();
+
+
+                }
+                GridView1.DataSource = lista;
+                GridView1.DataBind();
+
+
+            }
+
+
+
+            protected void ButtonBuscar_Click(object sender, EventArgs e)
+            {
+                SeleccionarCombo();
+            }
+
+            protected void ButtonImprimir_Click(object sender, EventArgs e)
             {
 
-                lista = BLL.FacturarBLL.GetListodo();
-
-
             }
-            GridView1.DataSource = lista;
-            GridView1.DataBind();
-
-
-        }
-
-
-
-        protected void ButtonBuscar_Click(object sender, EventArgs e)
-        {
-            SeleccionarCombo();
-        }
-
-        protected void ButtonImprimir_Click(object sender, EventArgs e)
-        {
-
         }
     }
-}

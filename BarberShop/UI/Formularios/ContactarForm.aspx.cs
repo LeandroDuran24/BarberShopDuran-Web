@@ -14,9 +14,12 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string script = "myMap();";
+            
 
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "popup", script, true);
+            ClientScript.RegisterStartupScript(GetType(), "ejecutarScript", "myMap();", true);
+
+
+
         }
 
 
