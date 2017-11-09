@@ -16,7 +16,7 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" ForeColor="Black" TextMode="Number"></asp:TextBox>&nbsp
+                <asp:TextBox ID="idTextbox" CssClass="BorderTextBox" runat="server" Width="190px" Height="33px" ForeColor="Black" TextMode="Number"></asp:TextBox>&nbsp
                      <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" Width="105px" ValidationGroup="buscar" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="idTextbox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
             </div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
+                <asp:TextBox ID="NombreTextbox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="NombreTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="emailTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
+                <asp:TextBox ID="emailTextbox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="emailTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="fecha" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="fecha" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="fecha" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" BackColor="White" ForeColor="Red"></asp:RequiredFieldValidator>
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:DropDownList ID="DropDownList1" runat="server" Width="300px" Height="33px">
+                <asp:DropDownList ID="DropDownList1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px">
                     <asp:ListItem Value="Admintrador">Admin</asp:ListItem>
                     <asp:ListItem>Usuario</asp:ListItem>
                 </asp:DropDownList>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox type="password" ID="claveTextbox" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox type="password" ID="claveTextbox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="claveTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
             </div>
 
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox Type="password" ID="confTextbox" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox Type="password" ID="confTextbox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="confTextbox" ErrorMessage="֎" Font-Bold="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 

@@ -14,8 +14,15 @@
     <!-------------------------------------------Style-------------------------------------------------------------->
     <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!--------------------------------------------------toastr----------------------------------------------------->
-      
- 
+
+
+    <%--<link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
+    <script src="//code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" type="text/javascript"></script>--%>
+
+    <link href ="/Content/toastr.min.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="/Scripts/toastr.min.js"></script>
 
 </head>
 <body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
@@ -36,8 +43,8 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:TextBox ID="EmailTextBox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email"></asp:TextBox>&nbsp
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1"  runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="EmailTextBox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email" AutoCompleteType="Disabled"></asp:TextBox>&nbsp
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
 
@@ -51,7 +58,7 @@
                 </div>
 
                 <div class="text-center">
-                    <asp:TextBox Type="password" ID="PassTextBox1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" ></asp:TextBox>&nbsp
+                    <asp:TextBox Type="password" ID="PassTextBox1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password"></asp:TextBox>&nbsp
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                     <br />
                     <br />

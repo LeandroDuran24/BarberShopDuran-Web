@@ -38,10 +38,11 @@
     <!---------------------------------------------menu-------------------------------------------------------------->
 
 
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default ">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="#">BarberSHop Duran</a>
+                <%-- <a class="navbar-brand" href="#">BarberShop Duran</a>--%>
+                <img src="/Content/Img/Contactanos.png" width="215" />
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/UI/Formularios/MenuPrincipal.aspx">Inicio</a></li>
@@ -100,7 +101,7 @@
 
                 <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
                 <li><a href="/LogIn.aspx">Cerrar Sesion &nbsp</a></li>
-              
+
 
 
             </ul>
