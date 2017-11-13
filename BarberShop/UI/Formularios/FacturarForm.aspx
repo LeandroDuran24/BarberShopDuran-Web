@@ -60,7 +60,7 @@
             </div>
 
             <div class="text-center">
-                <asp:TextBox ID="PagoTextBox" runat="server" Width="310px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
+                <asp:TextBox ID="PagoTextBox" runat="server" Width="315px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
@@ -74,8 +74,8 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="ComentarioTextBox" runat="server" Width="308px" Height="50px" TextMode="MultiLine" onkeypress="return soloLetras(event)"></asp:TextBox>
-                &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="ComentarioTextBox" runat="server" Width="311px" Height="50px" TextMode="MultiLine" onkeypress="return soloLetras(event)"></asp:TextBox>
+                &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ComentarioTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -86,14 +86,14 @@
             <div class="text-center">
                 <div>
                     <label for="Descuento">% Descuento</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <label for="Descuento">ITBIS&nbsp; </label>
-                </div>
+                    <label for="Descuento">&nbsp;</label></div>
             </div>
 
             <div class="text-center">
-                <asp:TextBox ID="DescuentoTextBox" runat="server" Width="182px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="ItbisTextBox" runat="server" Width="110px" Height="33px" onkeypress="return soloNumeros(event)"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:TextBox ID="DescuentoTextBox" runat="server" Width="183px" Height="33px" TextMode="Number"></asp:TextBox>&nbsp;
+                <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="121px" OnClick="ButtonAgregarServiciosGrid_Click1" ValidationGroup="agregar" />
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="DescuentoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="agregar"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -109,10 +109,13 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="60px" Wrap="False" ></asp:TextBox>
-                <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="165px" Wrap="False" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="52px" Wrap="False" ></asp:TextBox>
+               
+                
+                <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="178px" Wrap="False" Enabled="False"></asp:TextBox>
                 <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="75px" Wrap="False" Enabled="False"></asp:TextBox>
-                <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="78px" OnClick="ButtonAgregarServiciosGrid_Click1" />
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="CodTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="agregar"></asp:RequiredFieldValidator>
 
             </div>
             <br />
@@ -163,7 +166,7 @@
 
                 <asp:Button ID="Nuevo" CssClass="btn btn-danger btn-md " runat="server" Text="Nuevo" Width="125px" OnClick="Nuevo_Click" />&nbsp&nbsp
                     <asp:Button ID="guardar" CssClass="btn btn-danger btn-md " runat="server" Text="Guardar" ValidationGroup="guardar" OnClick="guardar_Click" Width="125px" />&nbsp;&nbsp&nbsp
-                    <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" Width="125px" />
+                    <asp:Button ID="Eliminar" CssClass="btn btn-danger btn-md " runat="server" Text="Eliminar" Width="125px" OnClick="Eliminar_Click" />
             </div>
 
 

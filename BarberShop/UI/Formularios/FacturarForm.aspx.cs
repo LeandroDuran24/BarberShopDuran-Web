@@ -12,16 +12,18 @@ namespace BarberShop.UI.Formularios
 {
     public partial class FacturarForm : Page
     {
-        
-        Facturas facturar;
+
+        Facturas facturar = new Facturas();
         protected void Page_Load(object sender, EventArgs e)
         {
-            facturar = new Facturas();
-            if (!this.IsPostBack)
+
+            if (!Page.IsPostBack)
             {
-                this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
-                this.LabelAtentido.Visible = true;
+
+
+                //this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                //this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
+                //this.LabelAtentido.Visible = true;
 
                 ScriptPaginas.Script();
                 GridViewDetalle.DataSource = null;
@@ -43,12 +45,11 @@ namespace BarberShop.UI.Formularios
             facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
             facturar.formaPago = PagoTextBox.Text;
             facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
-            facturar.itbis = Utilidades.TOINT(ItbisTextBox.Text);
             facturar.comentario = ComentarioTextBox.Text;
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
-            facturar.usuario = LogIn.LabelUsuario().nombre;
-            facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
+            //facturar.usuario = LogIn.LabelUsuario().nombre;
+            //facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
             facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
 
 
@@ -74,34 +75,37 @@ namespace BarberShop.UI.Formularios
             CodTextBox.Text = "";
             ServTextBox.Text = "";
             PrecioTextBox.Text = "";
-            ItbisTextBox.Text = "";
             SubTextBox.Text = "";
             TotalTextBox.Text = "";
             RecibidoTextBox.Text = "";
             DevueltaTextBox.Text = "";
+
             GridViewDetalle.DataSource = null;
             GridViewDetalle.DataBind();
+
+            ;
         }
 
         /*calcular el monto total del costo de los servicios*/
         public void CalcularMonto()
         {
-            decimal subTotal = 0.000m;
+            decimal subTotal = 0m;
+            decimal descuento = 0;
+            decimal total = 0;
+            int porciento = 100;
 
             if (GridViewDetalle.Rows.Count > 0)
             {
                 foreach (GridViewRow precio in GridViewDetalle.Rows)
                 {
-                    subTotal += Convert.ToDecimal(precio.Cells[0].Text);
+                    subTotal += Convert.ToDecimal(precio.Cells[2].Text);
                     SubTextBox.Text = subTotal.ToString();
                 }
             }
+            descuento = (Convert.ToDecimal(DescuentoTextBox.Text) / porciento) * Convert.ToDecimal(SubTextBox.Text);
+            total = subTotal - descuento;
+            TotalTextBox.Text = total.ToString();
 
-            for (int i = 0; i < GridViewDetalle.Rows.Count; i++)
-            {
-                subTotal += Utilidades.TOINT(GridViewDetalle.Rows[i].Cells[i + 1].Text);
-                SubTextBox.Text = subTotal.ToString();
-            }
         }
 
 
@@ -121,6 +125,10 @@ namespace BarberShop.UI.Formularios
                         anadido = true;
 
                     }
+                    else
+                    {
+                        anadido = false;
+                    }
 
                 }
             }
@@ -132,18 +140,27 @@ namespace BarberShop.UI.Formularios
                 facturar.servicioList.Add(servicios);
                 Session["DetalleServicios"] = facturar.servicioList;
 
+
+
                 GridViewDetalle.DataSource = (List<Servicios>)Session["DetalleServicios"];
                 GridViewDetalle.DataBind();
 
 
-                // CalcularMonto();
+
+                CalcularMonto();
 
                 CodTextBox.Text = "";
                 ServTextBox.Text = "";
                 PrecioTextBox.Text = "";
+                CodTextBox.Focus();
 
 
 
+
+            }
+            else if (servicios != null && anadido == true)
+            {
+                Utilidades.MostrarToastr(this, "Ya Esta Agregado", "info", "info");
             }
         }
 
@@ -169,22 +186,20 @@ namespace BarberShop.UI.Formularios
         /*boton buscar*/
         protected void Buscar_Click(object sender, EventArgs e)
         {
+            Facturas fac = new Facturas();
             int id = Utilidades.TOINT(facturaIdTextBox.Text);
-            facturar = BLL.FacturarBLL.Buscar(id);
+            fac = BLL.FacturarBLL.Buscar(p => p.idFactura == id);
 
-            if (facturar != null)
+            if (fac != null)
             {
+                PagoTextBox.Text = fac.formaPago;
+                DescuentoTextBox.Text = Convert.ToString(fac.descuento);
+                ComentarioTextBox.Text = fac.comentario;
+                SubTextBox.Text = Convert.ToString(fac.subTotal);
+                TotalTextBox.Text = Convert.ToString(fac.total);
+                
+                Utilidades.MostrarToastr(this, " Existe", "error", "error");
 
-                PagoTextBox.Text = facturar.formaPago;
-                DescuentoTextBox.Text = Convert.ToString(facturar.descuento);
-                ItbisTextBox.Text = Convert.ToString(facturar.itbis);
-                ComentarioTextBox.Text = Convert.ToString(facturar.comentario);
-                SubTextBox.Text = Convert.ToString(facturar.subTotal);
-                TotalTextBox.Text = Convert.ToString(facturar.total);
-                LogIn.LabelUsuario().nombre = facturar.usuario;
-
-                GridViewDetalle.DataSource = facturar.servicioList;
-                GridViewDetalle.DataBind();
             }
             else
             {
@@ -196,6 +211,18 @@ namespace BarberShop.UI.Formularios
         protected void ButtonAgregarCliente_Click(object sender, EventArgs e)
         {
             Response.Redirect("../Formularios/ClientesForm.aspx");
+        }
+
+        protected void Eliminar_Click(object sender, EventArgs e)
+        {
+            //int id = Utilidades.TOINT(facturaIdTextBox.Text);
+            //facturar = BLL.FacturarBLL.Buscar(p=> p.idFactura==id);
+
+            //if (facturar != null)
+            //{
+            //    BLL.FacturarBLL.Eliminar(facturar);
+            //    Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
+            //}
         }
     }
 }

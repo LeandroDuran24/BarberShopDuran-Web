@@ -130,13 +130,13 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.TextBox DescuentoTextBox;
         
         /// <summary>
-        /// ItbisTextBox control.
+        /// ButtonAgregarServiciosGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ItbisTextBox;
+        protected global::System.Web.UI.WebControls.Button ButtonAgregarServiciosGrid;
         
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -175,13 +175,13 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.TextBox PrecioTextBox;
         
         /// <summary>
-        /// ButtonAgregarServiciosGrid control.
+        /// RequiredFieldValidator10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAgregarServiciosGrid;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
         /// GridViewDetalle control.

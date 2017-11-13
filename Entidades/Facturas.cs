@@ -15,7 +15,6 @@ namespace Entidades
         public string formaPago { get; set; }
         public string comentario { get; set; }
         public int descuento { get; set; }
-        public int itbis { get; set; }
         public float subTotal { get; set; }
         public float  total { get; set; }
         public string usuario { get; set; }

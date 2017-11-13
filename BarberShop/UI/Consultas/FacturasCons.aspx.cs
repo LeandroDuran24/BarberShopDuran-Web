@@ -40,13 +40,14 @@ namespace BarberShop.UI.Consultas
 
             }
 
-            else if (DropDownList1.SelectedIndex == 2)
+            else if (DropDownList1.SelectedIndex == 1)
             {
-                DateTime desde = Convert.ToDateTime(desdeFecha.Text);
-                DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
+               
 
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
                 {
+                    DateTime desde = Convert.ToDateTime(desdeFecha.Text);
+                    DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
                     if (desde <= hasta)
                     {
                         lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
@@ -65,7 +66,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 3)
+            else if (DropDownList1.SelectedIndex == 2)
                 {
 
                     lista = BLL.FacturarBLL.GetListodo();

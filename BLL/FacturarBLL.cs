@@ -21,42 +21,25 @@ namespace BLL
             return retorno;
         }
 
-        public static Entidades.Facturas Buscar(int id)
+        public static Facturas Buscar(Expression<Func<Facturas, bool>> criterio)
         {
-
-            Entidades.Facturas nuevo;
-            using (var db = new BarberShopDb())
+            Facturas retorno = null;
+            using (var conn = new Repositorio<Facturas>())
             {
-                try
-                {
-                    nuevo = db.facturar.Find(id);
-                    nuevo.servicioList.Count();
-
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-                return nuevo;
+                retorno = conn.Buscar(criterio);
             }
+            return retorno;
+
         }
 
-        public static bool Eliminar(Entidades.Facturas id)
+        public static bool Eliminar(Facturas criterio)
         {
-            using (var db = new BarberShopDb())
+            bool retorno = false;
+            using (var conn = new Repositorio<Facturas>())
             {
-                try
-                {
-                    db.Entry(id).State = System.Data.Entity.EntityState.Deleted;
-                    return true;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
+                retorno = conn.Eliminar(criterio);
             }
+            return retorno;
         }
 
         public static List<Entidades.Facturas> GetListodo()
