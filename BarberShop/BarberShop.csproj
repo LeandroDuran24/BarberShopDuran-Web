@@ -107,6 +107,7 @@
     <Content Include="Content\bootstrapTheme.min.css" />
     <Content Include="Content\Img\Model4.PNG" />
     <Content Include="Content\Img\Model5.mp4" />
+    <Content Include="Content\Img\search_ .ico" />
     <Content Include="Content\toastr.css" />
     <Content Include="Content\toastr.min.css" />
     <Content Include="Content\toastr.scss" />
@@ -174,6 +175,7 @@
     <Content Include="UI\Formularios\ServiciosForm.aspx" />
     <Content Include="UI\Formularios\UsuariosForm.aspx" />
     <Content Include="UI\Reportes\ReporteClientes.aspx" />
+    <Content Include="UI\Reportes\ReporteFacturas.aspx" />
     <Content Include="UI\Reportes\ReportePeluqueros.aspx" />
     <Content Include="UI\Reportes\ReporteReservaciones.aspx" />
     <Content Include="UI\Reportes\ReporteServicios.aspx" />
@@ -315,6 +317,13 @@
     <Compile Include="UI\Reportes\ReporteClientes.aspx.designer.cs">
       <DependentUpon>ReporteClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReporteFacturas.aspx.cs">
+      <DependentUpon>ReporteFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteFacturas.aspx.designer.cs">
+      <DependentUpon>ReporteFacturas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ReportePeluqueros.aspx.cs">
       <DependentUpon>ReportePeluqueros.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI\Reportes\Clientes.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\Facturas.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Peluqueros.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Reservaciones.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Servicios.rdlc" />

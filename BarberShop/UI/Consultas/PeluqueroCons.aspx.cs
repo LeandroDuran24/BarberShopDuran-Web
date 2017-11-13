@@ -14,19 +14,28 @@ namespace BarberShop.UI.Consultas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Peluqueros peluquero = new Peluqueros();
+            if (!Page.IsPostBack)
+            {
 
-            lista = BLL.PeluqueroBll.GetListTodo();
+                lista = BLL.PeluqueroBll.GetListTodo();
+            }
         }
+
 
         public void SeleccionarCombo()
         {
             if (DropDownList1.SelectedIndex == 0)
             {
+                lista = null;
+            }
+
+            else if (DropDownList1.SelectedIndex == 1)
+            {
 
                 if (TextBox1.Text == "")
                 {
                     Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
+                    lista = null;
                 }
                 else
                 {
@@ -36,7 +45,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 1)
+            else if (DropDownList1.SelectedIndex == 2)
             {
                 if (TextBox1.Text == "")
                 {
@@ -51,7 +60,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 2)
+            else if (DropDownList1.SelectedIndex == 3)
             {
 
 
@@ -79,7 +88,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 3)
+            else if (DropDownList1.SelectedIndex == 4)
             {
 
                 lista = BLL.PeluqueroBll.GetListTodo();

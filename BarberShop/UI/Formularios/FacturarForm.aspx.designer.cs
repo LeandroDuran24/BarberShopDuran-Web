@@ -85,13 +85,13 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// PagoTextBox control.
+        /// DropDownListPago control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PagoTextBox;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListPago;
         
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -155,6 +155,15 @@ namespace BarberShop.UI.Formularios {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CodTextBox;
+        
+        /// <summary>
+        /// ImageButtonSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonSearch;
         
         /// <summary>
         /// ServTextBox control.

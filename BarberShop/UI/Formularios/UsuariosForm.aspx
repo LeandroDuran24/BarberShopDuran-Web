@@ -67,7 +67,8 @@
             </div>
             <div class="text-center">
                 <asp:DropDownList ID="DropDownList1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px">
-                    <asp:ListItem Value="Admintrador">Admin</asp:ListItem>
+                    <asp:ListItem Value="Admintrador"></asp:ListItem>
+                    <asp:ListItem Value="Administrador">Admin</asp:ListItem>
                     <asp:ListItem>Usuario</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList1" ErrorMessage="֎" Font-Bold="True" Font-Italic="False" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>

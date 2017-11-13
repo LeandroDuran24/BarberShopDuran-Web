@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="col-lg-12 col-md-6  col-sm-8 col-xs-12">
 
-            
+
             <div>
 
                 <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
@@ -60,8 +60,11 @@
             </div>
 
             <div class="text-center">
-                <asp:TextBox ID="PagoTextBox" runat="server" Width="315px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="PagoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
+                <asp:DropDownList ID="DropDownListPago" runat="server" Height="33px" Width="315px" CausesValidation="true">
+                    <asp:ListItem Value="Contado">Contado</asp:ListItem>
+                    <asp:ListItem>Credito</asp:ListItem>
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="DropDownListPago" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
 
@@ -74,7 +77,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="ComentarioTextBox" runat="server" Width="311px" Height="50px" TextMode="MultiLine" onkeypress="return soloLetras(event)"></asp:TextBox>
+                <asp:TextBox ID="ComentarioTextBox" runat="server" Width="314px" Height="50px" TextMode="MultiLine"></asp:TextBox>
                 &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ComentarioTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="guardar"></asp:RequiredFieldValidator>
 
             </div>
@@ -86,7 +89,8 @@
             <div class="text-center">
                 <div>
                     <label for="Descuento">% Descuento</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                    <label for="Descuento">&nbsp;</label></div>
+                    <label for="Descuento">&nbsp;</label>
+                </div>
             </div>
 
             <div class="text-center">
@@ -109,11 +113,10 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="52px" Wrap="False" ></asp:TextBox>
-               
-                
-                <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="178px" Wrap="False" Enabled="False"></asp:TextBox>
-                <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="75px" Wrap="False" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="39px" Wrap="False"></asp:TextBox>
+                <asp:ImageButton ID="ImageButtonSearch"  runat="server" Height="34px" ImageUrl="~/Content/Img/search_ .ico" CssClass="BorderTextBox" Width="23px" ImageAlign="Top" OnClick="ImageButtonSearch_Click" CausesValidation="true"  />
+                <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="170px" Wrap="False" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="70px" Wrap="False" Enabled="False"></asp:TextBox>
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="CodTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="agregar"></asp:RequiredFieldValidator>
 
@@ -153,7 +156,7 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px"  TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" TextMode="Number"></asp:TextBox>
                 <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
                 <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
                 <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False"></asp:TextBox>

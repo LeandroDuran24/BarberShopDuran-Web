@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace BarberShop.UI.Reportes
 {
-    public partial class ReporteClientes : System.Web.UI.Page
+    public partial class ReporteFacturas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -16,15 +16,14 @@ namespace BarberShop.UI.Reportes
             {
                 ReportViewer.ProcessingMode = Microsoft.Reporting.WebForms.ProcessingMode.Local;
                 ReportViewer.Reset();
-                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"Clientes.rdlc");
+                ReportViewer.LocalReport.ReportPath = Server.MapPath(@"Facturas.rdlc");
                 ReportViewer.LocalReport.DataSources.Clear();
 
-                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetClientes",
-                   ClientesCons.lista));
+                ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetFacturas",
+                   FacturasCons.lista));
 
                 ReportViewer.LocalReport.Refresh();
             }
-           
         }
     }
 }

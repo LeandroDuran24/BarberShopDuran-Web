@@ -14,7 +14,8 @@
             <div class="text-center">
                 <label for="Busqueda:">Busqueda</label>
 
-                <asp:dropdownlist id="DropDownList1" runat="server" autopostback="True" width="110px" height="22px">
+                <asp:dropdownlist id="DropDownList1" runat="server"  width="110px" height="22px" CausesValidation="true">
+                    <asp:ListItem></asp:ListItem>
                     <asp:ListItem>Id</asp:ListItem>
                     <asp:ListItem>Fecha</asp:ListItem>
                     <asp:ListItem>Todos</asp:ListItem>

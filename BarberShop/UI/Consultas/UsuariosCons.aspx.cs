@@ -14,13 +14,20 @@ namespace BarberShop.UI.Consultas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuarios user = new Usuarios();
-            lista = BLL.UsuariosBLL.GetListTodo();
+            if (!Page.IsPostBack)
+            {
+                lista = BLL.UsuariosBLL.GetListTodo();
+            }
+
         }
 
         public void SeleccionarCombo()
         {
             if (DropDownList1.SelectedIndex == 0)
+            {
+                lista = null;
+            }
+            else if (DropDownList1.SelectedIndex == 1)
             {
                 if (TextBox1.Text == "")
                 {
@@ -35,7 +42,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 1)
+            else if (DropDownList1.SelectedIndex == 2)
             {
                 if (TextBox1.Text == "")
                 {
@@ -50,9 +57,9 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 2)
+            else if (DropDownList1.SelectedIndex == 3)
             {
-                
+                TextBox1.Text = "";
 
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
                 {
@@ -78,7 +85,7 @@ namespace BarberShop.UI.Consultas
 
 
             }
-            else if (DropDownList1.SelectedIndex == 3)
+            else if (DropDownList1.SelectedIndex == 4)
             {
 
                 lista = BLL.UsuariosBLL.GetListTodo();

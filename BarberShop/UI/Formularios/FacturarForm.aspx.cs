@@ -43,7 +43,7 @@ namespace BarberShop.UI.Formularios
         {
             facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
             facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
-            facturar.formaPago = PagoTextBox.Text;
+            facturar.formaPago = DropDownListPago.SelectedValue.ToString();
             facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
             facturar.comentario = ComentarioTextBox.Text;
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
@@ -69,7 +69,6 @@ namespace BarberShop.UI.Formularios
         public void Limpiar()
         {
             facturaIdTextBox.Text = "";
-            PagoTextBox.Text = "";
             ComentarioTextBox.Text = "";
             DescuentoTextBox.Text = "";
             CodTextBox.Text = "";
@@ -93,6 +92,7 @@ namespace BarberShop.UI.Formularios
             decimal descuento = 0;
             decimal total = 0;
             int porciento = 100;
+            int devuelta = 0;
 
             if (GridViewDetalle.Rows.Count > 0)
             {
@@ -105,6 +105,12 @@ namespace BarberShop.UI.Formularios
             descuento = (Convert.ToDecimal(DescuentoTextBox.Text) / porciento) * Convert.ToDecimal(SubTextBox.Text);
             total = subTotal - descuento;
             TotalTextBox.Text = total.ToString();
+
+            //devuelta = Utilidades.TOINT(RecibidoTextBox.Text) - Convert.ToInt16(total);
+            //DevueltaTextBox.Text = devuelta.ToString();
+
+
+
 
         }
 
@@ -167,13 +173,29 @@ namespace BarberShop.UI.Formularios
         /*boton guardar*/
         protected void guardar_Click(object sender, EventArgs e)
         {
+            int total = 0;
+            int recibido = 0;
 
+            if (DropDownListPago.Text == "Contado")
+            {
+                total = Utilidades.TOINT(TotalTextBox.Text);
+                recibido = Utilidades.TOINT(RecibidoTextBox.Text);
+                if (total > recibido)
+                {
+                    Utilidades.MostrarToastr(this, "No se Puede Realizar Compra, Realice el Pago Correctamente", "info", "info");
+                    RecibidoTextBox.Text = "";
+                }
+                else
+                {
+                    facturar = LlenarCampos();
 
-            facturar = LlenarCampos();
+                    BLL.FacturarBLL.Guardar(facturar);
+                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
+                    Limpiar();
 
-            BLL.FacturarBLL.Guardar(facturar);
-            Utilidades.MostrarToastr(this, "Guardado", "success", "success");
-            Limpiar();
+                }
+
+            }
 
 
         }
@@ -192,12 +214,11 @@ namespace BarberShop.UI.Formularios
 
             if (fac != null)
             {
-                PagoTextBox.Text = fac.formaPago;
                 DescuentoTextBox.Text = Convert.ToString(fac.descuento);
                 ComentarioTextBox.Text = fac.comentario;
                 SubTextBox.Text = Convert.ToString(fac.subTotal);
                 TotalTextBox.Text = Convert.ToString(fac.total);
-                
+
                 Utilidades.MostrarToastr(this, " Existe", "error", "error");
 
             }
@@ -223,6 +244,38 @@ namespace BarberShop.UI.Formularios
             //    BLL.FacturarBLL.Eliminar(facturar);
             //    Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
             //}
+        }
+
+        protected void ImageButtonSearch_Click(object sender, ImageClickEventArgs e)
+        {
+            if (CodTextBox.Text != "")
+            {
+                int id = Utilidades.TOINT(CodTextBox.Text);
+                Servicios servicio = BLL.TiposSeviciosBLL.Buscar(p => p.idServicio == id);
+
+                if (servicio != null)
+                {
+
+                    ServTextBox.Text = servicio.nombre;
+                    PrecioTextBox.Text = Convert.ToString(servicio.costo);
+
+
+                }
+                else
+                {
+                    Utilidades.MostrarToastr(this, "No Existe", "error", "error");
+                    CodTextBox.Text = "";
+                }
+            }
+            else
+            {
+                Utilidades.MostrarToastr(this, "Favor Llenar el Codigo", "error", "error");
+                CodTextBox.Focus();
+            }
+
+
+
+
         }
     }
 }

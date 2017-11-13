@@ -13,46 +13,55 @@ namespace BarberShop.UI.Consultas
         public static List<Servicios> lista { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Servicios servicio = new Servicios();
-          
-            lista = BLL.TiposSeviciosBLL.GetListTodo();
+            if (!Page.IsPostBack)
+            {
+
+                lista = BLL.TiposSeviciosBLL.GetListTodo();
+            }
+
         }
 
         public void SeleccionarCombo()
         {
-            if (DropDownList1.SelectedIndex == 0)
+            if(DropDownList1.SelectedIndex==0)
             {
-                if(TextBox1.Text=="")
+                lista = null;
+            }
+           else if (DropDownList1.SelectedIndex == 1)
+            {
+                if (TextBox1.Text == "")
                 {
                     Utilidades.MostrarToastr(this, "Debes Insertar Id", "error", "error");
+                    lista = null;
                 }
                 else
                 {
                     int id = Convert.ToInt32(TextBox1.Text);
                     lista = BLL.TiposSeviciosBLL.GetList(p => p.idServicio == id);
-                   
-                }
-               
-            }
-            else if (DropDownList1.SelectedIndex == 1)
-            {
-                if (TextBox1.Text == "")
-                {
-                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
-                }
-                else
-                {
-                    lista = BLL.TiposSeviciosBLL.GetList(p => p.nombre == TextBox1.Text);
-                   
-                }
 
+                }
 
             }
             else if (DropDownList1.SelectedIndex == 2)
             {
+                if (TextBox1.Text == "")
+                {
+                    Utilidades.MostrarToastr(this, "Debes Insertar Nombre", "error", "error");
+                    lista = null;
+                }
+                else
+                {
+                    lista = BLL.TiposSeviciosBLL.GetList(p => p.nombre == TextBox1.Text);
+
+                }
+
+
+            }
+            else if (DropDownList1.SelectedIndex == 3)
+            {
 
                 lista = BLL.TiposSeviciosBLL.GetListTodo();
-              
+
 
             }
 

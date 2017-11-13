@@ -32,11 +32,17 @@ namespace BarberShop.UI.Formularios
             user.nombre = NombreTextbox.Text;
             user.email = emailTextbox.Text;
             user.fecha = Convert.ToDateTime(fecha.Text);
+
             if (DropDownList1.SelectedIndex == 0)
+            {
+                user.tipoEmail = "Usuario";
+            }
+
+            else if (DropDownList1.SelectedIndex == 1)
             {
                 user.tipoEmail = "Administrador";
             }
-            else if (DropDownList1.SelectedIndex == 1)
+            else if (DropDownList1.SelectedIndex == 2)
             {
                 user.tipoEmail = "Usuario";
             }
