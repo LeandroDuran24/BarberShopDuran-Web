@@ -20,7 +20,7 @@ namespace BarberShop.UI.Reportes
                 ReportViewer.LocalReport.DataSources.Clear();
 
                 ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetFacturas",
-                   FacturasCons.lista));
+                   FacturasCons.tabla));
 
                 ReportViewer.LocalReport.Refresh();
             }
