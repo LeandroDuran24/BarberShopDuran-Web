@@ -44,7 +44,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
 
-                <img src="/Content/Img/Contactanos.png" width="215" />
+                <img src="/Content/Img/Contactanos.png" width="205" />
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/UI/Formularios/MenuPrincipal.aspx">Inicio</a></li>
@@ -101,6 +101,9 @@
                     </ul>
                 </li>
 
+                <!--cuentas por cobrar-->
+                 <li><a href="/UI/Consultas/CuentasXCobrar.aspx">Cuentas por Cobrar &nbsp</a></li>
+                <!---contactar-->
                 <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
                 <li><a href="/LogIn.aspx">Cerrar Sesion &nbsp</a></li>
 

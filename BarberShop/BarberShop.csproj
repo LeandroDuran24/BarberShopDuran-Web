@@ -128,6 +128,7 @@
     <Content Include="Scripts\jquery-3.2.1.min.map" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="UI\Consultas\CuentasXCobrar.aspx" />
     <Content Include="UI\Consultas\FacturasCons.aspx" />
     <Content Include="UI\Reportes\DataSetBarberShop.xsc">
       <DependentUpon>DataSetBarberShop.xsd</DependentUpon>
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="UI\Consultas\ClientesCons.aspx.designer.cs">
       <DependentUpon>ClientesCons.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\CuentasXCobrar.aspx.cs">
+      <DependentUpon>CuentasXCobrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\CuentasXCobrar.aspx.designer.cs">
+      <DependentUpon>CuentasXCobrar.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Consultas\FacturasCons.aspx.cs">
       <DependentUpon>FacturasCons.aspx</DependentUpon>

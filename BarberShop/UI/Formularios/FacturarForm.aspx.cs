@@ -16,13 +16,26 @@ namespace BarberShop.UI.Formularios
         Facturas facturar = new Facturas();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Params["parametro"] != null)
+            {
+               facturaIdTextBox.Text = Request.Params["parametro"];
+                DropDownListPago.Text= Request.Params["parametro1"];
+
+
+            }
+            else
+            {
+                Utilidades.MostrarToastr(this, "Qlok nadas", "info", "info");
+            }
 
             if (!Page.IsPostBack)
             {
 
+               
+
 
                 this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
+                //this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
                 this.LabelAtentido.Visible = true;
 
                 ScriptPaginas.Script();
@@ -43,13 +56,21 @@ namespace BarberShop.UI.Formularios
         {
             facturar.idCliente = Utilidades.TOINT(DropDownListClientes.SelectedValue.ToString());
             facturar.idFactura = Utilidades.TOINT(facturaIdTextBox.Text);
-            facturar.formaPago = DropDownListPago.SelectedValue.ToString();
             facturar.descuento = Utilidades.TOINT(DescuentoTextBox.Text);
             facturar.comentario = ComentarioTextBox.Text;
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
             facturar.usuario = LogIn.LabelUsuario().nombre;
             facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
+
+            if(DropDownListPago.SelectedIndex==1)
+            {
+                facturar.formaPago = "Contado";
+            }
+            else if(DropDownListPago.SelectedIndex==2)
+            {
+                facturar.formaPago = "Credito";
+            }
 
             facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
 
@@ -65,9 +86,7 @@ namespace BarberShop.UI.Formularios
             DropDownListClientes.DataTextField = "nombre";
             DropDownListClientes.DataValueField = "idCliente";
             DropDownListClientes.DataBind();
-            //Leandro pues yo no me explico.. eso esta raro porq todo esta nitido
-            //para mi que es la magia de entity haciendo tollos.. yo lo q puedo dejar eso asi y ya enel q se ponga a probar 1 x 1
-            //Vamos a preguntarle por el grupo
+           
 
         }
         /*limpia los campos*/
@@ -147,6 +166,7 @@ namespace BarberShop.UI.Formularios
             if (servicios != null && anadido == false)
             {
                 facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
+               
 
                 facturar.servicioList.Add(servicios);
                 Session["DetalleServicios"] = facturar.servicioList;
@@ -224,18 +244,18 @@ namespace BarberShop.UI.Formularios
         /*boton buscar*/
         protected void Buscar_Click(object sender, EventArgs e)
         {
-            Facturas fac = new Facturas();
+           
             int id = Utilidades.TOINT(facturaIdTextBox.Text);
-            fac = BLL.FacturarBLL.Buscar(p => p.idFactura == id);
+            facturar = BLL.FacturarBLL.Buscar(p => p.idFactura == id);
 
-            if (fac != null)
+            if (facturar != null)
             {
-                DescuentoTextBox.Text = Convert.ToString(fac.descuento);
-                ComentarioTextBox.Text = fac.comentario;
-                SubTextBox.Text = Convert.ToString(fac.subTotal);
-                TotalTextBox.Text = Convert.ToString(fac.total);
-                //GridViewDetalle.DataSource = fac.servicioList;
-                //GridViewDetalle.DataBind();
+                DescuentoTextBox.Text = Convert.ToString(facturar.descuento);
+                ComentarioTextBox.Text = facturar.comentario;
+                SubTextBox.Text = Convert.ToString(facturar.subTotal);
+                TotalTextBox.Text = Convert.ToString(facturar.total);
+                GridViewDetalle.DataSource = facturar.servicioList;
+                GridViewDetalle.DataBind();
 
 
 

@@ -17,7 +17,7 @@ namespace BLL
             using (var conn = new Repositorio<Facturas>())
             {
                 retorno = conn.Guardar(nuevo);
-                
+
             }
             return retorno;
         }
@@ -28,6 +28,8 @@ namespace BLL
             using (var conn = new Repositorio<Facturas>())
             {
                 retorno = conn.Buscar(criterio);
+                if (retorno != null)
+                    retorno.servicioList.Count();
             }
             return retorno;
 
@@ -81,7 +83,7 @@ namespace BLL
             return lista;
         }
 
-        
+
 
 
     }

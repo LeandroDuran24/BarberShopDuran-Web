@@ -84,8 +84,10 @@ namespace BarberShop.UI.Consultas
 
                         SqlCommand comando = new SqlCommand();
                         comando.Connection = conexion;
-
-                        comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente where fac.fecha>= convert(datetime,"+desdeFecha.Text+") and fac.fecha<= convert(datetime,"+hastaFecha.Text+")"; 
+                        string query= @"Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente where fac.fecha>=@desde and fac.fecha<=@hasta";
+                        comando.CommandText = query;
+                        comando.Parameters.Add("@desde", SqlDbType.DateTime).Value = desdeFecha.Text;
+                        comando.Parameters.Add("@hasta", SqlDbType.DateTime).Value =hastaFecha.Text;
                         SqlDataAdapter sql = new SqlDataAdapter(comando);
 
                         sql.Fill(tabla);
