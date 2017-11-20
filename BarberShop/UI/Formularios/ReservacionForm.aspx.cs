@@ -89,7 +89,7 @@ namespace BarberShop.UI.Formularios
                 {
 
                     BLL.ReservacionesBLL.Modificar(reservacion);
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "scripts", "<script>alert('Se Ha Modificado Correctamente');</script>");
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
                 }
                 else
                 {
@@ -167,8 +167,8 @@ namespace BarberShop.UI.Formularios
                 if (reservacion != null)
                 {
 
-                    DropDownListCliente.Text = reservacion.nombreCliente;
-                    DropDownListPeluquero.Text = reservacion.nombrePeluquero;
+                    //DropDownListCliente.Text = reservacion.nombreCliente;
+                    //DropDownListPeluquero.Text = reservacion.nombrePeluquero;
                     FechaDesde.Text = Convert.ToString(reservacion.fechaDesde);
                     fechaHasta.Text = Convert.ToString(reservacion.fechaHasta);
                     FechaTextbox.Text = Convert.ToString(reservacion.fecha);

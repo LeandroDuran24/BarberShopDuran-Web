@@ -14,7 +14,8 @@ namespace BarberShop.UI.Formularios
         {
             if(!Page.IsPostBack)
             {
-               // FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
+               FechaTextBox1.Text= DateTime.Now.ToString("dd/MM/yyyy");
+                FechaTextBox1.Enabled = false;
                 ScriptPaginas.Script();
 
             }
@@ -48,7 +49,7 @@ namespace BarberShop.UI.Formularios
             NombreTextbox.Text = "";
             TelefonoTextBox.Text = "";
             DropDownList1.Text = "";
-            FechaTextBox1.Text = string.Format("{0:G}", DateTime.Now);
+            FechaTextBox1.Text = DateTime.Now.ToString("dd/MM/yyyy");
             NombreTextbox.Focus();
         }
 
@@ -65,7 +66,7 @@ namespace BarberShop.UI.Formularios
                     NombreTextbox.Text = peluquero.nombre;
                     TelefonoTextBox.Text = peluquero.telefono;
                     DropDownList1.Text = peluquero.sexo;
-                    FechaTextBox1.Text = Convert.ToString(peluquero.fecha);
+                    FechaTextBox1.Text = Convert.ToString(peluquero.fecha.ToString("dd/MM/yyyy"));
                 }
                 else
                 {
@@ -85,10 +86,10 @@ namespace BarberShop.UI.Formularios
             if(IsValid)
             {
                 peluquero = llenarCampos();
-                if (peluquero.idPeluquero > 0)
+                if (peluquero.idPeluquero != 0)
                 {
                     BLL.PeluqueroBll.Modificar(peluquero);
-                    Utilidades.MostrarToastr(this, "Modificado", "success", "success");
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
                 }
                 else
                 {

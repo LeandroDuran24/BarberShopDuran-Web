@@ -20,7 +20,7 @@ namespace DAL
         public DbSet<Entidades.Clientes> cliente { get; set; }
         public DbSet<Entidades.Reservaciones> reservacion { get; set; }
         public DbSet<Entidades.Facturas> facturar { get; set; }
-
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Entidades.Facturas>()

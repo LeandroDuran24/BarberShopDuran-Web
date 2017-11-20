@@ -13,7 +13,7 @@ namespace BarberShop.UI.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
             ScriptPaginas.Script();
-           
+
         }
 
         Servicios Servicios = new Servicios();
@@ -28,7 +28,7 @@ namespace BarberShop.UI.Formularios
 
         public Servicios LLenar()
         {
-            //Servicios.idServicio = Utilidades.TOINT(idTextbox.Text);
+            Servicios.idServicio = Utilidades.TOINT(idTextbox.Text);
             Servicios.nombre = NombreTextbox.Text;
             Servicios.costo = Convert.ToInt32(CostoTextBox1.Text);
             return Servicios;
@@ -64,24 +64,24 @@ namespace BarberShop.UI.Formularios
 
         protected void guardar_Click(object sender, EventArgs e)
         {
-            if(IsValid)
-            {
-                Servicios = LLenar();
-                if (Servicios.idServicio != 0)
-                {
-                    BLL.TiposSeviciosBLL.Modificar(Servicios);
-                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
 
-                }
-                else
-                {
-                    BLL.TiposSeviciosBLL.Guardar(Servicios);
-                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
-                    limpiar();
-                    NombreTextbox.Focus();
-                }
+            Servicios = LLenar();
+            if (Servicios.idServicio!=0)
+            {
+               
+                BLL.TiposSeviciosBLL.Modificar(Servicios);
+                Utilidades.MostrarToastr(this, "Modificado", "info", "info");
+
             }
-            
+            else
+            {
+                BLL.TiposSeviciosBLL.Guardar(Servicios);
+                Utilidades.MostrarToastr(this, "Guardado", "success", "success");
+                limpiar();
+                NombreTextbox.Focus();
+            }
+
+
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)
@@ -98,6 +98,6 @@ namespace BarberShop.UI.Formularios
             }
         }
 
-       
+
     }
 }

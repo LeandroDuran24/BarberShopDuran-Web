@@ -11,8 +11,7 @@ namespace BarberShop
 
         public static int TOINT(string nombre)
         {
-            int numero;
-            int.TryParse(nombre, out numero);
+            int.TryParse(nombre, out int numero);
             return numero;
         }
 

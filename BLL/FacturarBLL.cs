@@ -17,6 +17,7 @@ namespace BLL
             using (var conn = new Repositorio<Facturas>())
             {
                 retorno = conn.Guardar(nuevo);
+                
             }
             return retorno;
         }
@@ -38,6 +39,16 @@ namespace BLL
             using (var conn = new Repositorio<Facturas>())
             {
                 retorno = conn.Eliminar(criterio);
+            }
+            return retorno;
+        }
+
+        public static bool Modificar(Facturas existente)
+        {
+            bool retorno = false;
+            using (var db = new Repositorio<Facturas>())
+            {
+                retorno = db.Modificar(existente);
             }
             return retorno;
         }
@@ -70,6 +81,7 @@ namespace BLL
             return lista;
         }
 
+        
 
 
     }

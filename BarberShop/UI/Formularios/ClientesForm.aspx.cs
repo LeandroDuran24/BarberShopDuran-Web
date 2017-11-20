@@ -12,8 +12,8 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //FechaTextBox5.Text = string.Format("{0:G}", DateTime.Now);
-
+            FechaTextBox5.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            FechaTextBox5.Enabled = false;
 
             ScriptPaginas.Script();
         }
@@ -41,7 +41,7 @@ namespace BarberShop.UI.Formularios
             DireccionTextBox2.Text = "";
             CedulaTextBox3.Text = "";
             EmailTextBox4.Text = "";
-            FechaTextBox5.Text = string.Format("{0:G}", DateTime.Now);
+            FechaTextBox5.Text = DateTime.Now.ToString("dd/MM/yyyy");
             NombreClienteTextbox.Focus();
         }
 
@@ -62,7 +62,7 @@ namespace BarberShop.UI.Formularios
                     DireccionTextBox2.Text = cliente.direccion;
                     CedulaTextBox3.Text = cliente.cedula;
                     EmailTextBox4.Text = cliente.email;
-                    FechaTextBox5.Text = Convert.ToString(cliente.fecha);
+                    FechaTextBox5.Text = Convert.ToString(cliente.fecha.ToString("dd/MM/yyyy"));
                 }
                 else
                 {

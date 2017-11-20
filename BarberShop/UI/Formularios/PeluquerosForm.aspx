@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="FechaTextBox1" runat="server" Width="300px" Height="33px" TextMode="Date"></asp:TextBox>
+                <asp:TextBox ID="FechaTextBox1" runat="server" Width="300px" Height="33px" TextMode="DateTime"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="FechaTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 

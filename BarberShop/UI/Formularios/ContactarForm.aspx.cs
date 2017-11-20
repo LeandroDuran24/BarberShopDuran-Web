@@ -14,12 +14,11 @@ namespace BarberShop.UI.Formularios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
-            ClientScript.RegisterStartupScript(GetType(), "ejecutarScript", "myMap();", true);
-
-
-
+            if (!Page.IsPostBack)
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "script", "myMap();", true);
+            }
         }
 
 

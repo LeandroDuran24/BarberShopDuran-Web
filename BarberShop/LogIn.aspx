@@ -19,9 +19,12 @@
     <script src="/Scripts/toastr.min.js"></script>
     <link href="/Content/toastr.min.css" rel="stylesheet" />
 
+    <!---script-->
+    <script src="/Content/Script.js"></script>
+
 
 </head>
-<body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg">
+<body background="/Content/Img/barbershop-inspired-hairstyles-for-men-1108769-TwoByOne.jpg" >
     <form id="form1" runat="server">
 
         <div class="container-fluid">
@@ -39,8 +42,8 @@
                     </div>
                 </div>
                 <div class="text-center">
-                    <asp:TextBox ID="EmailTextBox" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email" AutoCompleteType="Disabled"></asp:TextBox>&nbsp
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox ID="EmailTextBox"  runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Email" AutoCompleteType="Disabled"  ></asp:TextBox>&nbsp
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎"  ControlToValidate="EmailTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
 
@@ -54,8 +57,8 @@
                 </div>
 
                 <div class="text-center">
-                    <asp:TextBox Type="password" ID="PassTextBox1" CssClass="BorderTextBox" runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password"></asp:TextBox>&nbsp
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:TextBox Type="password" ID="PassTextBox1"  runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎"  ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red" ></asp:RequiredFieldValidator>
                     <br />
                     <br />
                 </div>
@@ -63,7 +66,7 @@
 
                 <!--Boton-->
                 <div class="text-center">
-                    <asp:Button ID="LoginButton" CssClass="btn btn-danger btn-md " runat="server" Text="LogIn" Width="96px" OnClick="LoginButton_Click" />&nbsp&nbsp
+                    <asp:Button ID="LoginButton" CssClass="btn btn-danger btn-md " runat="server" Text="LogIn" Width="96px" OnClick="LoginButton_Click"  />&nbsp&nbsp
                   
                
                 </div>

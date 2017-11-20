@@ -14,13 +14,13 @@ namespace BarberShop.UI.Formularios
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            ScriptPaginas.Script();
+            if (!Page.IsPostBack)
+            {
+                ScriptPaginas.Script();
+                fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                fecha.Enabled = false;
+            }
 
-            claveTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");//solo recibe #
-            confTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");
-            idTextbox.Attributes.Add("onkeypress", "return ValidNum(event);");
-
-            NombreTextbox.Attributes.Add("onkeypress", "return ValidLet(event);");//solo reciben letras
         }
 
 
@@ -47,6 +47,9 @@ namespace BarberShop.UI.Formularios
                 user.tipoEmail = "Usuario";
             }
 
+
+           
+
             user.clave = claveTextbox.Text;
             user.confirmar = confTextbox.Text;
             return user;
@@ -57,6 +60,7 @@ namespace BarberShop.UI.Formularios
             idTextbox.Text = "";
             NombreTextbox.Text = "";
             emailTextbox.Text = "";
+            fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
             claveTextbox.Text = "";
             confTextbox.Text = "";
@@ -84,6 +88,7 @@ namespace BarberShop.UI.Formularios
                     DropDownList1.Text = user.tipoEmail;
                     claveTextbox.Text = user.clave;
                     confTextbox.Text = user.confirmar;
+                    fecha.Text = Convert.ToString(user.fecha.ToString("dd/MM/yyyy"));
 
 
 
@@ -105,25 +110,42 @@ namespace BarberShop.UI.Formularios
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (IsValid)
+            user = LlenarCampos();
+            if (user.idUsuario != 0)
             {
-                if (user.idUsuario != 0)
+                if (user.clave != user.confirmar)
                 {
-
-                    UsuariosBLL.Mofidicar(user);
-                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
+                    Utilidades.MostrarToastr(this, "No Coinciden las Claves", "error", "error");
+                    claveTextbox.Text = "";
+                    confTextbox.Text = "";
                 }
                 else
                 {
-                    user = LlenarCampos();
+                    UsuariosBLL.Mofidicar(user);
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
+                }
+                
+            }
+            else
+            {
+                if(user.clave!=user.confirmar)
+                {
+                    Utilidades.MostrarToastr(this, "No Coinciden las Claves", "error", "error");
+                    claveTextbox.Text = "";
+                    confTextbox.Text = "";
+                }
+                else
+                {
                     UsuariosBLL.Guardar(user);
 
                     Utilidades.MostrarToastr(this, "Guardado", "success", "success");
                     Limpiar();
                     NombreTextbox.Focus();
-
                 }
+               
+
             }
+
         }
 
         protected void Eliminar_Click(object sender, EventArgs e)

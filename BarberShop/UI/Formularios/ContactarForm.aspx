@@ -2,9 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="../../Content/Style/Style.css" />
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+
+
+    <script src="/../../Content/Script.js"></script>
 
     <%--<a href="../../Content/Img/Contactanos.png" target="_blank">--%>
     <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
@@ -34,6 +39,7 @@
     <div class="text-center">
         <span class="glyphicon glyphicon-map-marker Iconos"></span>
         <div id="map" style="width: 1150px; height: 400px; background: gray"></div>
+
     </div>
 
     <br />
@@ -41,9 +47,4 @@
     <!------------------------script para google map-------------------->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
     <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
-    <%--<script src="/../../Content/Script.js"></script>--%>
-
-
-
-
 </asp:Content>

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/Content/Style/Style.css" />
     <!---------------------------------------------Script para los Toastr--------------------------------------------------------->
 
-    <script src="/../../Content/Script.js"></script>
+    
 
     <script src="/Scripts/jquery-3.2.1.min.js"></script>
     <script src="/Scripts/toastr.min.js"></script>
@@ -40,11 +40,10 @@
 
     <!---------------------------------------------menu-------------------------------------------------------------->
 
-
     <nav class="navbar navbar-default ">
         <div class="container-fluid">
             <div class="navbar-header">
-                <%-- <a class="navbar-brand" href="#">BarberShop Duran</a>--%>
+
                 <img src="/Content/Img/Contactanos.png" width="215" />
             </div>
             <ul class="nav navbar-nav">
@@ -131,7 +130,7 @@
     </div>
 
     <footer class="text-center">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:<span class="glyphicon glyphicon-cog"></span>Leandro Rafael Duran Minaya</p>
+        <p><span class="glyphicon glyphicon-copyright-mark"></span>Powered by:Leandro Rafael Duran Minaya</p>
     </footer>
 
     <!-----------------------------------------------------Script----------------------------------------->
@@ -140,14 +139,18 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/../../Content/Script.js"></script>
 
-    <!-----------------------------------------mi style personal----------------------------------------------------------------->
-    
-    <!----script para no volver atras en el browse-->
-    <%--<script language="JavaScript">
-        if (history.forward(1)) {
-            history.replace(history.forward(1));
+
+
+    <%--<script>
+
+        function back() {
+            window.history.forward();
         }
+        setTimeout("back()", 0);
+        window.onunload = function () { null };
     </script>--%>
+
 </body>
 </html>

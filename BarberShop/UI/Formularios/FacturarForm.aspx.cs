@@ -21,9 +21,9 @@ namespace BarberShop.UI.Formularios
             {
 
 
-                //this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                //this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
-                //this.LabelAtentido.Visible = true;
+                this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+                this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
+                this.LabelAtentido.Visible = true;
 
                 ScriptPaginas.Script();
                 GridViewDetalle.DataSource = null;
@@ -48,9 +48,11 @@ namespace BarberShop.UI.Formularios
             facturar.comentario = ComentarioTextBox.Text;
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
-            //facturar.usuario = LogIn.LabelUsuario().nombre;
-            //facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
+            facturar.usuario = LogIn.LabelUsuario().nombre;
+            facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
+
             facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
+
 
 
             return facturar;
@@ -63,6 +65,9 @@ namespace BarberShop.UI.Formularios
             DropDownListClientes.DataTextField = "nombre";
             DropDownListClientes.DataValueField = "idCliente";
             DropDownListClientes.DataBind();
+            //Leandro pues yo no me explico.. eso esta raro porq todo esta nitido
+            //para mi que es la magia de entity haciendo tollos.. yo lo q puedo dejar eso asi y ya enel q se ponga a probar 1 x 1
+            //Vamos a preguntarle por el grupo
 
         }
         /*limpia los campos*/
@@ -92,7 +97,7 @@ namespace BarberShop.UI.Formularios
             decimal descuento = 0;
             decimal total = 0;
             int porciento = 100;
-            int devuelta = 0;
+            //int devuelta = 0;
 
             if (GridViewDetalle.Rows.Count > 0)
             {
@@ -188,10 +193,21 @@ namespace BarberShop.UI.Formularios
                 else
                 {
                     facturar = LlenarCampos();
+                    if (facturar.idFactura!=0)
+                    {
+                        BLL.FacturarBLL.Modificar(facturar);
+                        Utilidades.MostrarToastr(this, "Modificado", "info", "info");
 
-                    BLL.FacturarBLL.Guardar(facturar);
-                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
-                    Limpiar();
+                    }
+                    else
+                    {
+
+
+                        BLL.FacturarBLL.Guardar(facturar);
+                        Utilidades.MostrarToastr(this, "Guardado", "success", "success");
+                        Limpiar();
+                    }
+
 
                 }
 
@@ -218,8 +234,10 @@ namespace BarberShop.UI.Formularios
                 ComentarioTextBox.Text = fac.comentario;
                 SubTextBox.Text = Convert.ToString(fac.subTotal);
                 TotalTextBox.Text = Convert.ToString(fac.total);
+                //GridViewDetalle.DataSource = fac.servicioList;
+                //GridViewDetalle.DataBind();
 
-                Utilidades.MostrarToastr(this, " Existe", "error", "error");
+
 
             }
             else
@@ -236,14 +254,19 @@ namespace BarberShop.UI.Formularios
 
         protected void Eliminar_Click(object sender, EventArgs e)
         {
-            //int id = Utilidades.TOINT(facturaIdTextBox.Text);
-            //facturar = BLL.FacturarBLL.Buscar(p=> p.idFactura==id);
+            int id = Utilidades.TOINT(facturaIdTextBox.Text);
+            facturar = BLL.FacturarBLL.Buscar(p => p.idFactura == id);
 
-            //if (facturar != null)
-            //{
-            //    BLL.FacturarBLL.Eliminar(facturar);
-            //    Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
-            //}
+            if (facturar != null)
+            {
+                BLL.FacturarBLL.Eliminar(facturar);
+                Utilidades.MostrarToastr(this, "Eliminado", "success", "success");
+                Limpiar();
+            }
+            else
+            {
+                Utilidades.MostrarToastr(this, "error", "error", "error");
+            }
         }
 
         protected void ImageButtonSearch_Click(object sender, ImageClickEventArgs e)

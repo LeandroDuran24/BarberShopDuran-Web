@@ -16,8 +16,14 @@ namespace BarberShop
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ScriptPaginas.Script();
-            EmailTextBox.Focus();
+            if (!Page.IsPostBack)
+            {
+                ScriptPaginas.Script();
+                EmailTextBox.Focus();
+
+               
+            }
+
         }
 
         public static Usuarios LabelUsuario()
@@ -42,7 +48,7 @@ namespace BarberShop
                 }
                 else
                 {
-                    Utilidades.MostrarToastr(this, "No Coinciden", "Error", "Error");
+                    Utilidades.MostrarToastr(this, "No Coinciden", "error", "error");
 
                     Limpiar();
 
@@ -54,7 +60,7 @@ namespace BarberShop
             {
 
 
-                Utilidades.MostrarToastr(this, "No Exite Usuario", "Error", "Error");
+                Utilidades.MostrarToastr(this, "No Exite Usuario", "error", "error");
                 Limpiar();
             }
 

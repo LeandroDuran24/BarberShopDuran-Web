@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +16,7 @@ namespace BarberShop.UI.Consultas
 
         public static List<Facturas> lista { get; set; }
         public static DataTable tabla { get; set; }
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -73,10 +74,26 @@ namespace BarberShop.UI.Consultas
                 if (desdeFecha.Text != "" && hastaFecha.Text != "")
                 {
                     DateTime desde = Convert.ToDateTime(desdeFecha.Text);
-                    DateTime hasta = Convert.ToDateTime(desdeFecha.Text);
+                    DateTime hasta = Convert.ToDateTime(hastaFecha.Text);
                     if (desde <= hasta)
                     {
-                        lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
+
+                        //lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
+                        SqlConnection conexion = new SqlConnection();
+                        conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
+
+                        SqlCommand comando = new SqlCommand();
+                        comando.Connection = conexion;
+
+                        comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente where fac.fecha>= convert(datetime,"+desdeFecha.Text+") and fac.fecha<= convert(datetime,"+hastaFecha.Text+")"; 
+                        SqlDataAdapter sql = new SqlDataAdapter(comando);
+
+                        sql.Fill(tabla);
+
+                        GridView1.DataSource = tabla;
+                        GridView1.DataBind();
+
+
 
                     }
                     else
@@ -97,7 +114,22 @@ namespace BarberShop.UI.Consultas
             else if (DropDownList1.SelectedIndex == 3)
             {
 
-                lista = BLL.FacturarBLL.GetListodo();
+                //lista = BLL.FacturarBLL.GetListodo();
+                SqlConnection conexion = new SqlConnection();
+                conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
+
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexion;
+
+                comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente";
+
+
+                SqlDataAdapter sql = new SqlDataAdapter(comando);
+
+                sql.Fill(tabla);
+
+                GridView1.DataSource = tabla;
+                GridView1.DataBind();
 
 
             }
