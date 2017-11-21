@@ -100,6 +100,20 @@ namespace DAL
             try
             {
                 EntitySet.Add(nuevo);
+
+                Facturas fac = new Facturas();
+                foreach(var det in fac.servicioList)
+                {
+                    if(det.idServicio==0)
+                    {
+                        context.servicio.Add(det);
+                    }
+                    else
+                    {
+                        context.Entry(nuevo).State = EntityState.Unchanged;
+                    }
+                }
+
                 context.SaveChanges();
                 retorno = nuevo;
 

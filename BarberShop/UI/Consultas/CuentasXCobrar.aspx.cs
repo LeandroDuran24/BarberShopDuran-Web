@@ -13,10 +13,14 @@ namespace BarberShop.UI.Consultas
 {
     public partial class CuentasXCobrar : System.Web.UI.Page
     {
-        public static DataTable tabla { get; set; }
+        public static DataTable Tabla { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            tabla = new DataTable();
+           if(!Page.IsPostBack)
+            {
+                Tabla = new DataTable();
+            }
+          
         }
 
         protected void ButtonBuscar_Click(object sender, EventArgs e)
@@ -32,9 +36,9 @@ namespace BarberShop.UI.Consultas
 
             SqlDataAdapter sql = new SqlDataAdapter(comando);
 
-            sql.Fill(tabla);
+            sql.Fill(Tabla);
 
-            GridView1.DataSource = tabla;
+            GridView1.DataSource = Tabla;
             GridView1.DataBind();
         }
 
@@ -48,6 +52,11 @@ namespace BarberShop.UI.Consultas
             string id = GridView1.Rows[e.NewSelectedIndex].Cells[1].Text;
             Response.Redirect("../Formularios/FacturarForm.aspx?parametro=" + id);
 
+        }
+
+        protected void ButtonImprimir_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Reportes/ReporteCuentas.aspx");
         }
     }
 }

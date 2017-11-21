@@ -15,36 +15,42 @@
     <img src="../../Content/Img/Contactanos.png" class="img-responsive center-block" />
 
 
-    &nbsp;<div class="caption">
-        <p class="text-center">Barber Shop Duran</p>
-    </div>
 
 
-    <!--icono de telefono con los telefonos----->
+    <!----nombre-->
     <div class="text-center">
+        <img src="../../Content/Img/IMG-20160604-WA0026.jpg" />
         <br />
-        <span class=" glyphicon glyphicon-earphone Iconos">
-            <h4>Tel:809-290-8636/Cel:829-367-7767</h4>
-        </span>
-        <br />
+        <h4>Nombres: Leandro Rafael Duran Minaya</h4>
     </div>
-    <!----------- icono de mail ---->
+
+
+    <!--direccion-->
     <div class="text-center">
-        <span class="glyphicon glyphicon-envelope Iconos">
-            <h4><a href="mailto:leandrorafael_24@hotmail.com?&subject=&body=">Email:Leandrorafael_24@hotmail.com</a></h4>
-        </span>
+        <h4>Direccion: Sfm/Cruz de Cenovi/Entrada de los Duranes</h4>
+
     </div>
 
-    <!-------icono de ubicacion con mapa------>
+
+    <!-- telefonos----->
     <div class="text-center">
-        <span class="glyphicon glyphicon-map-marker Iconos"></span>
-        <div id="map" style="width: 1150px; height: 400px; background: gray"></div>
 
+        <h4>Tel: 809-290-8636/Cel:829-367-7767</h4>
     </div>
 
-    <br />
 
-    <!------------------------script para google map-------------------->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+    <!----------- mail ---->
+    <div class="text-center">
+
+        <h4><a href="mailto:leandrorafael_24@hotmail.com?&subject=&body=">Email: Leandrorafael_24@hotmail.com</a></h4>
+    </div>
+
+
+    <!----------- mail ucne ---->
+    <div class="text-center">
+
+        <h4><a href="mailto:leandro_duran@ucne.edu.do?&subject=&body=">Email: Leandrorafael_24@hotmail.com</a></h4>
+    </div>
+
+
 </asp:Content>

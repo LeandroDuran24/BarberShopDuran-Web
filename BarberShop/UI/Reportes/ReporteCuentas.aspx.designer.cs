@@ -7,36 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BarberShop.UI.Consultas {
+namespace BarberShop.UI.Reportes {
     
     
-    public partial class CuentasXCobrar {
+    public partial class ReporteCuentas {
         
         /// <summary>
-        /// ButtonBuscar control.
+        /// formulario control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonBuscar;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formulario;
         
         /// <summary>
-        /// ButtonImprimir control.
+        /// ScriptManager control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonImprimir;
+        protected global::System.Web.UI.ScriptManager ScriptManager;
         
         /// <summary>
-        /// GridView1 control.
+        /// ReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ReportViewer;
     }
 }

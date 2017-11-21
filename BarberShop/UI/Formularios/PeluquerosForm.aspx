@@ -16,7 +16,7 @@
             </div>
             <div class="text-center">
 
-                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" TextMode="Number"></asp:TextBox>&nbsp
+                <asp:TextBox ID="idTextbox" runat="server" Width="190px" Height="33px" TextMode="Number" MaxLength="10"></asp:TextBox>&nbsp
                      <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" OnClick="Buscar_Click" ValidationGroup="buscar" Width="105px" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="֎" ValidationGroup="buscar" ControlToValidate="idTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)"></asp:TextBox>
+                <asp:TextBox ID="NombreTextbox" runat="server" Width="300px" Height="33px" onkeypress="return soloLetras(event)" MaxLength="25"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="NombreTextbox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <asp:TextBox ID="TelefonoTextBox" runat="server" Width="300px" Height="33px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="TelefonoTextBox" runat="server" Width="300px" Height="33px" TextMode="Number" MaxLength="15"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎" ValidationGroup="guardar" ControlToValidate="TelefonoTextBox" Font-Bold="True" ForeColor="Red"></asp:RequiredFieldValidator>
             </div>
 

@@ -16,22 +16,15 @@ namespace BarberShop.UI.Formularios
         Facturas facturar = new Facturas();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["parametro"] != null)
-            {
-               facturaIdTextBox.Text = Request.Params["parametro"];
-                DropDownListPago.Text= Request.Params["parametro1"];
 
 
-            }
-            else
-            {
-                Utilidades.MostrarToastr(this, "Qlok nadas", "info", "info");
-            }
 
             if (!Page.IsPostBack)
             {
 
-               
+                if (Request.Params["parametro"] != null)
+                    facturaIdTextBox.Text = Request.Params["parametro"];
+
 
 
                 this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
@@ -63,11 +56,11 @@ namespace BarberShop.UI.Formularios
             facturar.usuario = LogIn.LabelUsuario().nombre;
             facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
 
-            if(DropDownListPago.SelectedIndex==1)
+            if (DropDownListPago.SelectedIndex == 1)
             {
                 facturar.formaPago = "Contado";
             }
-            else if(DropDownListPago.SelectedIndex==2)
+            else if (DropDownListPago.SelectedIndex == 2)
             {
                 facturar.formaPago = "Credito";
             }
@@ -86,7 +79,7 @@ namespace BarberShop.UI.Formularios
             DropDownListClientes.DataTextField = "nombre";
             DropDownListClientes.DataValueField = "idCliente";
             DropDownListClientes.DataBind();
-           
+
 
         }
         /*limpia los campos*/
@@ -103,10 +96,12 @@ namespace BarberShop.UI.Formularios
             RecibidoTextBox.Text = "";
             DevueltaTextBox.Text = "";
 
-            GridViewDetalle.DataSource = null;
+
+            Session["DetalleServicios"] = new List<Servicios>();
+            GridViewDetalle.DataSource = Session["DetalleServicios"];
             GridViewDetalle.DataBind();
 
-            ;
+            
         }
 
         /*calcular el monto total del costo de los servicios*/
@@ -166,7 +161,7 @@ namespace BarberShop.UI.Formularios
             if (servicios != null && anadido == false)
             {
                 facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
-               
+
 
                 facturar.servicioList.Add(servicios);
                 Session["DetalleServicios"] = facturar.servicioList;
@@ -213,10 +208,11 @@ namespace BarberShop.UI.Formularios
                 else
                 {
                     facturar = LlenarCampos();
-                    if (facturar.idFactura!=0)
+                    if (facturar.idFactura != 0)
                     {
                         BLL.FacturarBLL.Modificar(facturar);
                         Utilidades.MostrarToastr(this, "Modificado", "info", "info");
+                        Limpiar();
 
                     }
                     else
@@ -240,11 +236,13 @@ namespace BarberShop.UI.Formularios
         protected void Nuevo_Click(object sender, EventArgs e)
         {
             Limpiar();
+            GridViewDetalle.DataSource = null;
+            GridViewDetalle.DataBind();
         }
         /*boton buscar*/
         protected void Buscar_Click(object sender, EventArgs e)
         {
-           
+
             int id = Utilidades.TOINT(facturaIdTextBox.Text);
             facturar = BLL.FacturarBLL.Buscar(p => p.idFactura == id);
 
@@ -252,6 +250,7 @@ namespace BarberShop.UI.Formularios
             {
                 DescuentoTextBox.Text = Convert.ToString(facturar.descuento);
                 ComentarioTextBox.Text = facturar.comentario;
+                DropDownListPago.Text = facturar.formaPago;
                 SubTextBox.Text = Convert.ToString(facturar.subTotal);
                 TotalTextBox.Text = Convert.ToString(facturar.total);
                 GridViewDetalle.DataSource = facturar.servicioList;

@@ -57,7 +57,7 @@
                 </div>
 
                 <div class="text-center">
-                    <asp:TextBox Type="password" ID="PassTextBox1"  runat="server" Width="300px" Height="33px" MaxLength="10" placeholder="Enter Password" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
+                    <asp:TextBox Type="password" ID="PassTextBox1"  runat="server" Width="300px" Height="33px" MaxLength="15" placeholder="Enter Password" onkeypress="return soloNumeros(event)"></asp:TextBox>&nbsp
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="֎"  ControlToValidate="PassTextBox1" Font-Bold="True" ForeColor="Red" ></asp:RequiredFieldValidator>
                     <br />
                     <br />

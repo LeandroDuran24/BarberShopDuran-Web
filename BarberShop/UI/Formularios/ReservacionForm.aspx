@@ -17,7 +17,7 @@
             </div>
             <div class="text-center">
 
-                <asp:textbox id="idTextbox" runat="server" width="190px" height="33px" textmode="Number"></asp:textbox>
+                <asp:textbox id="idTextbox" runat="server" width="190px" height="33px" textmode="Number" MaxLength="10"></asp:textbox>
                 &nbsp
                      <asp:button id="Buscar" cssclass="btn btn-danger btn-md " runat="server" text="Buscar" width="105px" onclick="Buscar_Click1" />
             </div>

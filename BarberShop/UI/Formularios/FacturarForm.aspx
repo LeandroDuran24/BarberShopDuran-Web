@@ -28,7 +28,7 @@
             </div>
 
             <div class="text-center">
-                <asp:TextBox ID="facturaIdTextBox" runat="server" Height="33px" Width="190px" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="facturaIdTextBox" runat="server" Height="33px" Width="190px" TextMode="Number" MaxLength="10"></asp:TextBox>
                 <asp:Button ID="Buscar" CssClass="btn btn-danger btn-md " runat="server" Text="Buscar" Width="120px" ValidationGroup="buscar" OnClick="Buscar_Click" />
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="facturaIdTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="buscar"></asp:RequiredFieldValidator>
 
@@ -94,7 +94,7 @@
             </div>
 
             <div class="text-center">
-                <asp:TextBox ID="DescuentoTextBox" runat="server" Width="183px" Height="33px" TextMode="Number"></asp:TextBox>&nbsp;
+                <asp:TextBox ID="DescuentoTextBox" runat="server" Width="183px" Height="33px" TextMode="Number" MaxLength="2"></asp:TextBox>&nbsp;
                 <asp:Button ID="ButtonAgregarServiciosGrid" CssClass="btn btn-danger btn-md " runat="server" Text="Agregar" Width="121px" OnClick="ButtonAgregarServiciosGrid_Click1" ValidationGroup="agregar" />
 
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="DescuentoTextBox" ErrorMessage="֎" Font-Bold="True" Font-Italic="True" ForeColor="Red" ValidationGroup="agregar"></asp:RequiredFieldValidator>
@@ -113,7 +113,7 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="39px" Wrap="False"></asp:TextBox>
+                <asp:TextBox ID="CodTextBox" runat="server" Height="33px" Width="39px" Wrap="False" MaxLength="4"></asp:TextBox>
                 <asp:ImageButton ID="ImageButtonSearch"  runat="server" Height="34px" ImageUrl="~/Content/Img/search_ .ico" CssClass="BorderTextBox" Width="23px" ImageAlign="Top" OnClick="ImageButtonSearch_Click" CausesValidation="true"  />
                 <asp:TextBox ID="ServTextBox" runat="server" Height="33px" Width="170px" Wrap="False" Enabled="False"></asp:TextBox>
                 <asp:TextBox ID="PrecioTextBox" runat="server" Height="33px" Width="70px" Wrap="False" Enabled="False"></asp:TextBox>
@@ -156,10 +156,10 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" TextMode="Number"></asp:TextBox>
-                <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
-                <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False"></asp:TextBox>
-                <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False"></asp:TextBox>
+                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" TextMode="Number" MaxLength="6"></asp:TextBox>
+                <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False" MaxLength="6"></asp:TextBox>
+                <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False" MaxLength="4"></asp:TextBox>
+                <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False" MaxLength="6"></asp:TextBox>
 
 
             </div>

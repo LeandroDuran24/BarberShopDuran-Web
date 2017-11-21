@@ -104,8 +104,8 @@
                 <!--cuentas por cobrar-->
                  <li><a href="/UI/Consultas/CuentasXCobrar.aspx">Cuentas por Cobrar &nbsp</a></li>
                 <!---contactar-->
-                <li><a href="/UI/Formularios/ContactarForm.aspx">Contactar &nbsp</a></li>
-                <li><a href="/LogIn.aspx">Cerrar Sesion &nbsp</a></li>
+                <li><a href="/UI/Formularios/ContactarForm.aspx">Informacion &nbsp</a></li>
+                <li><a href="/LogIn.aspx">Sign off &nbsp</a></li>
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-    <%--<script>
+   <%-- <script>
 
         function back() {
             window.history.forward();

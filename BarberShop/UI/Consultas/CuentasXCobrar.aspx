@@ -12,6 +12,7 @@
 
             <div class="text-center">
                 <asp:Button ID="ButtonBuscar" CssClass="btn btn-danger" runat="server" Text="Filtrar" OnClick="ButtonBuscar_Click" />
+            &nbsp;<asp:Button ID="ButtonImprimir" CssClass="btn btn-danger" runat="server" Text="Imprimir" OnClick="ButtonImprimir_Click"  />
             </div>
 
             <div class="text-center align-content-center">

@@ -105,6 +105,7 @@
     <Content Include="Base de Datos\Query.txt" />
     <Content Include="Base.Master" />
     <Content Include="Content\bootstrapTheme.min.css" />
+    <Content Include="Content\Img\IMG-20160604-WA0026.jpg" />
     <Content Include="Content\Img\Model4.PNG" />
     <Content Include="Content\Img\Model5.mp4" />
     <Content Include="Content\Img\search_ .ico" />
@@ -160,7 +161,7 @@
     <Content Include="Content\jquery-2.2.0.min.js" />
     <Content Include="Content\Script.js" />
     <Content Include="Content\Style\Style.css" />
-    <Content Include="Global.asax" />
+    <Content Include="UI\Reportes\Global.asax" />
     <Content Include="LogIn.aspx" />
     <Content Include="UI\Consultas\ClientesCons.aspx" />
     <Content Include="UI\Consultas\PeluqueroCons.aspx" />
@@ -176,6 +177,7 @@
     <Content Include="UI\Formularios\ServiciosForm.aspx" />
     <Content Include="UI\Formularios\UsuariosForm.aspx" />
     <Content Include="UI\Reportes\ReporteClientes.aspx" />
+    <Content Include="UI\Reportes\ReporteCuentas.aspx" />
     <Content Include="UI\Reportes\ReporteFacturas.aspx" />
     <Content Include="UI\Reportes\ReportePeluqueros.aspx" />
     <Content Include="UI\Reportes\ReporteReservaciones.aspx" />
@@ -191,7 +193,7 @@
     <Compile Include="Base.Master.designer.cs">
       <DependentUpon>Base.Master</DependentUpon>
     </Compile>
-    <Compile Include="Global.asax.cs">
+    <Compile Include="UI\Reportes\Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="LogIn.aspx.cs">
@@ -325,6 +327,13 @@
     <Compile Include="UI\Reportes\ReporteClientes.aspx.designer.cs">
       <DependentUpon>ReporteClientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\ReporteCuentas.aspx.cs">
+      <DependentUpon>ReporteCuentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteCuentas.aspx.designer.cs">
+      <DependentUpon>ReporteCuentas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Reportes\ReporteFacturas.aspx.cs">
       <DependentUpon>ReporteFacturas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +373,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI\Reportes\Clientes.rdlc" />
+    <EmbeddedResource Include="UI\Reportes\CuentasCobrar.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Facturas.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Peluqueros.rdlc" />
     <EmbeddedResource Include="UI\Reportes\Reservaciones.rdlc" />
