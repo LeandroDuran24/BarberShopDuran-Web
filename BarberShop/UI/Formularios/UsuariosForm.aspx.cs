@@ -31,7 +31,7 @@ namespace BarberShop.UI.Formularios
             user.idUsuario = Utilidades.TOINT(idTextbox.Text);
             user.nombre = NombreTextbox.Text;
             user.email = emailTextbox.Text;
-            user.fecha = Convert.ToDateTime(fecha.Text);
+            user.fecha = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
 
             if (DropDownList1.SelectedIndex == 0)
             {

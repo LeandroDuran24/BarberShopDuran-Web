@@ -28,7 +28,7 @@ namespace BarberShop.UI.Formularios
             cliente.cedula = CedulaTextBox3.Text;
             cliente.direccion = DireccionTextBox2.Text;
             cliente.email = EmailTextBox4.Text;
-            cliente.fecha = Convert.ToDateTime(FechaTextBox5.Text);
+            cliente.fecha = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
 
             return cliente;
         }

@@ -28,7 +28,7 @@ namespace BarberShop.UI.Formularios
 
 
                 this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                //this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
+                this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
                 this.LabelAtentido.Visible = true;
 
                 ScriptPaginas.Script();

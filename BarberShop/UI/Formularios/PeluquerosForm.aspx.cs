@@ -38,7 +38,8 @@ namespace BarberShop.UI.Formularios
                 peluquero.sexo = "Femenino";
             }
            
-            peluquero.fecha = Convert.ToDateTime(FechaTextBox1.Text);
+            peluquero.fecha = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
+
 
             return peluquero;
         }
@@ -50,6 +51,7 @@ namespace BarberShop.UI.Formularios
             TelefonoTextBox.Text = "";
             DropDownList1.Text = "";
             FechaTextBox1.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
             NombreTextbox.Focus();
         }
 
