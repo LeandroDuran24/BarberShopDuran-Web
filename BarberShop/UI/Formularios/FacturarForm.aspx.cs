@@ -54,16 +54,8 @@ namespace BarberShop.UI.Formularios
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
             facturar.usuario = LogIn.LabelUsuario().nombre;
-            facturar.fecha = Convert.ToDateTime(LabelFecha.Text);
-
-            if (DropDownListPago.SelectedIndex == 1)
-            {
-                facturar.formaPago = "Contado";
-            }
-            else if (DropDownListPago.SelectedIndex == 2)
-            {
-                facturar.formaPago = "Credito";
-            }
+            facturar.fecha = Convert.ToDateTime(DateTime.Now.ToString());
+            facturar.formaPago = DropDownListPago.SelectedValue.ToString();
 
             facturar.servicioList = (List<Servicios>)Session["DetalleServicios"];
 
@@ -101,7 +93,7 @@ namespace BarberShop.UI.Formularios
             GridViewDetalle.DataSource = Session["DetalleServicios"];
             GridViewDetalle.DataBind();
 
-            
+
         }
 
         /*calcular el monto total del costo de los servicios*/
@@ -227,6 +219,25 @@ namespace BarberShop.UI.Formularios
 
                 }
 
+            }
+            else
+            {
+                facturar = LlenarCampos();
+                if (facturar.idFactura != 0)
+                {
+                    BLL.FacturarBLL.Modificar(facturar);
+                    Utilidades.MostrarToastr(this, "Modificado", "info", "info");
+                    Limpiar();
+
+                }
+                else
+                {
+
+
+                    BLL.FacturarBLL.Guardar(facturar);
+                    Utilidades.MostrarToastr(this, "Guardado", "success", "success");
+                    Limpiar();
+                }
             }
 
 
