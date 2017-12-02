@@ -15,14 +15,13 @@ namespace BarberShop.UI.Consultas
     {
 
         public static List<Facturas> lista { get; set; }
-        public static DataTable tabla { get; set; }
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 lista = BLL.FacturarBLL.GetListodo();
-                tabla = new DataTable();
             }
 
         }

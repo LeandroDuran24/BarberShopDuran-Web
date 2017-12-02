@@ -21,7 +21,7 @@ namespace BarberShop.UI.Reportes
                 ReportViewer.LocalReport.DataSources.Clear();
 
                 ReportViewer.LocalReport.DataSources.Add(new Microsoft.Reporting.WebForms.ReportDataSource("DataSetFacturas",
-                   CuentasXCobrar.Tabla));
+                   CuentasXCobrar.Lista));
 
                 ReportViewer.LocalReport.Refresh();
             }

@@ -1,4 +1,5 @@
 ﻿using BarberShop.UI.Formularios;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -13,32 +14,26 @@ namespace BarberShop.UI.Consultas
 {
     public partial class CuentasXCobrar : System.Web.UI.Page
     {
-        public static DataTable Tabla { get; set; }
+        public static List<Facturas> Lista { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
            if(!Page.IsPostBack)
             {
-                Tabla = new DataTable();
+                string cadena = "Credito";
+                Lista = BLL.FacturarBLL.GetList(p => p.formaPago == cadena);
+
             }
           
         }
 
         protected void ButtonBuscar_Click(object sender, EventArgs e)
         {
-            SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
-
-            SqlCommand comando = new SqlCommand();
-            comando.Connection = conexion;
-
-            comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente  where fac.formaPago='Credito'";
+           
 
 
-            SqlDataAdapter sql = new SqlDataAdapter(comando);
-
-            sql.Fill(Tabla);
-
-            GridView1.DataSource = Tabla;
+            string cadena = "Credito";
+            Lista= BLL.FacturarBLL.GetList(p => p.formaPago == cadena);
+            GridView1.DataSource = Lista;
             GridView1.DataBind();
         }
 
