@@ -52,7 +52,9 @@ namespace BarberShop.UI.Consultas
                 }
                 else
                 {
-                    lista = BLL.ClientesBLL.GetList(p => p.nombre == TextBox1.Text);
+                    lista= BLL.ClientesBLL.GetList(p => p.nombre == TextBox1.Text);
+
+                   
 
                 }
 

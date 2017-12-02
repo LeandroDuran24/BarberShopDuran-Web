@@ -229,6 +229,15 @@ namespace BarberShop.UI.Formularios {
         protected global::System.Web.UI.WebControls.TextBox RecibidoTextBox;
         
         /// <summary>
+        /// ImageButtonCalcular control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButtonCalcular;
+        
+        /// <summary>
         /// DevueltaTextBox control.
         /// </summary>
         /// <remarks>

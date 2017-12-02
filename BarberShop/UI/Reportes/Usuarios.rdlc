@@ -357,6 +357,7 @@
                               <Value>=Fields!fecha.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>d/M/yyyy</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -378,6 +379,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

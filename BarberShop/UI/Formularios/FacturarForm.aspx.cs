@@ -28,7 +28,7 @@ namespace BarberShop.UI.Formularios
 
 
                 this.LabelFecha.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
-                this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
+                //this.LabelAtentido.Text = LogIn.LabelUsuario().nombre;
                 this.LabelAtentido.Visible = true;
 
                 ScriptPaginas.Script();
@@ -53,7 +53,7 @@ namespace BarberShop.UI.Formularios
             facturar.comentario = ComentarioTextBox.Text;
             facturar.subTotal = Utilidades.TOINT(SubTextBox.Text);
             facturar.total = Utilidades.TOINT(TotalTextBox.Text);
-            facturar.usuario = LogIn.LabelUsuario().nombre;
+            //facturar.usuario = LogIn.LabelUsuario().nombre;
             facturar.fecha = Convert.ToDateTime(DateTime.Now.ToString());
             facturar.formaPago = DropDownListPago.SelectedValue.ToString();
 
@@ -103,7 +103,6 @@ namespace BarberShop.UI.Formularios
             decimal descuento = 0;
             decimal total = 0;
             int porciento = 100;
-            //int devuelta = 0;
 
             if (GridViewDetalle.Rows.Count > 0)
             {
@@ -116,12 +115,6 @@ namespace BarberShop.UI.Formularios
             descuento = (Convert.ToDecimal(DescuentoTextBox.Text) / porciento) * Convert.ToDecimal(SubTextBox.Text);
             total = subTotal - descuento;
             TotalTextBox.Text = total.ToString();
-
-            //devuelta = Utilidades.TOINT(RecibidoTextBox.Text) - Convert.ToInt16(total);
-            //DevueltaTextBox.Text = devuelta.ToString();
-
-
-
 
         }
 
@@ -148,6 +141,10 @@ namespace BarberShop.UI.Formularios
                     }
 
                 }
+            }
+            else
+            {
+                Utilidades.MostrarToastr(this, "No Existe", "error", "error");
             }
 
             if (servicios != null && anadido == false)
@@ -330,5 +327,23 @@ namespace BarberShop.UI.Formularios
 
 
         }
+
+        protected void ImageButtonCalcular_Click(object sender, ImageClickEventArgs e)
+        {
+            int recibido = Convert.ToInt32(RecibidoTextBox.Text);
+            decimal total = Convert.ToInt32(TotalTextBox.Text);
+
+            if (recibido >= total)
+            {
+                int devuelta = 0;
+                devuelta = recibido - Convert.ToInt16(total);
+                DevueltaTextBox.Text = devuelta.ToString ();
+            }
+            else
+            {
+                Utilidades.MostrarToastr(this, "Realice el Pago Correctamente", "error", "error");
+            }
+        }
+            
     }
 }

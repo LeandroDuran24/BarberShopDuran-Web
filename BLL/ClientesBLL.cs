@@ -62,6 +62,7 @@ namespace BLL
             return lista;
         }
 
+
         public static List<Clientes> GetListTodo()
         {
             List<Clientes> lista = null;

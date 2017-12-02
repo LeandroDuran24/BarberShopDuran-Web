@@ -156,10 +156,11 @@
 
             <div class="text-center">
 
-                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="95px" TextMode="Number" MaxLength="6"></asp:TextBox>
-                <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="95px" Wrap="False" MaxLength="6"></asp:TextBox>
-                <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="95px" Wrap="False" MaxLength="4"></asp:TextBox>
-                <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="98px" Wrap="False" MaxLength="6"></asp:TextBox>
+                <asp:TextBox ID="SubTextBox" runat="server" Height="33px" Width="94px" TextMode="Number" MaxLength="6"></asp:TextBox>
+                <asp:TextBox ID="TotalTextBox" runat="server" Height="33px" Width="93px" Wrap="False" MaxLength="6"></asp:TextBox>
+                <asp:TextBox ID="RecibidoTextBox" runat="server" Height="33px" Width="89px" Wrap="False" MaxLength="4"></asp:TextBox>
+                <asp:ImageButton ID="ImageButtonCalcular"  runat="server" Height="34px" ImageUrl="~/Content/Img/if_calculator_103862.ico" CssClass="BorderTextBox" Width="23px" ImageAlign="Top" CausesValidation="true" OnClick="ImageButtonCalcular_Click"  />
+                <asp:TextBox ID="DevueltaTextBox" runat="server" Height="33px" Width="87px" Wrap="False" MaxLength="6"></asp:TextBox>
 
 
             </div>

@@ -43,24 +43,8 @@ namespace BarberShop.UI.Consultas
                 }
                 else
                 {
-                    //int id = Convert.ToInt32(TextBox1.Text);
-                    //lista = BLL.FacturarBLL.GetList(p => p.idFactura == id);
-
-                    SqlConnection conexion = new SqlConnection();
-                    conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
-
-                    SqlCommand comando = new SqlCommand();
-                    comando.Connection = conexion;
-
-                    comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente  where fac.idFactura= " + Convert.ToInt32(TextBox1.Text);
-
-
-                    SqlDataAdapter sql = new SqlDataAdapter(comando);
-
-                    sql.Fill(tabla);
-
-                    GridView1.DataSource = tabla;
-                    GridView1.DataBind();
+                    int id = Convert.ToInt32(TextBox1.Text);
+                    lista = BLL.FacturarBLL.GetList(p => p.idFactura == id);
 
                 }
 
@@ -78,22 +62,7 @@ namespace BarberShop.UI.Consultas
                     if (desde <= hasta)
                     {
 
-                        //lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
-                        SqlConnection conexion = new SqlConnection();
-                        conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
-
-                        SqlCommand comando = new SqlCommand();
-                        comando.Connection = conexion;
-                        string query= @"Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente where fac.fecha>=@desde and fac.fecha<=@hasta";
-                        comando.CommandText = query;
-                        comando.Parameters.Add("@desde", SqlDbType.DateTime).Value = desdeFecha.Text;
-                        comando.Parameters.Add("@hasta", SqlDbType.DateTime).Value =hastaFecha.Text;
-                        SqlDataAdapter sql = new SqlDataAdapter(comando);
-
-                        sql.Fill(tabla);
-
-                        GridView1.DataSource = tabla;
-                        GridView1.DataBind();
+                        lista = BLL.FacturarBLL.GetList(p => p.fecha >= desde && p.fecha <= hasta);
 
 
 
@@ -116,27 +85,11 @@ namespace BarberShop.UI.Consultas
             else if (DropDownList1.SelectedIndex == 3)
             {
 
-                //lista = BLL.FacturarBLL.GetListodo();
-                SqlConnection conexion = new SqlConnection();
-                conexion.ConnectionString = @"Data Source=tcp:leandroduran.database.windows.net,1433;Initial Catalog=BarberShopDuran;Persist Security Info=False;User ID=leandroDuran24;Password=Leandro24;MultipleActiveResultSets=False;Connect Timeout=30;Encrypt=True;TrustServerCertificate=False";
-
-                SqlCommand comando = new SqlCommand();
-                comando.Connection = conexion;
-
-                comando.CommandText = "Select fac.idFactura,cli.nombre as Nombre,ser.nombre as Servicio, fac.formaPago,fac.comentario,fac.descuento,fac.subTotal,fac.total,fac.usuario,fac.fecha from facturas fac left join detalles det on fac.idFactura=det.idFactura left join servicios ser on ser.idServicio=det.idServicio left join clientes cli on cli.idCliente=fac.idCliente";
-
-
-                SqlDataAdapter sql = new SqlDataAdapter(comando);
-
-                sql.Fill(tabla);
-
-                GridView1.DataSource = tabla;
-                GridView1.DataBind();
-
+                lista = BLL.FacturarBLL.GetListodo();
 
             }
-            //GridView1.DataSource = lista;
-            //GridView1.DataBind();
+            GridView1.DataSource = lista;
+            GridView1.DataBind();
 
 
         }

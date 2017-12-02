@@ -226,9 +226,18 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <FontWeight>Normal</FontWeight>
+                                <Format>'$'#,0.00;'$'#,0.00-</Format>
+                                <Color>#333333</Color>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!costo.Value</Value>
                               <Style>
                                 <FontWeight>Normal</FontWeight>
+                                <Format>'$'#,0.00;'$'#,0.00-</Format>
                                 <Color>#333333</Color>
                               </Style>
                             </TextRun>
@@ -248,8 +257,10 @@
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
+                        <rd:FormatSymbolCulture>es-DO</rd:FormatSymbolCulture>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
